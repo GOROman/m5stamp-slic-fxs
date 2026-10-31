@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "SLIC2PORT")(type "KiCad")(uri "${KIPRJMOD}/SLIC2PORT.pretty")(options "")(descr "SLIC2PORT-FXS local footprints (KS0835F / RJ11 / M5Stack Stamp-S3-SMD copy)"))
+)

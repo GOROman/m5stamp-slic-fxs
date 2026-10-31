@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "M5StampS3")(type "KiCad")(uri "${KIPRJMOD}/M5StampS3.kicad_sym")(options "")(descr "M5STAMPS3 symbol extracted from m5stack/M5_Hardware official library"))
+)
