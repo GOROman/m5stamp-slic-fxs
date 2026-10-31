@@ -10,7 +10,7 @@
 | KiCad シンボル | ✅ M5STAMPS3 は M5Stack 公式ライブラリから抽出して同梱。その他の部品シンボルは未作成（回路図エディタで開く形にはなっていない） |
 | KiCad フットプリント | △ KS0835F / RJ11 は自作、Stamp-S3-SMD は公式コピーを同梱。その他は標準ライブラリ名をネットリストに**文字列で指定**した状態（一部は想定名・要実在確認） |
 | 回路図（.kicad_sch） | ❌ 未作成 |
-| 基板（.kicad_pcb）・配置・配線 | ❌ 未実施（プロジェクトファイルと lib テーブルのみ用意） |
+| 基板（.kicad_pcb）・配置・配線 | △ 配置まで完了（、106部品全配置・未配線）。生成は （KiCad Python、ネットリスト JSON は ）。配線は EasyEDA に取り込んで仕上げる方針 |
 | ガーバー | ❌ 未作成（発注は本タスク範囲外） |
 
 この VM には KiCad 本体が無く、apt 導入も試みたがパッケージ取得が完了しなかったため、上記の「データとしての到達度」に留まる。ネットリストとソースの一致は接続検査で確認し、回路の電気的成立性はデータシート照合と実機で検証する。KiCad 側は下記の手順で取り込んで仕上げる想定。
@@ -49,6 +49,9 @@
 ```
 kicad/
 ├─ SLIC2PORT-FXS.kicad_pro     プロジェクト (スケルトン)
+├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (106部品・未配線、EasyEDA 仕上げ用)
+├─ build_pcb_v2.py             基板生成スクリプト (配置+ネット割当、KiCad Python で実行)
+├─ netlist_v2.json             skidl/m5stamp_slic2port.net の JSON 変換 (build_pcb_v2.py の入力)
 ├─ fp-lib-table / sym-lib-table
 ├─ M5StampS3.kicad_sym         公式シンボル抽出 (M5STAMPS3, 28ピン)
 ├─ gen_footprints.py           KS0835F / RJ11 フットプリント生成 (要実測時は定数修正)
