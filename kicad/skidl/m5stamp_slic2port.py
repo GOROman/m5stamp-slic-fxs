@@ -449,7 +449,10 @@ for s in ("A", "B"):
     between(R("100K"), VR_IN[s], VAUD)
 
     # --- PD (ダイオード経由でのみ引き下げ) ---
-    d_pd = DIO(); d_pd.value = "1N4007"
+    # PD 引き下げダイオード: v3.4 で 1N5819 (ショットキー) に変更。
+    # 1N4007 では PD ピンの Low が約 0.67V となり Ag1171 の VIL(max) 0.5V を
+    # 超えるため (第7ラウンド監査)。1N5819 の Vf 約 0.3V なら規格内。
+    d_pd = DIO(); d_pd.value = "1N5819"
     PDX += d_pd["A"]; PD_BUS += d_pd["K"]
 
     PN[s] = {"TIP": TIP, "RING": RING, "SHKRAW": SHKRAW, "PDX": PDX,
