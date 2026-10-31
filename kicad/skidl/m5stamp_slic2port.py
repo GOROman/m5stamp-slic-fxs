@@ -63,7 +63,11 @@ RES   = tmpl("R",    [(1, "1"), (2, "2")], FP_R0805)
 CAP   = tmpl("C",    [(1, "1"), (2, "2")], FP_C0805)
 CAPL  = tmpl("C",    [(1, "1"), (2, "2")], FP_C1206)
 ELEC  = tmpl("C",    [(1, "+"), (2, "-")], FP_ELEC)
-DIO   = tmpl("D",    [(1, "K"), (2, "A")], FP_DO41)     # 1N400x 等 (調達は 1N4007: 1N4004 の上位互換)
+DIO   = tmpl("D",    [(1, "K"), (2, "A")], FP_DO41)
+# 注意: DIO()/BEAD() の各インスタンスには基板 v3.4 のシルク番号に合わせた
+# ref を明示すること。SKiDL の自動採番は生成時の部品順序で変動し、保存
+# ネットリスト/基板と番号がドリフトした前例がある (U 系 18 部品)。
+# 対象: 還流 U45/U49、保護 U55-U60/U82-U87、ビード U64/U91、PD U79/U106。     # 1N400x 等 (調達は 1N4007: 1N4004 の上位互換)
 LED   = tmpl("LED",  [(1, "K"), (2, "A")], FP_LED0805)
 BEAD  = tmpl("FB",   [(1, "1"), (2, "2")], FP_BEAD)
 FUSEP = tmpl("F",    [(1, "1"), (2, "2")], FP_FUSE)
@@ -358,7 +362,7 @@ for s, sel5v in (("A", SEL_A_5V), ("B", SEL_B_5V)):
     GND += q["S"]
     n_coil += q["D"]
     between(R("100K"), sel5v, GND)          # ゲートプルダウン
-    d_fl = DIO(); d_fl.value = "1N4007"     # コイル還流ダイオード
+    d_fl = DIO(); d_fl.ref = {"A": "U45", "B": "U49"}[s]; d_fl.value = "1N4007"  # コイル還流ダイオード
     P5V += d_fl["K"]; n_coil += d_fl["A"]
 between(C("100nF"), P5V, GND)   # リレー駆動部デカップリング
 
@@ -405,13 +409,13 @@ for s in ("A", "B"):
         rj[n] += NC
 
     # --- 保護回路 (KS0835F Typical Connection Diagram / Ag1171 Fig.4) ---
-    d_thy = DIO(); d_thy.value = "P3100SC"; d_thy.footprint = FP_SMC
+    d_thy = DIO(); d_thy.ref = {"A": "U55", "B": "U82"}[s]; d_thy.value = "P3100SC"; d_thy.footprint = FP_SMC
     TIP += d_thy["A"]; RING += d_thy["K"]     # 双方向サイリスタ (極性不問)
-    d_b1 = DIO(); d_b1.value = "1N4007"; TIP += d_b1["A"]; BRP += d_b1["K"]
-    d_b2 = DIO(); d_b2.value = "1N4007"; RING += d_b2["A"]; BRP += d_b2["K"]
-    d_b3 = DIO(); d_b3.value = "1N4007"; BRM += d_b3["A"]; TIP += d_b3["K"]
-    d_b4 = DIO(); d_b4.value = "1N4007"; BRM += d_b4["A"]; RING += d_b4["K"]
-    d_z = DIO(); d_z.value = "BZT03C82"; BRP += d_z["K"]; BRM += d_z["A"]
+    d_b1 = DIO(); d_b1.ref = {"A": "U56", "B": "U83"}[s]; d_b1.value = "1N4007"; TIP += d_b1["A"]; BRP += d_b1["K"]
+    d_b2 = DIO(); d_b2.ref = {"A": "U57", "B": "U84"}[s]; d_b2.value = "1N4007"; RING += d_b2["A"]; BRP += d_b2["K"]
+    d_b3 = DIO(); d_b3.ref = {"A": "U58", "B": "U85"}[s]; d_b3.value = "1N4007"; BRM += d_b3["A"]; TIP += d_b3["K"]
+    d_b4 = DIO(); d_b4.ref = {"A": "U59", "B": "U86"}[s]; d_b4.value = "1N4007"; BRM += d_b4["A"]; RING += d_b4["K"]
+    d_z = DIO(); d_z.ref = {"A": "U60", "B": "U87"}[s]; d_z.value = "BZT03C82"; BRP += d_z["K"]; BRM += d_z["A"]
     between(R("27K"), TIP, RING)                       # CLI バイアス
     c_e1 = C("10nF"); c_e1.footprint = FP_C1206
     between(c_e1, TIP, GND)                            # EMI (要 250V 品)
@@ -419,7 +423,7 @@ for s in ("A", "B"):
     between(c_e2, RING, GND)
 
     # --- 電源 (ポート個別) ---
-    fb = BEAD(); fb.value = "BK2125HS601-T"   # 600ohm@100MHz, 2012 ランド互換 (BLM21AG601SN1D でも可)
+    fb = BEAD(); fb.ref = {"A": "U64", "B": "U91"}[s]; fb.value = "BK2125HS601-T"   # 600ohm@100MHz, 2012 ランド互換 (BLM21AG601SN1D でも可)
     P5V += fb[1]; P5VP += fb[2]
     between(CE("470uF/10V"), P5VP, GND)
     between(C("100nF"), P5VP, GND)
@@ -452,7 +456,7 @@ for s in ("A", "B"):
     # PD 引き下げダイオード: v3.4 で 1N5819 (ショットキー) に変更。
     # 1N4007 では PD ピンの Low が約 0.67V となり Ag1171 の VIL(max) 0.5V を
     # 超えるため (第7ラウンド監査)。1N5819 の Vf 約 0.3V なら規格内。
-    d_pd = DIO(); d_pd.value = "1N5819"
+    d_pd = DIO(); d_pd.ref = {"A": "U79", "B": "U106"}[s]; d_pd.value = "1N5819"
     PDX += d_pd["A"]; PD_BUS += d_pd["K"]
 
     PN[s] = {"TIP": TIP, "RING": RING, "SHKRAW": SHKRAW, "PDX": PDX,
