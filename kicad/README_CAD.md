@@ -54,10 +54,11 @@
 ```
 kicad/
 ├─ SLIC2PORT-FXS.kicad_pro     プロジェクト (スケルトン)
-├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (v3.2: 156部品・未配線・120x90mm、EasyEDA 仕上げ用)
+├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (v3.3: 156部品・未配線・120x90mm、番号付きネット形式、EasyEDA 仕上げ用)
 ├─ build_pcb_v2.py             基板生成スクリプト v2 (旧、PR マージ済み 106 部品版)
 ├─ netlist_v2.json             v2 用ネットリスト JSON
 ├─ build_pcb_v32.py            基板生成スクリプト v3.2 (現行、156 部品・120x90mm・ソケット)
+├─ fix_net_format.py           ネット形式是正: KiCad 10 の名前のみネット表記を番号付き標準形式へ変換 (v3.3 で適用)
 ├─ netlist_v3.json             skidl/m5stamp_slic2port.net の JSON 変換 (build_pcb_v3.py の入力)
 ├─ check_v3.py                 v3 基板の独立検証スクリプト
 ├─ fp-lib-table / sym-lib-table
