@@ -15,8 +15,9 @@
  * 注意:
  *   - 本スケッチは雛形であり、実機での調整 (DTMF しきい値、リングトリップ
  *     判定時間、トーンレベル) が必要。
- *   - Arduino core for ESP32 は 3.x 系 API (ledcAttach) を使用。
- *     2.x 系では ledcSetup/ledcAttachPin に読み替えること。
+ *   - LEDC は core 2.x/3.x 両対応の互換シム (toneLedcAttach/toneLedcWrite)
+ *     経由で使う。platformio.ini は espressif32@7.0.1 (core 2.0.17) 固定
+ *     (Issue #4)。
  * ---------------------------------------------------------------------------
  */
 
@@ -92,11 +93,35 @@ static void setSelTone(Port &p, bool tone) { digitalWrite(p.selPin, tone ? HIGH 
 // ===========================================================================
 // トーン生成 (LEDC 400Hz 矩形波 -> 基板上の RC フィルタで正弦波化)
 // ===========================================================================
+// ---------------------------------------------------------------------------
+// LEDC API 互換シム (Issue #4)
+//   core 3.x: ledcAttach(pin, freq, res) / ledcWrite(pin, duty)   (ピン指定)
+//   core 2.x: ledcSetup(ch, freq, res) / ledcAttachPin(pin, ch)
+//             / ledcWrite(ch, duty)                               (チャネル指定)
+// ESP_ARDUINO_VERSION_MAJOR で自動切替。両枝とも CI のホストテスト
+// (tests/Arduino.h スタブ) でコンパイル検証される。
+// ---------------------------------------------------------------------------
+static void toneLedcAttach() {
+#if defined(ESP_ARDUINO_VERSION_MAJOR) && (ESP_ARDUINO_VERSION_MAJOR >= 3)
+  ledcAttach(PIN_TONE, TONE_FREQ_HZ, 8);
+#else
+  ledcSetup(0, TONE_FREQ_HZ, 8);
+  ledcAttachPin(PIN_TONE, 0);
+#endif
+}
+static void toneLedcWrite(int duty) {
+#if defined(ESP_ARDUINO_VERSION_MAJOR) && (ESP_ARDUINO_VERSION_MAJOR >= 3)
+  ledcWrite(PIN_TONE, duty);
+#else
+  ledcWrite(0, duty);
+#endif
+}
+
 static bool toneOut = false;
 static void toneSet(bool on) {
   if (on == toneOut) return;
   toneOut = on;
-  ledcWrite(PIN_TONE, on ? 128 : 0);   // core 3.x: チャネルではなくピン指定
+  toneLedcWrite(on ? 128 : 0);
 }
 
 // ===========================================================================
@@ -445,9 +470,9 @@ void setup() {
   pinMode(PIN_PD_EN, OUTPUT);
   digitalWrite(PIN_PD_EN, LOW);         // 2N7002 OFF = PD 無効 (モジュール常時ON)
 
-  // トーン PWM (ESP32 Arduino core 3.x API)
-  ledcAttach(PIN_TONE, TONE_FREQ_HZ, 8);
-  ledcWrite(PIN_TONE, 0);
+  // トーン PWM (LEDC 互換シム経由, core 2.x/3.x 両対応)
+  toneLedcAttach();
+  toneLedcWrite(0);
   analogReadResolution(12);
 
   uint32_t now = millis();

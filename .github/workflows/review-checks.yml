@@ -16,3 +16,16 @@ jobs:
       - run: /tmp/exchange-test
       - run: g++ -std=c++17 -Wall -Wextra -Werror -Itests tests/dtmf_test.cpp -o /tmp/dtmf-test
       - run: /tmp/dtmf-test
+      # Issue #4: LEDC 互換シムの core 3.x 枝もコンパイル検証する
+      - run: g++ -std=c++17 -Wall -Wextra -Werror -DESP_ARDUINO_VERSION_MAJOR=3 -Itests tests/exchange_test.cpp -o /tmp/exchange-test-v3
+      - run: /tmp/exchange-test-v3
+  firmware-build:
+    # Issue #4: 実ターゲット (ESP32-S3) のビルドを CI で回帰検出する
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install platformio
+      - run: pio run -d firmware

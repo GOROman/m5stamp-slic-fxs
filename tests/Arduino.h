@@ -27,6 +27,9 @@ inline void analogSetPinAttenuation(int,int) {}
 inline void analogReadResolution(int) {}
 inline bool ledcAttach(int,int,int) { return true; }
 inline bool ledcWrite(int,int duty) { pwmDuty=duty; return true; }
+// core 2.x 系 API (Issue #4 互換シムの #else 枝のコンパイル検証用)
+inline double ledcSetup(int,double,int) { return 0; }
+inline void ledcAttachPin(int,int) {}
 struct SerialStub {
   void begin(int) {}
   void println(const char*) {}
