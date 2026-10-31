@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,10.0.6*%
+%TF.CreationDate,2026-10-31T18:04:19+09:00*%
+%TF.ProjectId,SLIC2PORT-FXS,534c4943-3250-44f5-9254-2d4658532e6b,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 10.0.6) date 2026-10-31 18:04:19*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.100000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X0Y0D02*
+X120000000Y0D01*
+X0Y-90000000D02*
+X0Y0D01*
+X120000000Y0D02*
+X120000000Y-90000000D01*
+X120000000Y-90000000D02*
+X0Y-90000000D01*
+M02*
