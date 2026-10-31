@@ -550,7 +550,7 @@
   },
   "U106": {
    "footprint": "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal",
-   "value": "1N4007"
+   "value": "1N5819"
   },
   "U2": {
    "footprint": "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm",
@@ -594,7 +594,7 @@
   },
   "U79": {
    "footprint": "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal",
-   "value": "1N4007"
+   "value": "1N5819"
   },
   "U82": {
    "footprint": "Diode_SMD:D_SMC",

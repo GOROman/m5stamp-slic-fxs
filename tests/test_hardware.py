@@ -103,4 +103,21 @@ class HardwareTest(unittest.TestCase):
             self.assertGreaterEqual((l-d)/2,0.18)   # long side
             self.assertEqual(d,0.75)  # JST MOD-J6 hole band 0.8+/-0.05, Issue #6 spec
 
+
+    def test_placement_json_matches_netlist(self):
+        # Issue #13: the placement JSON (kicad/netlist_v32.json) is generated
+        # from the saved netlist by kicad/net2json.py. It drifted once (PD
+        # diodes U79/U106 kept 1N4007 after the source moved to 1N5819), so
+        # pin the JSON to the netlist on values, footprints and net membership.
+        import json
+        data = json.loads((ROOT / 'kicad/netlist_v32.json').read_text())
+        comps = {ref: {'value': value, 'footprint': footprint}
+                 for ref, (value, footprint) in self.components.items()}
+        self.assertEqual(data['comps'], comps)
+        nets = {}
+        for (ref, pin), name in self.nets.items():
+            nets.setdefault(name, []).append([ref, pin])
+        for name in nets:
+            nets[name] = sorted(nets[name])
+        self.assertEqual({k: sorted(v) for k, v in data['nets'].items()}, nets)
 if __name__=='__main__': unittest.main()
