@@ -159,6 +159,11 @@ static RingEngine ring;
 // ===========================================================================
 static const int   DTMF_FS   = 8000;
 static const int   DTMF_N    = 205;                 // 約 25.6ms 窓
+static const int   DTMF_HOP  = 64;                  // 窓ホップ 8ms (Issue #7)
+// 窓を 64 サンプルずつずらして重ねることで、最短音長 40ms (320 サンプル)
+// の音でも「窓の 60% 以上が音に重なる窓」が必ず 4 つ以上連続し、
+// 連続 2 窓確定が窓位置に依存せず成立する。重ねない従来方式では
+// 40ms 音が 2 窓に割れて片方がしきい値未満になり 131/205 位相で取りこぼした。
 static const float DTMF_ROW[4] = { 697, 770, 852, 941 };
 static const float DTMF_COL[4] = { 1209, 1336, 1477, 1633 };
 static const char  DTMF_MAP[4][4] = {
@@ -183,16 +188,8 @@ static float goertzel(const uint16_t *x, int n, float freq) {
   return sqrtf(fmaxf(power, 0.0f)) / ((float)n / 2.0f);
 }
 
-// 1 窓分サンプリングして DTMF 数字を判定。無ければ '\0'
-static char dtmfScanOnce(int adcPin) {
-  static uint16_t buf[DTMF_N];
-  uint32_t nextUs = micros();
-  for (int i = 0; i < DTMF_N; i++) {
-    buf[i] = (uint16_t)analogRead(adcPin);
-    nextUs += 1000000UL / DTMF_FS;
-    int32_t wait = (int32_t)(nextUs - micros());
-    if (wait > 0) delayMicroseconds((uint32_t)wait);
-  }
+// 1 窓分のサンプル列を解析して DTMF 数字を判定。無ければ '\0'
+static char dtmfAnalyzeWindow(const uint16_t *buf) {
   float rMag[4], cMag[4];
   int rBest = -1, cBest = -1;
   float rMax = 0, cMax = 0, rSecond = 0, cSecond = 0;
@@ -231,6 +228,37 @@ struct DtmfReceiver {
 };
 static DtmfReceiver dtmf;
 
+// スライディング窓スキャナ: サンプルを 1 つずつ受け取り、窓が揃った後は
+// DTMF_HOP サンプルごとに最新 DTMF_N サンプルを解析する。
+// push() の戻り値: 解析タイミングでなければ -1、解析したら判定文字 ('\0' 含む)。
+struct DtmfScanner {
+  uint16_t ring[DTMF_N];
+  uint32_t total = 0;   // 受け取ったサンプル総数
+  void reset() { total = 0; }
+  int push(uint16_t s) {
+    ring[total % DTMF_N] = s;
+    total++;
+    if (total < (uint32_t)DTMF_N || (total - DTMF_N) % DTMF_HOP != 0) return -1;
+    uint16_t buf[DTMF_N];
+    for (int i = 0; i < DTMF_N; i++) buf[i] = ring[(total - DTMF_N + i) % DTMF_N];
+    return dtmfAnalyzeWindow(buf);
+  }
+};
+static DtmfScanner dtmfScanner;
+
+// EX_DIAL の 1 回の呼び出しで DTMF_HOP サンプル分を 8kHz ペースで取り込む。
+// 従来の「205 サンプル一括 (25.6ms ブロック)」より loop の応答性も上がる。
+static void dtmfSampleHop(int adcPin, uint32_t now) {
+  uint32_t nextUs = micros();
+  for (int i = 0; i < DTMF_HOP; i++) {
+    int d = dtmfScanner.push((uint16_t)analogRead(adcPin));
+    if (d >= 0) dtmf.feed((char)d, now);
+    nextUs += 1000000UL / DTMF_FS;
+    int32_t wait = (int32_t)(nextUs - micros());
+    if (wait > 0) delayMicroseconds((uint32_t)wait);
+  }
+}
+
 // ===========================================================================
 // 交換機 状態機械
 // ===========================================================================
@@ -253,6 +281,7 @@ static void toIdle(uint32_t now) {
   exState = (!ports[0].hook && !ports[1].hook) ? EX_IDLE : EX_WAIT_ONHOOK;
   stateSince = now;
   dtmf.reset();
+  dtmfScanner.reset();
   Serial.println(exState == EX_IDLE ? "[EX] -> IDLE" : "[EX] -> WAIT_ONHOOK");
 }
 
@@ -262,6 +291,7 @@ static void startDial(int c, uint32_t now) {
   stateSince = now;
   dialStartedAt = now;
   dtmf.reset();
+  dtmfScanner.reset();
   setSelTone(ports[c], true);           // ダイヤルトーンを発信側へ
   toneSet(true);                        // ダイヤルトーン (連続)
   Serial.printf("[EX] -> DIAL (caller=%s)\n", ports[c].name);
@@ -300,9 +330,8 @@ static void exchangeUpdate(uint32_t now) {
       Port &op = ports[1 - caller];
       if (!cp.hook) { toIdle(now); break; }        // 発信側が戻した
       if (op.hook) { startConnected(now); break; } // 相手が既に受話器を上げた
-      // DTMF 受付
-      char d = dtmfScanOnce(cp.adcPin);
-      dtmf.feed(d, now);
+      // DTMF 受付 (スライディング窓, DTMF_HOP サンプルずつ取り込む)
+      dtmfSampleHop(cp.adcPin, now);
       if (dtmf.digits.length() > 0) toneSet(false);  // 最初の数字で DT 停止
       if (dtmf.digits.length() > 0 && (now - dtmf.lastDigitAt) >= DIAL_INTERDIGIT_MS) {
         startRinging(now);
