@@ -53,13 +53,15 @@ class HardwareTest(unittest.TestCase):
                 if self.net(ref,2).startswith('PD_'):
                     self.assertEqual(self.net(ref,1),'PD_BUS')
 
-    def test_reset_pulldowns_and_logic_jumper(self):
+    def test_reset_pulldowns(self):
+        # 元は SEL_Z ロジックジャンパ J7 (pin2 = +5V) も検証していたが、J7 は
+        # CD4053 -> リレー化 (1eb012c) で Z チャネルごと設計から削除された
+        # 実在しない部品のため、その検証は削除した。プルダウン検証は不変。
         for signal in ('FR_A_33','RM_A_33','SEL_A_33','TONE_PWM_33',
                        'FR_B_33','RM_B_33','SEL_B_33'):
             self.assertTrue(any(value=='100K' and
                 {self.net(ref,1), self.net(ref,2)}=={signal,'GND'}
                 for ref,(value,_) in self.components.items() if ref.startswith('R')))
-        self.assertEqual(self.net('J7',2),'+5V')
 
     def test_tone_is_ac_coupled(self):
         self.assertEqual({self.net('C9',1),self.net('C9',2)}, {'TONE_N2','TONE_AC'})
