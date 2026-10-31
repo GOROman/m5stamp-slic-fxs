@@ -3332,7 +3332,7 @@
       (tstamps "fc70683b-a37b-5830-867f-00945c85e719"))
     (comp
       (ref "U106")
-      (value "1N4007")
+      (value "1N5819")
       (description "")
       (footprint "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal")
       (fields
@@ -3596,7 +3596,7 @@
       (tstamps "dcb0ea7a-02e5-5e10-88bb-46b3d139944c"))
     (comp
       (ref "U79")
-      (value "1N4007")
+      (value "1N5819")
       (description "")
       (footprint "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal")
       (fields
