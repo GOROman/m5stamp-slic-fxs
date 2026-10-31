@@ -162,4 +162,39 @@ class HardwareTest(unittest.TestCase):
                     checked += 1
                     self.assertGreaterEqual(r, 0.18, f'{path.name}:{ref} pad {ch[1]}')
         self.assertGreater(checked, 170)  # guard against silently scanning nothing
+
+class ProtectionTopologyTests(unittest.TestCase):
+    """Issue #9 item 3: manufacturer GND-referenced clamp (Ag1171 Fig.4 /
+    KS0835F Typical Connection). Bridge minus-side anodes and the zener
+    anode go to GND, not to a floating BRM rail."""
+
+    def test_protection_minus_side_is_gnd(self):
+        _, nets = bom.read_netlist(SOURCE.with_suffix(".net"))
+        for ref in ("U58", "U59", "U60", "U85", "U86", "U87"):
+            self.assertEqual(nets.get((ref, "2")), "GND",
+                             ref + " pin 2 (anode) must be GND")
+        self.assertFalse([n for n in set(nets.values()) if n.startswith("BRM")],
+                         "no floating BRM rail may remain")
+        self.assertEqual(nets.get(("U56", "1")), "BRP_A")
+        self.assertEqual(nets.get(("U58", "1")), "TIP_A")
+        self.assertEqual(nets.get(("U85", "1")), "TIP_B")
+
+
+class Rj11ManufacturabilityTests(unittest.TestCase):
+    """Issue #9/#6: RJ11 intra-footprint pad gap must clear the JLCPCB
+    minimum spacing 0.127mm with the PTH annular ring >= 0.18mm."""
+
+    def test_rj11_gap_and_annular(self):
+        text = (ROOT / "kicad" / "SLIC2PORT.pretty" / "RJ11_6P6C_TH.kicad_mod").read_text()
+        pads = re.findall(r'\(pad "\d+" .*?\(at ([-\d.]+) ([-\d.]+)\).*?\(size ([\d.]+) ([\d.]+)\).*?\(drill ([\d.]+)\)', text, re.S)
+        self.assertEqual(len(pads), 6)
+        xs = sorted(float(p[0]) for p in pads)
+        w = float(pads[0][2]); drill = float(pads[0][4])
+        pitch = round(xs[1] - xs[0], 3)
+        self.assertEqual(pitch, 1.27)
+        gap = pitch - w
+        annular = (w - drill) / 2
+        self.assertGreaterEqual(gap, 0.127, "pad gap below JLCPCB min spacing")
+        self.assertGreaterEqual(annular, 0.18, "annular ring below JLCPCB min")
+
 if __name__=='__main__': unittest.main()
