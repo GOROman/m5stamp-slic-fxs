@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "10.0.6"
     },
-    "CreationDate": "2026-10-31T18:14:43+09:00"
+    "CreationDate": "2026-10-31T20:07:08+09:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -63,6 +63,16 @@
       "FilePolarity": "Positive"
     },
     {
+      "Path": "SLIC2PORT-FXS-F_Adhesive.gta",
+      "FileFunction": "Glue,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-B_Adhesive.gba",
+      "FileFunction": "Glue,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
       "Path": "SLIC2PORT-FXS-F_Paste.gtp",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
@@ -93,8 +103,58 @@
       "FilePolarity": "Negative"
     },
     {
+      "Path": "SLIC2PORT-FXS-User_Drawings.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_Comments.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_Eco1.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_Eco2.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
       "Path": "SLIC2PORT-FXS-Edge_Cuts.gm1",
       "FileFunction": "Profile",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-F_Fab.gbr",
+      "FileFunction": "AssemblyDrawing,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-B_Fab.gbr",
+      "FileFunction": "AssemblyDrawing,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_1.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_2.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_3.gbr",
+      "FileFunction": "Other,User",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "SLIC2PORT-FXS-User_4.gbr",
+      "FileFunction": "Other,User",
       "FilePolarity": "Positive"
     }
   ],
