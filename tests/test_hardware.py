@@ -82,26 +82,37 @@ class HardwareTest(unittest.TestCase):
         self.assertEqual(actual,self.components)
 
     def test_rj11_pads_do_not_overlap(self):
+        # v3.4.2: Neltron 7002 (Akizuki 100954) staggered 2-row geometry:
+        # verify true 2D pad-to-pad gaps and the locating peg holes.
+        import math
         fp=(ROOT/'kicad/SLIC2PORT.pretty/RJ11_6P6C_TH.kicad_mod').read_text()
-        pads=re.findall(r'\(pad "\d+" thru_hole \w+ \(at ([\d.-]+) [\d.-]+\) \(size ([\d.]+) [\d.]+\)',fp)
+        pads=re.findall(r'\(pad "\d+" thru_hole \w+ \(at ([\d.-]+) ([\d.-]+)\) \(size ([\d.]+) [\d.]+\)',fp)
         self.assertEqual(len(pads),6)
-        pads=sorted((float(x),float(w)) for x,w in pads)
-        for (x,w),(nx,nw) in zip(pads,pads[1:]):
-            # Design point is 0.12mm (Issue #6): JLCPCB 1oz min spacing is
-            # 0.10mm, so keep a guard just above the design value's floor.
-            self.assertGreater(nx-x-(w+nw)/2,0.11)
+        pts=[(float(x),float(y),float(w)) for x,y,w in pads]
+        for i,(x,y,w) in enumerate(pts):
+            for x2,y2,w2 in pts[i+1:]:
+                # JLCPCB min spacing 0.127mm; design minimum is 0.54mm
+                # (same-row neighbours at 2x1.02mm pitch, dia 1.50 pads).
+                self.assertGreater(math.hypot(x-x2,y-y2)-(w+w2)/2,0.127)
+        pegs=re.findall(r'\(pad "" np_thru_hole circle \(at ([\d.-]+) ([\d.-]+)\) \(size ([\d.]+)',fp)
+        self.assertEqual(sorted((float(x),float(y)) for x,y,_ in pegs),
+                         [(-6.0,0.0),(6.0,0.0)])  # Dim.C = 12.00 pitch
+        for _,_,d in pegs:
+            self.assertEqual(float(d),2.30)
 
     def test_rj11_annular_ring_meets_jlcpcb_min(self):
-        # Issue #6: short-side annular ring must satisfy JLCPCB 2-layer 1oz
-        # PTH capability (absolute minimum 0.18mm; design point 0.20mm).
+        # v3.4.2 (supersedes the Issue #6 generic-jack spec): the specified
+        # part is the Neltron 7002-6P6C (Akizuki 100954); its drawing's PCB
+        # layout specifies drill 0.90. Pad 1.50 -> annular ring 0.30mm,
+        # above the JLCPCB 2-layer 1oz absolute minimum 0.18mm.
         fp=(ROOT/'kicad/SLIC2PORT.pretty/RJ11_6P6C_TH.kicad_mod').read_text()
         pads=re.findall(r'\(pad "\d+" thru_hole \w+ \(at [\d.-]+ [\d.-]+\) \(size ([\d.]+) ([\d.]+)\) \(drill ([\d.]+)\)',fp)
         self.assertEqual(len(pads),6)
         for w,l,d in pads:
             w,l,d=float(w),float(l),float(d)
-            self.assertGreaterEqual((w-d)/2,0.18)   # short side (pitch dir)
-            self.assertGreaterEqual((l-d)/2,0.18)   # long side
-            self.assertEqual(d,0.75)  # JST MOD-J6 hole band 0.8+/-0.05, Issue #6 spec
+            self.assertGreaterEqual((w-d)/2,0.18)
+            self.assertGreaterEqual((l-d)/2,0.18)
+            self.assertEqual(d,0.90)  # Neltron 7002-XPXC PCB layout: 6x dia 0.90
 
 
     def test_placement_json_matches_netlist(self):
@@ -181,20 +192,34 @@ class ProtectionTopologyTests(unittest.TestCase):
 
 
 class Rj11ManufacturabilityTests(unittest.TestCase):
-    """Issue #9/#6: RJ11 intra-footprint pad gap must clear the JLCPCB
-    minimum spacing 0.127mm with the PTH annular ring >= 0.18mm."""
+    """v3.4.2 (supersedes the Issue #9/#6 single-row spec): RJ11 is the
+    Neltron 7002-6P6C (Akizuki 100954) with staggered 2-row pins. Pad
+    coordinates must match the manufacturer drawing
+    (research/neltron-7002-XPXC.pdf), the pad gap must clear the JLCPCB
+    minimum spacing 0.127mm, and the PTH annular ring must be >= 0.18mm."""
 
     def test_rj11_gap_and_annular(self):
+        import math
         text = (ROOT / "kicad" / "SLIC2PORT.pretty" / "RJ11_6P6C_TH.kicad_mod").read_text()
-        pads = re.findall(r'\(pad "\d+" .*?\(at ([-\d.]+) ([-\d.]+)\).*?\(size ([\d.]+) ([\d.]+)\).*?\(drill ([\d.]+)\)', text, re.S)
+        pads = re.findall(r'\(pad "(\d+)" .*?\(at ([-\d.]+) ([-\d.]+)\).*?\(size ([\d.]+) ([\d.]+)\).*?\(drill ([\d.]+)\)', text, re.S)
         self.assertEqual(len(pads), 6)
-        xs = sorted(float(p[0]) for p in pads)
-        w = float(pads[0][2]); drill = float(pads[0][4])
-        pitch = round(xs[1] - xs[0], 3)
-        self.assertEqual(pitch, 1.27)
-        gap = pitch - w
-        annular = (w - drill) / 2
-        self.assertGreaterEqual(gap, 0.127, "pad gap below JLCPCB min spacing")
-        self.assertGreaterEqual(annular, 0.18, "annular ring below JLCPCB min")
+        pts = {}
+        for n, x, y, w, l, d in pads:
+            pts[int(n)] = (float(x), float(y))
+            self.assertGreaterEqual((float(w) - float(d)) / 2, 0.18,
+                                    "annular ring below JLCPCB min")
+        # Drawing (origin = peg-line centre): near row (pins 2,4,6) at
+        # y=2.10, far row (pins 1,3,5) at y=2.10+2.54=4.64; contact pitch
+        # 1.02 with pin 1 at the +x end of the far row.
+        self.assertEqual(pts, {1: (2.55, 4.64), 2: (1.53, 2.10),
+                               3: (0.51, 4.64), 4: (-0.51, 2.10),
+                               5: (-1.53, 4.64), 6: (-2.55, 2.10)})
+        for a in pts:
+            for b in pts:
+                if a < b:
+                    gap = math.hypot(pts[a][0] - pts[b][0],
+                                     pts[a][1] - pts[b][1]) - 1.50
+                    self.assertGreaterEqual(gap, 0.127,
+                                            "pad gap below JLCPCB min spacing")
 
 if __name__=='__main__': unittest.main()
