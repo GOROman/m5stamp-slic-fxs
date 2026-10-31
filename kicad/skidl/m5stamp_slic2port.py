@@ -391,7 +391,7 @@ for s in ("A", "B"):
     SHKRAW = mknet("SHK_%s_RAW" % s)
     P5VP = mknet("+5V_P%s" % s)
     PDX = mknet("PD_%s" % s)
-    BRP = mknet("BRP_%s" % s); BRM = mknet("BRM_%s" % s)
+    BRP = mknet("BRP_%s" % s)  # ブリッジ +側レール。-側は GND 直結 (データシート図)
     VXAUD = mknet("VX_%s_AUD" % s)
     VXIN[s] = mknet("VX_%s_IN" % s)
     TAPN = mknet("TAP_%s_N" % s)
@@ -409,13 +409,18 @@ for s in ("A", "B"):
         rj[n] += NC
 
     # --- 保護回路 (KS0835F Typical Connection Diagram / Ag1171 Fig.4) ---
+    # データシート図の GND 基準クランプをそのまま採用する (Issue #9 是正):
+    #   ブリッジ -側 (U58/U59 のアノード) は GND 直結し、回線の負サージは
+    #   GND からダイオード経由で -Vf にクランプ。正側レール BRP は
+    #   BZT03C82 (アノード GND / カソード BRP) で対 GND 82V にクランプする。
+    #   旧設計は BRP-BRM 間にツェナを置く浮遊ブリッジで、対 GND 経路が無かった。
     d_thy = DIO(); d_thy.ref = {"A": "U55", "B": "U82"}[s]; d_thy.value = "P3100SC"; d_thy.footprint = FP_SMC
     TIP += d_thy["A"]; RING += d_thy["K"]     # 双方向サイリスタ (極性不問)
     d_b1 = DIO(); d_b1.ref = {"A": "U56", "B": "U83"}[s]; d_b1.value = "1N4007"; TIP += d_b1["A"]; BRP += d_b1["K"]
     d_b2 = DIO(); d_b2.ref = {"A": "U57", "B": "U84"}[s]; d_b2.value = "1N4007"; RING += d_b2["A"]; BRP += d_b2["K"]
-    d_b3 = DIO(); d_b3.ref = {"A": "U58", "B": "U85"}[s]; d_b3.value = "1N4007"; BRM += d_b3["A"]; TIP += d_b3["K"]
-    d_b4 = DIO(); d_b4.ref = {"A": "U59", "B": "U86"}[s]; d_b4.value = "1N4007"; BRM += d_b4["A"]; RING += d_b4["K"]
-    d_z = DIO(); d_z.ref = {"A": "U60", "B": "U87"}[s]; d_z.value = "BZT03C82"; BRP += d_z["K"]; BRM += d_z["A"]
+    d_b3 = DIO(); d_b3.ref = {"A": "U58", "B": "U85"}[s]; d_b3.value = "1N4007"; GND += d_b3["A"]; TIP += d_b3["K"]
+    d_b4 = DIO(); d_b4.ref = {"A": "U59", "B": "U86"}[s]; d_b4.value = "1N4007"; GND += d_b4["A"]; RING += d_b4["K"]
+    d_z = DIO(); d_z.ref = {"A": "U60", "B": "U87"}[s]; d_z.value = "BZT03C82"; BRP += d_z["K"]; GND += d_z["A"]
     between(R("27K"), TIP, RING)                       # CLI バイアス
     c_e1 = C("10nF"); c_e1.footprint = FP_C1206
     between(c_e1, TIP, GND)                            # EMI (要 250V 品)

@@ -2,7 +2,7 @@
   (version "D")
   (design
     (source "run_regen.py")
-    (date "10/31/2026 01:56 PM")
+    (date "10/31/2026 03:56 PM")
     (tool "SKiDL (3.0.0)")
     (sheet
       (number 1)
@@ -13,7 +13,7 @@
         (company)
         (rev)
         (date)
-        (source "repo-v2/kicad/skidl/run_regen.py")
+        (source "run_regen.py")
         (comment
           (number "1")
           (value ""))
@@ -55,9 +55,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "xvAUKFpwj_")
+          (name "SKiDL Tag") "rolykKtXi8")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -65,7 +65,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "465c3e44-2b43-5c8d-80f8-23d8b52d2ceb"))
+      (tstamps "37f5cbb1-ecf4-5881-9330-9e40ec75220e"))
     (comp
       (ref "C10")
       (value "100nF")
@@ -79,9 +79,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "EmK3pgr3tZ")
+          (name "SKiDL Tag") "GThVOH7Fzn")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -89,7 +89,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0a276de5-bbca-5bf6-943b-0712eb14577b"))
+      (tstamps "4a17d792-397e-5eaf-9f5d-6fd0c0ea7fde"))
     (comp
       (ref "C11")
       (value "10nF")
@@ -103,9 +103,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "3KFtOsNxuE")
+          (name "SKiDL Tag") "jKT7Lo0N42")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -113,7 +113,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "de69a976-f445-5813-8212-8762eedb3a61"))
+      (tstamps "21ca5178-1694-53a0-9ee9-e27889865087"))
     (comp
       (ref "C12")
       (value "10nF")
@@ -127,9 +127,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "6zmhR6FERB")
+          (name "SKiDL Tag") "Uj5oL6egl4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -137,7 +137,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f5eb12c7-2f3d-52ce-ace8-9f98cbbd9939"))
+      (tstamps "569aa0ff-1062-59d4-9d43-d435f5adfd4a"))
     (comp
       (ref "C13")
       (value "470uF/10V")
@@ -151,9 +151,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "FEmxYHAkJR")
+          (name "SKiDL Tag") "2rXupd4oN7")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -161,7 +161,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "511abf0d-0297-5a80-ab29-7c3645ccabfd"))
+      (tstamps "f7e9eee4-609d-54fd-8532-55b3ff6ae6a8"))
     (comp
       (ref "C14")
       (value "100nF")
@@ -175,9 +175,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rXJYwsaof6")
+          (name "SKiDL Tag") "nL1gritfPQ")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -185,7 +185,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a371ee77-227f-554f-b6a4-0492632ee4b6"))
+      (tstamps "49a8570b-2802-59f6-8642-7856e3381497"))
     (comp
       (ref "C15")
       (value "1nF")
@@ -199,9 +199,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "WN0_AIPmBf")
+          (name "SKiDL Tag") "Ne6jt7h9lZ")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -209,7 +209,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "998442df-f74d-57e7-8dc7-d6478268ae03"))
+      (tstamps "b0aeb340-118e-516a-bfa1-4edd3273a94a"))
     (comp
       (ref "C16")
       (value "100nF")
@@ -223,9 +223,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "bRyAnsWFqg")
+          (name "SKiDL Tag") "3ADJBhajFI")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -233,7 +233,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "befd12a7-7d47-5425-b790-4b4b823e8377"))
+      (tstamps "2d7a28c1-7548-56d6-8162-c2d9341649bf"))
     (comp
       (ref "C17")
       (value "100nF")
@@ -247,9 +247,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "DONK9UTDLy")
+          (name "SKiDL Tag") "xfW9iMzity")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -257,7 +257,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a388b3a3-2d0c-5b31-95fe-f0c5ae74cb7e"))
+      (tstamps "bdbb3464-1a13-5faa-83e2-62a7521cd398"))
     (comp
       (ref "C18")
       (value "1nF")
@@ -271,9 +271,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ZAmlaUhjW2")
+          (name "SKiDL Tag") "D7DuwUxUou")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -281,7 +281,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "da2b860e-929b-564e-9b13-7dee07301956"))
+      (tstamps "abcf2b37-2007-5f72-ad66-872b44b813af"))
     (comp
       (ref "C19")
       (value "100nF")
@@ -295,9 +295,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zBGWT3QA1d")
+          (name "SKiDL Tag") "QrK8ji_VUw")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -305,7 +305,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6119a259-9044-5e18-be21-43646b23d7ad"))
+      (tstamps "d3f7a8be-4e19-5c45-a886-65bd52b9a718"))
     (comp
       (ref "C2")
       (value "100nF")
@@ -319,9 +319,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Z1Wde7MvaF")
+          (name "SKiDL Tag") "zWV45odKiy")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -329,7 +329,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "fc36b2a4-616a-52e1-bd38-5e03537c5334"))
+      (tstamps "34d18a7d-e256-5c70-9fbe-6f354d3f4b1e"))
     (comp
       (ref "C20")
       (value "10nF")
@@ -343,9 +343,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "_ZvRwXIDbL")
+          (name "SKiDL Tag") "ypyHffkLCl")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -353,7 +353,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b1de58b6-8bbc-5ada-8707-ed7641f7a32d"))
+      (tstamps "84ff590d-b959-5d7c-9668-fd58ca4ad530"))
     (comp
       (ref "C21")
       (value "10nF")
@@ -367,9 +367,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "83PWaqlomQ")
+          (name "SKiDL Tag") "wa4PDxVMC4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -377,7 +377,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2c425818-bbbb-5d7f-a01e-849732af7df6"))
+      (tstamps "1c3ded52-abd0-5ca9-885c-0d956800e8f7"))
     (comp
       (ref "C22")
       (value "470uF/10V")
@@ -391,9 +391,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rIY2n7o3mn")
+          (name "SKiDL Tag") "_vR9pEKKO9")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -401,7 +401,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e960eadf-145a-56d6-8580-5f1e99918fc3"))
+      (tstamps "42c7f5e4-6a4a-5330-bdfe-835d473f7050"))
     (comp
       (ref "C23")
       (value "100nF")
@@ -415,9 +415,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Ilb1DCuxOb")
+          (name "SKiDL Tag") "445V8TesbE")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -425,7 +425,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0b5e66a4-2eb9-50ab-8761-e30671d016cc"))
+      (tstamps "c822b19f-77b6-50d1-a2ea-d25baef6b0ea"))
     (comp
       (ref "C24")
       (value "1nF")
@@ -439,9 +439,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "uc3MMLZOkk")
+          (name "SKiDL Tag") "1iytBRd8LT")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -449,7 +449,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "dee83431-36ec-5c22-a541-ea97a222214c"))
+      (tstamps "5716ca0d-1bb2-5419-9ffd-4cd78374fcd1"))
     (comp
       (ref "C25")
       (value "100nF")
@@ -463,9 +463,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "UqM8POUCo3")
+          (name "SKiDL Tag") "CFy1neqn65")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -473,7 +473,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "24cab826-3e0f-50d8-a922-f38c2b49d34c"))
+      (tstamps "34a86fc5-5a1f-5f99-b999-27a028a58933"))
     (comp
       (ref "C26")
       (value "100nF")
@@ -487,9 +487,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "MA6utXOXd_")
+          (name "SKiDL Tag") "P3udSMNpo_")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -497,7 +497,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4ee03782-15b1-57eb-bbd0-0ca10a40755e"))
+      (tstamps "11e9892e-dfe9-5200-acdc-d1ec3db24f71"))
     (comp
       (ref "C27")
       (value "1nF")
@@ -511,9 +511,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "kl1hilX0ox")
+          (name "SKiDL Tag") "zEDlD9tRnQ")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -521,7 +521,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "727b0094-577e-5370-99a0-1c7f674dec16"))
+      (tstamps "e1065e72-7f37-547b-8835-460ce6cab5b6"))
     (comp
       (ref "C28")
       (value "100nF")
@@ -535,9 +535,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "8ZO4GDU8QW")
+          (name "SKiDL Tag") "AXG8yVuy5j")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -545,7 +545,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "62469184-fa38-54c9-9e67-7d15aae87daf"))
+      (tstamps "43993195-8cd2-50b5-8385-2f530ae42182"))
     (comp
       (ref "C3")
       (value "10uF")
@@ -559,9 +559,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "9r8B1dIPFj")
+          (name "SKiDL Tag") "96vyE086Xl")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -569,7 +569,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "308824d2-e2dd-5d10-8998-6862be03908c"))
+      (tstamps "ba3392c9-e4ab-5b59-85b0-66f27ce95293"))
     (comp
       (ref "C4")
       (value "100nF")
@@ -583,9 +583,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "k7MAT96Jfi")
+          (name "SKiDL Tag") "GSx06I1ebB")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -593,7 +593,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "efb30de6-442c-5873-abd7-e06371364d7b"))
+      (tstamps "3180025c-00d3-5460-a8d8-aa71dc833a99"))
     (comp
       (ref "C5")
       (value "100nF")
@@ -607,9 +607,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Ghi03Dt2ev")
+          (name "SKiDL Tag") "TyxUxPrPIn")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -617,7 +617,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a4918921-8850-5d7f-8083-6b1464ffc2fb"))
+      (tstamps "f960e836-6eda-5721-9ef9-c161fe58d3c9"))
     (comp
       (ref "C6")
       (value "100nF")
@@ -631,9 +631,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "5Yu95V1ZAI")
+          (name "SKiDL Tag") "XRQ4PsM45x")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -641,7 +641,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2b3828bd-f5b5-5595-a6e5-9efe70eec040"))
+      (tstamps "9e4edfcc-43b4-5bac-9fa8-952860e44492"))
     (comp
       (ref "C7")
       (value "47nF")
@@ -655,9 +655,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "TOWNbMcXKL")
+          (name "SKiDL Tag") "iUwd9iYII5")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -665,7 +665,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7761052d-8397-55ce-a9e1-e421e076c649"))
+      (tstamps "3c2bdeef-030d-5e44-b8e0-57bb6885d0fb"))
     (comp
       (ref "C8")
       (value "47nF")
@@ -679,9 +679,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "T8m69zvSa3")
+          (name "SKiDL Tag") "nqi1Dn9u1N")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -689,7 +689,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "25390253-5eb0-5860-b011-3c5d4fda3b61"))
+      (tstamps "1935e17a-e293-510a-bdc0-da256a846938"))
     (comp
       (ref "C9")
       (value "100nF")
@@ -703,9 +703,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "lu0Hr7Wpza")
+          (name "SKiDL Tag") "hjU0xaW0wC")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -713,7 +713,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "06995adc-e176-55ae-ba5a-702ae1757143"))
+      (tstamps "4eef2223-ee45-51d8-a45c-e852fac28727"))
     (comp
       (ref "D1")
       (value "SMBJ5.0A")
@@ -727,9 +727,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "faGl4tgQAF")
+          (name "SKiDL Tag") "M399W8O49y")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:196"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:200"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -737,7 +737,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "87aac36c-00e7-55ed-aea1-ab6450e40954"))
+      (tstamps "9f1e245c-1977-51e7-81d4-613f01295d46"))
     (comp
       (ref "D2")
       (value "LED_RED")
@@ -751,9 +751,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "bZtCBhEA7D")
+          (name "SKiDL Tag") "sAadTAijqf")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:278"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:282"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -761,7 +761,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "24ef9bd1-71b9-525c-b1dd-02090945c4c5"))
+      (tstamps "9c8edba3-a89a-5c68-9fbc-b232090f401d"))
     (comp
       (ref "D3")
       (value "LED_GRN")
@@ -775,9 +775,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "932AR6uBL_")
+          (name "SKiDL Tag") "BzZvDnNszQ")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:272"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:276"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -785,7 +785,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6e396e92-92c7-505c-922a-15b9da6316fa"))
+      (tstamps "da608e5a-5916-5fb2-93ce-6e67de946ff9"))
     (comp
       (ref "D4")
       (value "LED_GRN")
@@ -799,9 +799,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "qeCTAVcFOx")
+          (name "SKiDL Tag") "I7wMxenqj0")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:522"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:534"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -809,7 +809,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "df7a769a-1a98-5891-90ac-038f76146dea"))
+      (tstamps "7395cd0d-49fd-5e54-aad7-e536589bc933"))
     (comp
       (ref "D5")
       (value "LED_YEL")
@@ -823,9 +823,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "y6AcIdzaaZ")
+          (name "SKiDL Tag") "BRAnTo1T72")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:532"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:544"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -833,7 +833,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "74710fe9-6dac-561f-8dc3-ae3aadef5a3f"))
+      (tstamps "c76822df-aca3-5a32-a256-d97b0d0fe91b"))
     (comp
       (ref "D6")
       (value "LED_BLU")
@@ -847,9 +847,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2bCVMfyE0c")
+          (name "SKiDL Tag") "W8K2_VPTPh")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:532"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:544"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -857,7 +857,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7f678a17-60b4-530c-812a-9e7a2760f574"))
+      (tstamps "ee79ff55-27e4-518d-bda2-e1e0f0c522cb"))
     (comp
       (ref "D7")
       (value "LED_GRN")
@@ -871,9 +871,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "llg1aSVMDU")
+          (name "SKiDL Tag") "ehmI3smpXA")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:522"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:534"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -881,7 +881,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2fe63fc1-d515-56f6-a5fc-ce24be52805e"))
+      (tstamps "ef93733e-0c70-5386-a96f-d026b757f495"))
     (comp
       (ref "D8")
       (value "LED_YEL")
@@ -895,9 +895,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "H_FLfitBwT")
+          (name "SKiDL Tag") "_z4xIl7Sxn")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:532"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:544"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -905,7 +905,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a02acd6b-fb6b-5440-84c4-80fb5482041b"))
+      (tstamps "a5f523bc-3584-5925-99a0-143259014482"))
     (comp
       (ref "D9")
       (value "LED_BLU")
@@ -919,9 +919,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ybmuMBBMKC")
+          (name "SKiDL Tag") "M3WPtOjb6G")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:532"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:544"))
       (libsource
         (lib "NO_LIB")
         (part "LED"))
@@ -929,7 +929,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f86ece51-73f7-5455-ad66-5fb2472f9768"))
+      (tstamps "7e7d80d8-ef4f-5c71-8311-6c14404129fb"))
     (comp
       (ref "F1")
       (value "Polyfuse_2A")
@@ -943,9 +943,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "We4BwrAfTi")
+          (name "SKiDL Tag") "xrhpjvaPhC")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:185"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:189"))
       (libsource
         (lib "NO_LIB")
         (part "F"))
@@ -953,7 +953,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "121d84e0-4d99-5f65-9cc0-6a6831835e4e"))
+      (tstamps "fc88de47-f7f4-56da-9024-231083ee0186"))
     (comp
       (ref "J1")
       (value "USB-C_PWR")
@@ -967,9 +967,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "meky6RGYeG")
+          (name "SKiDL Tag") "ZjYuP_QZlp")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:171"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:175"))
       (libsource
         (lib "NO_LIB")
         (part "USB_C"))
@@ -977,7 +977,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "daf27b70-90b9-580a-a202-9339b10d4424"))
+      (tstamps "7183e683-c5c6-52d9-8153-3691df71fdd3"))
     (comp
       (ref "J2")
       (value "DC5V_IN")
@@ -991,9 +991,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "JQNBPBsKKr")
+          (name "SKiDL Tag") "tN1UomQXX8")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:181"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:185"))
       (libsource
         (lib "NO_LIB")
         (part "TB"))
@@ -1001,7 +1001,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "bd335bc1-8845-5cfa-8e3c-5ba590ac5d07"))
+      (tstamps "c5e5e540-578d-5983-9b54-2b6236c3d201"))
     (comp
       (ref "J5")
       (value "EXPANSION")
@@ -1015,9 +1015,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "_0QOJ5eZSX")
+          (name "SKiDL Tag") "rshSID9Qa3")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:282"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:286"))
       (libsource
         (lib "NO_LIB")
         (part "HDR"))
@@ -1025,7 +1025,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3955f01c-edbd-5dcf-80a4-40104403b058"))
+      (tstamps "e07d89de-7446-5c62-926e-a71f669f7c41"))
     (comp
       (ref "J6")
       (value "UART_DBG")
@@ -1039,9 +1039,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "QbTbxHr9dy")
+          (name "SKiDL Tag") "u1aScZOQVo")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:287"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:291"))
       (libsource
         (lib "NO_LIB")
         (part "HDR"))
@@ -1049,7 +1049,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "cdc0acdb-76bd-5b37-89df-342e5f75f6ba"))
+      (tstamps "e84f92fc-9955-5e0b-af1c-3a3820b84221"))
     (comp
       (ref "J_3")
       (value "RJ11_6P6C")
@@ -1063,9 +1063,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Zt_7_QR_N6")
+          (name "SKiDL Tag") "eIRvjbY3Gi")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:402"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:406"))
       (libsource
         (lib "NO_LIB")
         (part "RJ11_6P6C"))
@@ -1073,7 +1073,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9bad4d4a-95ec-50c1-825a-51bf317132c7"))
+      (tstamps "de423752-dbad-5524-ad47-5d1981df6810"))
     (comp
       (ref "J_4")
       (value "RJ11_6P6C")
@@ -1087,9 +1087,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "gIQFfptAS4")
+          (name "SKiDL Tag") "YjqgfVWV4u")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:402"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:406"))
       (libsource
         (lib "NO_LIB")
         (part "RJ11_6P6C"))
@@ -1097,7 +1097,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "80f3c5ac-3294-50f5-81d0-1b3525a9f22d"))
+      (tstamps "1254d5c8-9932-522f-b5df-78f383bb5562"))
     (comp
       (ref "K1")
       (value "G5V-2_DC5")
@@ -1111,9 +1111,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "o2s6pqT347")
+          (name "SKiDL Tag") "MDMNk7b7xB")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:347"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:351"))
       (libsource
         (lib "NO_LIB")
         (part "G5V-2"))
@@ -1121,7 +1121,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0c5d7f50-9fac-52ee-873d-0f47d4a036c1"))
+      (tstamps "56384f00-f4c7-5bff-bc19-4e77f6c76b5e"))
     (comp
       (ref "K2")
       (value "G5V-2_DC5")
@@ -1135,9 +1135,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "S_KrTYnC6V")
+          (name "SKiDL Tag") "GuYy9FMHjq")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:347"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:351"))
       (libsource
         (lib "NO_LIB")
         (part "G5V-2"))
@@ -1145,7 +1145,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "71aae288-c7fa-50d1-bc87-7f1998cfb6d9"))
+      (tstamps "fe827a44-f1c1-5f7d-b346-4e261cf2f5f7"))
     (comp
       (ref "MOD_A")
       (value "KS0835F")
@@ -1159,9 +1159,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "kqWtEXLwU3")
+          (name "SKiDL Tag") "Ii9kvBck4_")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:395"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:399"))
       (libsource
         (lib "NO_LIB")
         (part "KS0835F"))
@@ -1169,7 +1169,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "eeff23bb-5ce3-544b-ae60-4ebb7adafff9"))
+      (tstamps "fdaadfa7-3739-5548-a339-d04b1ca0235e"))
     (comp
       (ref "MOD_B")
       (value "KS0835F")
@@ -1183,9 +1183,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "y1ULrYRTmc")
+          (name "SKiDL Tag") "fuNT_vlSOc")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:395"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:399"))
       (libsource
         (lib "NO_LIB")
         (part "KS0835F"))
@@ -1193,7 +1193,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9d172d30-77e3-56da-bbef-d618670c793e"))
+      (tstamps "a6dddcd1-516e-5d22-a976-6763518d5968"))
     (comp
       (ref "Q1")
       (value "AO3401A")
@@ -1207,9 +1207,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "_T3GauK9fY")
+          (name "SKiDL Tag") "j63e7myMkf")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:188"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:192"))
       (libsource
         (lib "NO_LIB")
         (part "Q"))
@@ -1217,7 +1217,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "d9e2bfc2-ac5d-5890-bcbf-4066662a40a3"))
+      (tstamps "69f95640-d315-5af0-a17f-d067cfb9a889"))
     (comp
       (ref "Q2")
       (value "2N7002")
@@ -1231,9 +1231,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "msd5ufo0u1")
+          (name "SKiDL Tag") "Vwv13OSDA0")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:368"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:372"))
       (libsource
         (lib "NO_LIB")
         (part "Q"))
@@ -1241,7 +1241,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "95e71a15-6043-52c2-a2d0-af66b9930640"))
+      (tstamps "7cdd204b-2496-53e9-9a83-fa4f7712c507"))
     (comp
       (ref "Q3")
       (value "2N7002")
@@ -1255,9 +1255,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "NVsPPRkGfN")
+          (name "SKiDL Tag") "OhY1sHx3tY")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:356"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:360"))
       (libsource
         (lib "NO_LIB")
         (part "Q"))
@@ -1265,7 +1265,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "76636993-4405-54a6-914d-8829d5c686a4"))
+      (tstamps "eab68c15-d458-59e3-8811-bd5382903f51"))
     (comp
       (ref "Q4")
       (value "2N7002")
@@ -1279,9 +1279,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "8OaB8luE28")
+          (name "SKiDL Tag") "Aeefn4zJm5")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:356"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:360"))
       (libsource
         (lib "NO_LIB")
         (part "Q"))
@@ -1289,7 +1289,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9dafa513-4c1e-52d4-a45c-589a232a382d"))
+      (tstamps "0af203c7-6f21-5aa6-b8f4-c2c12277a7eb"))
     (comp
       (ref "Q5")
       (value "2N7002")
@@ -1303,9 +1303,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "e2y8Fyyn1z")
+          (name "SKiDL Tag") "W4SghlOUu8")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:524"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:536"))
       (libsource
         (lib "NO_LIB")
         (part "Q"))
@@ -1313,7 +1313,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f797b4df-5bca-5e20-a8de-e620dc075272"))
+      (tstamps "b18ae7d1-12cb-5c99-8343-35ba64026660"))
     (comp
       (ref "Q6")
       (value "2N7002")
@@ -1327,9 +1327,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "c_WQTNKCgu")
+          (name "SKiDL Tag") "Gv8hgJEoBT")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:524"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:536"))
       (libsource
         (lib "NO_LIB")
         (part "Q"))
@@ -1337,7 +1337,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "94e1c893-06f8-5fa6-b2e8-042f3bbadf8f"))
+      (tstamps "af2d8392-7dfc-5fd7-838f-708dc8746936"))
     (comp
       (ref "R1")
       (value "5.1K")
@@ -1351,9 +1351,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "sQLU4oyXFL")
+          (name "SKiDL Tag") "AUdvO0atr7")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1361,7 +1361,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "afdd966c-4c68-5fcf-bc23-3d5ed22efab1"))
+      (tstamps "a79586b4-8565-5aaf-98c6-fa5f11dea6ff"))
     (comp
       (ref "R10")
       (value "10K")
@@ -1375,9 +1375,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "yWdDnX07H3")
+          (name "SKiDL Tag") "xzYm0yTSif")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1385,7 +1385,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "154f9f95-dcc0-50c1-9878-360ed708861f"))
+      (tstamps "2a60f236-f34b-5537-ad90-0fc2d01bff5d"))
     (comp
       (ref "R11")
       (value "47K")
@@ -1399,9 +1399,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "mJNOz2Rp9I")
+          (name "SKiDL Tag") "kWzgAqpjC3")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1409,7 +1409,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f3e12bc2-d372-593e-a28e-9059ffb2b439"))
+      (tstamps "2d4f234a-505c-5cbc-b2e0-971364587f37"))
     (comp
       (ref "R12")
       (value "100K")
@@ -1423,9 +1423,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "215lUlLN98")
+          (name "SKiDL Tag") "LSbqpEObeN")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1433,7 +1433,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3e064881-ea01-54e6-86ad-5519617193d9"))
+      (tstamps "21dab977-3920-5777-984f-ae52b3575e8e"))
     (comp
       (ref "R13")
       (value "100K")
@@ -1447,9 +1447,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "AOZJGwjHwA")
+          (name "SKiDL Tag") "O8esvKXvFl")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1457,7 +1457,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "1807b1bb-fb41-5de5-aac2-26cc3ea77674"))
+      (tstamps "d9dba351-b28f-5cbb-8060-b17445ad0279"))
     (comp
       (ref "R14")
       (value "100K")
@@ -1471,9 +1471,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "dVpqKOantC")
+          (name "SKiDL Tag") "Q1peRF9Hs0")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1481,7 +1481,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c103f45b-c6b0-523e-b9af-84eac7fcef89"))
+      (tstamps "e3e4ad9e-53df-530d-a3c9-fef35639b0b0"))
     (comp
       (ref "R15")
       (value "100K")
@@ -1495,9 +1495,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "piS6P_zPSL")
+          (name "SKiDL Tag") "Kq3j0b3AHa")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1505,7 +1505,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e70e9ed3-1ecb-5301-a0be-5676d8ab7aa4"))
+      (tstamps "446d63ae-6a4b-5e81-af0a-1c088265768a"))
     (comp
       (ref "R16")
       (value "27K")
@@ -1519,9 +1519,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "TWheRPPNqZ")
+          (name "SKiDL Tag") "ozcZUE837a")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1529,7 +1529,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0b192e20-ff69-58c4-9322-4a8389da1fd9"))
+      (tstamps "f3094dcd-0fdf-5d5d-a26c-5efb48ea7a92"))
     (comp
       (ref "R17")
       (value "10K")
@@ -1543,9 +1543,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "x_CHX327xS")
+          (name "SKiDL Tag") "klS2XFBVQq")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1553,7 +1553,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4a41cdfe-bc2e-5190-9c09-210d5cbd3d31"))
+      (tstamps "791d4a4c-de43-56f3-86bd-cd757ef7ba30"))
     (comp
       (ref "R18")
       (value "18K")
@@ -1567,9 +1567,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "iep78w9uSc")
+          (name "SKiDL Tag") "KW_5mLpEkv")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1577,7 +1577,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "41c756b2-ccf8-5b72-8820-c802d22c05f6"))
+      (tstamps "7aad1942-096e-5303-a3f6-315d15d8a4a9"))
     (comp
       (ref "R19")
       (value "100K")
@@ -1591,9 +1591,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "1Ln5ynsV63")
+          (name "SKiDL Tag") "dtnCVsB7WV")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1601,7 +1601,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4c0bca40-751b-5b52-a00e-c95f4d569aa5"))
+      (tstamps "0fba6b4c-e4b8-52ba-ad56-8b29e24873da"))
     (comp
       (ref "R2")
       (value "5.1K")
@@ -1615,9 +1615,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "JGcADvaziX")
+          (name "SKiDL Tag") "eGmme5thSz")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1625,7 +1625,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e3e4fccc-1bca-5a58-8a2e-b4337511e79a"))
+      (tstamps "f9433e74-ba81-5788-a78a-fa4daed95359"))
     (comp
       (ref "R20")
       (value "0R")
@@ -1639,9 +1639,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "kgpvkQjwwX")
+          (name "SKiDL Tag") "mEjnypa7xW")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1649,7 +1649,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "955c4ae3-67de-5d20-94e0-b451aa45c6b6"))
+      (tstamps "51a2ddf0-dd03-59f7-aca9-53423db442cd"))
     (comp
       (ref "R21")
       (value "100K")
@@ -1663,9 +1663,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "lJ5nhAd5Ra")
+          (name "SKiDL Tag") "5vUXgUanEo")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1673,7 +1673,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3d7fc84e-3ff3-5482-a757-f9aa04714c1d"))
+      (tstamps "ba7972f9-7a55-5d98-afe6-c2ebbdd2b04d"))
     (comp
       (ref "R22")
       (value "10K")
@@ -1687,9 +1687,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "mJYU2gNuCY")
+          (name "SKiDL Tag") "KUMjauoYGP")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1697,7 +1697,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "8ae55af9-fbd9-55d7-802e-087b031f92f0"))
+      (tstamps "f93797ed-68df-5ad8-9fb9-a7401c4896af"))
     (comp
       (ref "R23")
       (value "100K")
@@ -1711,9 +1711,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "You1Dz5tmB")
+          (name "SKiDL Tag") "2IcKSLgzvX")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1721,7 +1721,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c5a70f73-b37c-5f56-8f4f-8219ed6cb1b1"))
+      (tstamps "d87d1d7c-b14c-51e4-ae5a-4692efea4c1b"))
     (comp
       (ref "R24")
       (value "27K")
@@ -1735,9 +1735,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "LZSt8pz5qu")
+          (name "SKiDL Tag") "1EWLi80dtl")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1745,7 +1745,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4872033e-2c5d-523b-9fdb-f76f1abc982a"))
+      (tstamps "7ee51531-6541-5432-839e-676cb79306a8"))
     (comp
       (ref "R25")
       (value "10K")
@@ -1759,9 +1759,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wnPYYTjkjE")
+          (name "SKiDL Tag") "Pe34axoyKu")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1769,7 +1769,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "5490a306-2b92-5669-a61d-58a1a2f7a79c"))
+      (tstamps "fc126ab6-9075-5f0f-a5cf-26f87ad9fdc1"))
     (comp
       (ref "R26")
       (value "18K")
@@ -1783,9 +1783,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "EMjGjoD5aG")
+          (name "SKiDL Tag") "EABENCmgbC")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1793,7 +1793,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a0e5dff0-0baf-59f5-9ca9-c8dd43ad4717"))
+      (tstamps "ca39a400-e57c-5820-8cfb-d9fd3781a953"))
     (comp
       (ref "R27")
       (value "100K")
@@ -1807,9 +1807,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "nBU9y_hKMd")
+          (name "SKiDL Tag") "UuA0FEA96L")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1817,7 +1817,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "eebc7b4d-ffab-549e-9dc3-6a0874f278f0"))
+      (tstamps "1fc985ec-52b7-5514-a0fc-0492c52ab569"))
     (comp
       (ref "R28")
       (value "0R")
@@ -1831,9 +1831,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "TFW3DCg9Gg")
+          (name "SKiDL Tag") "ngxQOBBmR7")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1841,7 +1841,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6131d6c0-eea8-5508-9f81-a4526502dae3"))
+      (tstamps "8cb82369-49dc-598a-8356-1d6cb79649cb"))
     (comp
       (ref "R29")
       (value "100K")
@@ -1855,9 +1855,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "GThkpG0L7b")
+          (name "SKiDL Tag") "XyxQqQhp7O")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1865,7 +1865,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "effe2040-62a7-54e7-9094-a56a73ace2b1"))
+      (tstamps "cf061947-b02f-56ce-af9d-38d6fd5c65eb"))
     (comp
       (ref "R3")
       (value "100K")
@@ -1879,9 +1879,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "kaFuSo0GA4")
+          (name "SKiDL Tag") "rcqHusK6L2")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1889,7 +1889,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7c2ad637-0598-5cd1-ba16-0f189588e332"))
+      (tstamps "384c2153-d556-58f9-bba8-0606261938df"))
     (comp
       (ref "R30")
       (value "10K")
@@ -1903,9 +1903,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "fD45BAvqe8")
+          (name "SKiDL Tag") "a3SVKzWJ_F")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1913,7 +1913,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "df321f7f-81a1-5a3d-8736-f67ea3eee37e"))
+      (tstamps "9e37916e-2742-56a1-9a66-ea9659ba0af7"))
     (comp
       (ref "R31")
       (value "100K")
@@ -1927,9 +1927,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "FE_T_NZLum")
+          (name "SKiDL Tag") "EcZexOkF1J")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1937,7 +1937,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "232ea592-62c9-5d8c-9d05-ce9f38a8a0f2"))
+      (tstamps "17ce464b-87ba-526f-b254-ec6ee157052e"))
     (comp
       (ref "R32")
       (value "100K")
@@ -1951,9 +1951,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "FMGcsEmRlb")
+          (name "SKiDL Tag") "GUVm9O9Ek4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1961,7 +1961,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ace6c5e9-1805-5aec-9f80-cc02cbc94060"))
+      (tstamps "4809cc15-6550-5f5b-a6c2-eb7a40634eed"))
     (comp
       (ref "R33")
       (value "100K")
@@ -1975,9 +1975,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Q7SaETbxSH")
+          (name "SKiDL Tag") "qAwpI2pC7W")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1985,7 +1985,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c3636b48-c55e-5628-a583-8d2c19052515"))
+      (tstamps "f1b5eb81-5d39-537d-86f4-6dec00a796b6"))
     (comp
       (ref "R34")
       (value "100K")
@@ -1999,9 +1999,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Kz8MQdcXOm")
+          (name "SKiDL Tag") "e2E6mrNhMr")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2009,7 +2009,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "de520167-f1f0-5f5c-8955-4d19f86559d2"))
+      (tstamps "ce018a24-8904-5dce-ac7e-8b76ecb1cf3b"))
     (comp
       (ref "R35")
       (value "100K")
@@ -2023,9 +2023,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "cRnS09nWQ6")
+          (name "SKiDL Tag") "cPzvvTg4bX")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2033,7 +2033,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "31c22a28-21b2-51a4-9d22-c90c71382765"))
+      (tstamps "8f7c3613-fe46-5642-a3c7-a8a72a7ae969"))
     (comp
       (ref "R36")
       (value "100K")
@@ -2047,9 +2047,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "YA8XSOhwPr")
+          (name "SKiDL Tag") "BQsoRx4PT4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2057,7 +2057,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c4422aba-d0c5-5298-a813-7d8c7957dbc1"))
+      (tstamps "ada96410-1f51-5fb3-8498-74526e117c4d"))
     (comp
       (ref "R37")
       (value "100K")
@@ -2071,9 +2071,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zISMvC328h")
+          (name "SKiDL Tag") "OMaf4gLB6_")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2081,7 +2081,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4da5b742-5a15-51d6-99cf-757e43b26818"))
+      (tstamps "647e1efe-fbfa-5636-9a5e-cad5c47d1861"))
     (comp
       (ref "R38")
       (value "100K")
@@ -2095,9 +2095,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "KJk7jBrUU4")
+          (name "SKiDL Tag") "vesQhwFvO4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2105,7 +2105,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "69589206-5752-5edc-aa27-e7a8bf53ca74"))
+      (tstamps "61ffd647-255a-58a4-84f5-2d977dcaa282"))
     (comp
       (ref "R4")
       (value "4.7K")
@@ -2119,9 +2119,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "hcnQ6pqeyN")
+          (name "SKiDL Tag") "CkQzFRAbhf")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2129,7 +2129,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "05dc3f43-e704-5283-911b-f338987cbc43"))
+      (tstamps "71239a94-d2f2-5937-964a-e3afb7d54e10"))
     (comp
       (ref "R5")
       (value "4.7K")
@@ -2143,9 +2143,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Q3KF_IdLJ3")
+          (name "SKiDL Tag") "q9UiolXQ8P")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2153,7 +2153,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "83c2189e-4318-536d-988f-9166f7fe69f9"))
+      (tstamps "015ce118-db77-5711-a461-3bf316e069a4"))
     (comp
       (ref "R6")
       (value "47K")
@@ -2167,9 +2167,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "q27NyeNU3g")
+          (name "SKiDL Tag") "_bIPxNnAxc")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2177,7 +2177,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6a77743a-932c-5837-a66e-51547c26eec1"))
+      (tstamps "eec4609d-beea-52a4-a156-fae997853f65"))
     (comp
       (ref "R7")
       (value "47K")
@@ -2191,9 +2191,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "lDXtUDbrCS")
+          (name "SKiDL Tag") "Vyk40P1Ctc")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2201,7 +2201,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "d71ac7d6-16db-58d1-8e8c-49876b526ff1"))
+      (tstamps "860d628e-eb46-5fa7-ad51-6685eecf0f09"))
     (comp
       (ref "R8")
       (value "10K")
@@ -2215,9 +2215,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "p0bfr1nKYk")
+          (name "SKiDL Tag") "Ux8mFHQrkC")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2225,7 +2225,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "bccf75ab-5902-56c5-b35b-4f085eefbabd"))
+      (tstamps "9f3adf61-9f55-5e9c-82db-f3e285bdba48"))
     (comp
       (ref "R9")
       (value "10K")
@@ -2239,9 +2239,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zFEPZcAcwy")
+          (name "SKiDL Tag") "gMUYAeGfM8")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2249,7 +2249,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f5024159-3b52-5620-b168-eb073e6703ec"))
+      (tstamps "201ffd8e-8c33-5411-accf-53530c375dfe"))
     (comp
       (ref "R_LED1")
       (value "1K")
@@ -2263,9 +2263,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "oG2Na2KZHh")
+          (name "SKiDL Tag") "4IKASVTdW9")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2273,7 +2273,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7c63e17a-f438-5b04-953f-0c762d27bdb2"))
+      (tstamps "e93c9c0b-ec0d-5b87-ae03-c9d432fd6337"))
     (comp
       (ref "R_LED2")
       (value "470")
@@ -2287,9 +2287,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ElxLWQyk5P")
+          (name "SKiDL Tag") "nvmQcIh6pD")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2297,7 +2297,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "909448a1-2b78-5827-8162-9a9d5a065ced"))
+      (tstamps "474ea362-22a9-5642-ac74-dd436b55cf90"))
     (comp
       (ref "R_LED3")
       (value "1.5K")
@@ -2311,9 +2311,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wI3vdxMF5g")
+          (name "SKiDL Tag") "Ojb0conc2v")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2321,7 +2321,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "09264e15-a6a6-592a-a163-73208af699a8"))
+      (tstamps "1048410b-3edc-506f-ad9b-ca9e890b1175"))
     (comp
       (ref "R_LED4")
       (value "1.5K")
@@ -2335,9 +2335,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "DJzSxCmzba")
+          (name "SKiDL Tag") "WpzgKZaXb_")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2345,7 +2345,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "af2c8f66-6e26-588a-9fb1-f7696a73c545"))
+      (tstamps "b5bdcd42-6d12-5651-9a50-6225e8e36399"))
     (comp
       (ref "R_LED5")
       (value "1K")
@@ -2359,9 +2359,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "i07z8K3iw_")
+          (name "SKiDL Tag") "A2LJBDH1lV")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2369,7 +2369,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "88a9c8ee-aec3-5bcf-aac1-d4f827c63b70"))
+      (tstamps "dc1c3024-a224-5f0f-8313-72cea3336fc6"))
     (comp
       (ref "R_LED6")
       (value "1.5K")
@@ -2383,9 +2383,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zcWPfh1_iZ")
+          (name "SKiDL Tag") "G0eleXkrV4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2393,7 +2393,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "11a687b7-2324-5aa3-995f-6e53cf3e88d5"))
+      (tstamps "e62d49dc-df40-5138-b2c7-8d16206790bd"))
     (comp
       (ref "R_LED7")
       (value "1.5K")
@@ -2407,9 +2407,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Ho_6ZEBFm1")
+          (name "SKiDL Tag") "4rDheXpEtH")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2417,7 +2417,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "870ec769-ea59-59e5-8664-208ffee0b78b"))
+      (tstamps "ec05d4e7-7713-5311-a7fe-62d385ca4d8c"))
     (comp
       (ref "R_LED8")
       (value "1K")
@@ -2431,9 +2431,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Rif0CPbvNj")
+          (name "SKiDL Tag") "hC2FxYAsh4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:132"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:136"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2441,7 +2441,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0fb5e42f-7a47-52ad-938b-9e839facb609"))
+      (tstamps "88b08a71-86b9-58bc-9b15-9d2cc0d8fdfe"))
     (comp
       (ref "SW1")
       (value "RST")
@@ -2455,9 +2455,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "LYC3mrioyy")
+          (name "SKiDL Tag") "pVVfCPYDue")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:262"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:266"))
       (libsource
         (lib "NO_LIB")
         (part "SW"))
@@ -2465,7 +2465,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "5e705558-2bae-59d2-81b6-820d784e132d"))
+      (tstamps "b7e26594-ea7d-55f5-8c82-c8a27f434dc2"))
     (comp
       (ref "SW2")
       (value "BOOT")
@@ -2479,9 +2479,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "JfsF6iAEWU")
+          (name "SKiDL Tag") "CMpMXaYBLH")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:264"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:268"))
       (libsource
         (lib "NO_LIB")
         (part "SW"))
@@ -2489,7 +2489,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3f9c3217-d6c7-550f-b1d9-56bf9fae43c0"))
+      (tstamps "a641c38b-75ff-5f97-9fd7-3590fda9c621"))
     (comp
       (ref "TP1")
       (value "TP")
@@ -2503,9 +2503,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "z0tkBJijXm")
+          (name "SKiDL Tag") "Ld8gCKmY_C")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:291"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:295"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2513,7 +2513,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c5b6165e-e195-5b78-b19c-728d1f652a65"))
+      (tstamps "4159d4f5-ae7b-5a98-84c0-ccd48296c1d8"))
     (comp
       (ref "TP10")
       (value "TP")
@@ -2527,9 +2527,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "tH5tTa3vMV")
+          (name "SKiDL Tag") "fQHvVWkvE6")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2537,7 +2537,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "466d02e4-667f-5faf-8eb0-c67de768ebc4"))
+      (tstamps "f71fdabd-4c7f-50dc-9c5e-56ad1d63a29e"))
     (comp
       (ref "TP11")
       (value "TP")
@@ -2551,9 +2551,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "5ENIvXtceD")
+          (name "SKiDL Tag") "We_uu_oLH9")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2561,7 +2561,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "40f74a13-c730-53c4-82e7-16dfb360ccc3"))
+      (tstamps "25d2b078-daeb-53f6-9d21-4fcd5dbd5997"))
     (comp
       (ref "TP12")
       (value "TP")
@@ -2575,9 +2575,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "MpBpJy19CB")
+          (name "SKiDL Tag") "Pt08Iu2U3d")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2585,7 +2585,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "59e37406-00c3-5898-afd9-7eb059d8b21a"))
+      (tstamps "83077d80-7776-5003-afcf-4ac4de5bdd2e"))
     (comp
       (ref "TP13")
       (value "TP")
@@ -2599,9 +2599,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2p6J_b2SXE")
+          (name "SKiDL Tag") "7sbPmgBLD7")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2609,7 +2609,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "74e246b0-5be4-5dd5-b7e7-dee0567e3dd9"))
+      (tstamps "b02a6902-3b31-5928-bb7c-88b339f242b6"))
     (comp
       (ref "TP14")
       (value "TP")
@@ -2623,9 +2623,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rfx9bVOnKX")
+          (name "SKiDL Tag") "cd6ePlUozV")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2633,7 +2633,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "feb541a8-fb02-5655-bff8-fb057b10c90b"))
+      (tstamps "c44956ee-29bd-59c2-9481-80efe59a1f69"))
     (comp
       (ref "TP15")
       (value "TP")
@@ -2647,9 +2647,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "k35uDMqVBC")
+          (name "SKiDL Tag") "pEbEYTbiJj")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2657,7 +2657,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "06660958-dc1d-54cb-8b7a-275fd2b623b5"))
+      (tstamps "8c1c6c04-3419-5c87-a17c-9958b363dc5a"))
     (comp
       (ref "TP16")
       (value "TP")
@@ -2671,9 +2671,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "a_unCwqs1r")
+          (name "SKiDL Tag") "KVTJ3ZPvaC")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2681,7 +2681,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "13545130-8d13-5832-b49d-b7e7e7733d0a"))
+      (tstamps "6d60f4e6-71c2-5f14-8751-6fc205235c8d"))
     (comp
       (ref "TP17")
       (value "TP")
@@ -2695,9 +2695,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "FZPxkU7rC0")
+          (name "SKiDL Tag") "R32gtJ7UEh")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2705,7 +2705,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0de8f789-2b8e-5bc9-a59d-f630b2095fde"))
+      (tstamps "78a21d36-96f4-5d1c-8445-b43798ec0c8d"))
     (comp
       (ref "TP18")
       (value "TP")
@@ -2719,9 +2719,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "NLi3j7KsyM")
+          (name "SKiDL Tag") "sOuTlZJbOF")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2729,7 +2729,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "90c78532-e771-58d4-bdb8-fff25519ac49"))
+      (tstamps "a15bec18-c60f-5dae-a1e5-bd52e9af7edc"))
     (comp
       (ref "TP19")
       (value "TP")
@@ -2743,9 +2743,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ke2lhf6b2S")
+          (name "SKiDL Tag") "FUtBtYIYGn")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2753,7 +2753,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "5edcd8a7-a797-5e31-b437-29552fc5ba41"))
+      (tstamps "6e53a59e-787a-5e27-a106-d29d73e09c5d"))
     (comp
       (ref "TP2")
       (value "TP")
@@ -2767,9 +2767,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "jPUfSnUVtt")
+          (name "SKiDL Tag") "CBedXInYDu")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:292"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:296"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2777,7 +2777,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7463c408-7368-5c33-bc3f-36a052944cb7"))
+      (tstamps "0f5ef287-a83a-55aa-9c71-f9513afde24e"))
     (comp
       (ref "TP20")
       (value "TP")
@@ -2791,9 +2791,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "WZ9A3BVlFk")
+          (name "SKiDL Tag") "TEId_z4pJr")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2801,7 +2801,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "dc987b37-aa06-57ca-9dbe-e8c13bc7ac05"))
+      (tstamps "864245da-ab3c-5d56-ae9e-3e22eef1adc5"))
     (comp
       (ref "TP21")
       (value "TP")
@@ -2815,9 +2815,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "GEaAWT8Cqc")
+          (name "SKiDL Tag") "u4pCC8rsAe")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2825,7 +2825,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7a815ef3-cf3e-5095-a50e-2009b6af4305"))
+      (tstamps "c56d684c-0b77-58b6-9ee8-6b72b7c63c0b"))
     (comp
       (ref "TP22")
       (value "TP")
@@ -2839,9 +2839,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "sGa7D4Ulr3")
+          (name "SKiDL Tag") "E3JYHw98Oz")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2849,7 +2849,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b5f1e886-a1ec-5b06-976b-9ce600053c79"))
+      (tstamps "3384f5a5-fd73-5fed-9e4c-017ad4e5e3ca"))
     (comp
       (ref "TP23")
       (value "TP")
@@ -2863,9 +2863,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "B5uEQlfLMQ")
+          (name "SKiDL Tag") "DgYAIemxVn")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2873,7 +2873,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6dfbd40a-0fc2-5e0c-bd45-22b5f35904ed"))
+      (tstamps "85933c5c-1fea-5913-b18a-bdbf24c8021c"))
     (comp
       (ref "TP24")
       (value "TP")
@@ -2887,9 +2887,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2GR8EySang")
+          (name "SKiDL Tag") "RWtVFdsjsM")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2897,7 +2897,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "bd695cb4-7c03-5782-8e1c-f73be0c77648"))
+      (tstamps "96f38e51-508e-542b-a57f-aaebd2dd4a0a"))
     (comp
       (ref "TP25")
       (value "TP")
@@ -2911,9 +2911,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ptUrxq0Hwh")
+          (name "SKiDL Tag") "ywWcPCilRF")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2921,7 +2921,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "27350b55-a4f8-5fad-8693-d24866d63829"))
+      (tstamps "a2f7b25e-3b27-523a-9818-006dd354a055"))
     (comp
       (ref "TP26")
       (value "TP")
@@ -2935,9 +2935,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "hy5pL68b2_")
+          (name "SKiDL Tag") "ehRNgZi3Rf")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2945,7 +2945,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9ad3bcc7-598c-51c2-8f33-e8a7854672d5"))
+      (tstamps "22362392-be43-5813-b2e5-38196f95d5ad"))
     (comp
       (ref "TP27")
       (value "TP")
@@ -2959,9 +2959,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rE1dmJxVLE")
+          (name "SKiDL Tag") "HbrGsJftwB")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2969,7 +2969,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3dd2f1ed-18d3-5e2f-9baf-35f4f778cb1b"))
+      (tstamps "9d2127ec-a4e3-5d8c-b2af-5125f04a6159"))
     (comp
       (ref "TP28")
       (value "TP")
@@ -2983,9 +2983,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "r_ivJ7kwiB")
+          (name "SKiDL Tag") "EcjXkRtpFD")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2993,7 +2993,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "cac0b493-c462-56b7-81e4-083eeb9f1e09"))
+      (tstamps "904caa4b-9f0d-5e53-b226-261025e6fbf0"))
     (comp
       (ref "TP29")
       (value "TP")
@@ -3007,9 +3007,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "HaVZjUFANd")
+          (name "SKiDL Tag") "xSp_qyitpz")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3017,7 +3017,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "774b9462-fde1-590d-93f6-f1ec5a0dcfee"))
+      (tstamps "40cba992-03ac-567c-b963-b4420c232d54"))
     (comp
       (ref "TP3")
       (value "TP")
@@ -3031,9 +3031,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "LQdqL51bjr")
+          (name "SKiDL Tag") "2ItybdVjSd")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:293"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:297"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3041,7 +3041,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ee303c80-5de8-5a59-b2c1-3c53842e56e0"))
+      (tstamps "e45e2f59-34ca-54d9-9dc5-b7ba392a1fde"))
     (comp
       (ref "TP30")
       (value "TP")
@@ -3055,9 +3055,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ICYTV103o4")
+          (name "SKiDL Tag") "vkYGWi2AYe")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3065,7 +3065,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "de25e1e8-a494-5d7e-8645-9b5d30eb5b90"))
+      (tstamps "b390330d-0783-571c-ad38-7ac1fe827d68"))
     (comp
       (ref "TP31")
       (value "TP")
@@ -3079,9 +3079,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "CQNlw4hF6k")
+          (name "SKiDL Tag") "mYDVtm15ov")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3089,7 +3089,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "32f5e87f-cf7d-5e43-97e3-424a86ed5a76"))
+      (tstamps "b1c3685d-a99c-52d3-8469-eabc71e46bac"))
     (comp
       (ref "TP32")
       (value "TP")
@@ -3103,9 +3103,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rKr8cauxrr")
+          (name "SKiDL Tag") "HcaDTfPXYB")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3113,7 +3113,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4379813b-f3bd-50a6-b329-c77d4b899460"))
+      (tstamps "91bc4584-0a8c-5128-9a5e-cc25cbfaad2a"))
     (comp
       (ref "TP33")
       (value "TP")
@@ -3127,9 +3127,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "3dE_Nh4LRr")
+          (name "SKiDL Tag") "dUlS0YeG1q")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3137,7 +3137,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a1e618f0-a769-56a5-b5ff-bb3459c093e7"))
+      (tstamps "d79bd43b-4f49-5a2f-b9bd-dc02721a769d"))
     (comp
       (ref "TP34")
       (value "TP")
@@ -3151,9 +3151,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "y7o5R6Ty41")
+          (name "SKiDL Tag") "FONLw4XQzb")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3161,7 +3161,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2e97ea8b-3c06-5f3c-9779-ed11a7b00d9f"))
+      (tstamps "1697e154-e657-5139-9eef-41d83f08b24c"))
     (comp
       (ref "TP4")
       (value "TP")
@@ -3175,9 +3175,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "D5PyGNyC4d")
+          (name "SKiDL Tag") "nW1owajlLP")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3185,7 +3185,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2d3053ab-a92c-5c5f-87dd-f06ac7ea8bdc"))
+      (tstamps "db055b4e-afcb-5175-be9d-4bb6b6b394a7"))
     (comp
       (ref "TP5")
       (value "TP")
@@ -3199,9 +3199,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "hW0rvZfGnA")
+          (name "SKiDL Tag") "LagqQAYuO4")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3209,7 +3209,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "39ff125a-1b35-57bc-aa13-c7ed7c446313"))
+      (tstamps "2cb2579a-5f0c-5ce1-875b-66ee970558ea"))
     (comp
       (ref "TP6")
       (value "TP")
@@ -3223,9 +3223,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "pwDllUWNpX")
+          (name "SKiDL Tag") "JKsBexOcw_")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3233,7 +3233,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3eea1d7e-0446-5908-aaeb-0d72546da7ca"))
+      (tstamps "4e6997bd-d8f5-5e75-a167-06bb676a4263"))
     (comp
       (ref "TP7")
       (value "TP")
@@ -3247,9 +3247,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "qMA_1OP3vE")
+          (name "SKiDL Tag") "Zishdcoro7")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3257,7 +3257,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b3b97dfb-e555-5939-84a5-a4e072fb566c"))
+      (tstamps "7b9ae125-51fe-5fd3-aaff-6dff98869a56"))
     (comp
       (ref "TP8")
       (value "TP")
@@ -3271,9 +3271,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "3gWWPHc8O_")
+          (name "SKiDL Tag") "fET3KwWiRH")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3281,7 +3281,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "90fc0cfa-9893-52fe-be5b-2919e2949000"))
+      (tstamps "f6c80125-5b89-5d63-a16c-08eca4646583"))
     (comp
       (ref "TP9")
       (value "TP")
@@ -3295,9 +3295,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "OLvc8_GIkZ")
+          (name "SKiDL Tag") "PXkNzCMVI_")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:492"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:504"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -3305,7 +3305,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "93bee58b-415c-5f49-ae17-f1a7e4f7a0cf"))
+      (tstamps "8f01970c-8f1f-52d5-a4d5-34d825ea6f5e"))
     (comp
       (ref "U1")
       (value "M5StampS3/S3A")
@@ -3319,9 +3319,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "f4OjPmsWkm")
+          (name "SKiDL Tag") "2ZuzqZq3BB")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:226"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:230"))
       (libsource
         (lib "NO_LIB")
         (part "M5STAMPS3"))
@@ -3329,7 +3329,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "fc70683b-a37b-5830-867f-00945c85e719"))
+      (tstamps "f3d317ea-8118-5ab3-9693-f858195b87e3"))
     (comp
       (ref "U106")
       (value "1N5819")
@@ -3343,9 +3343,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "dEg6O_vhTF")
+          (name "SKiDL Tag") "PGiMM3J9p1")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:452"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:464"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3353,7 +3353,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "90fa743d-f8b4-501d-b3df-f54f819d4e16"))
+      (tstamps "b03a4191-41f2-5b4a-a0a3-3c927eb2e9e7"))
     (comp
       (ref "U2")
       (value "74HCT244")
@@ -3367,9 +3367,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wJRs6y1LmE")
+          (name "SKiDL Tag") "vX50cVnCMi")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:298"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:302"))
       (libsource
         (lib "NO_LIB")
         (part "74HCT244"))
@@ -3377,7 +3377,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "89f90a36-4d81-5013-b6fa-4fedb55df7c4"))
+      (tstamps "665f5c7e-3d59-51c3-8976-b5468e730498"))
     (comp
       (ref "U45")
       (value "1N4007")
@@ -3391,9 +3391,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "VF44mgwv7d")
+          (name "SKiDL Tag") "luxLqnyVMR")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:361"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:365"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3401,7 +3401,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "756188ab-195c-5351-885c-fdcb79e0f6b5"))
+      (tstamps "ab8f9aa5-4ce3-5f7a-ae9a-75e9011e88d8"))
     (comp
       (ref "U49")
       (value "1N4007")
@@ -3415,9 +3415,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "SgRK2Ql5_0")
+          (name "SKiDL Tag") "CZkXsXv3ro")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:361"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:365"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3425,7 +3425,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "38dddcea-03bd-59bd-a0dd-7ed96ad77d59"))
+      (tstamps "8564a6cc-a2a0-5e48-ba97-ee0035729ba4"))
     (comp
       (ref "U55")
       (value "P3100SC")
@@ -3439,9 +3439,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "4cSckrbkpD")
+          (name "SKiDL Tag") "BtVbAl_A_2")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:408"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:417"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3449,7 +3449,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "60339078-dbbf-5902-9be0-bf93dc198664"))
+      (tstamps "0599aa86-f04a-519c-ac77-ece3f87d5b38"))
     (comp
       (ref "U56")
       (value "1N4007")
@@ -3463,9 +3463,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "lEVePzYes4")
+          (name "SKiDL Tag") "A3OthcbOpi")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:410"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:419"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3473,7 +3473,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "185e18b9-9bd8-5ce1-8377-89833106cdeb"))
+      (tstamps "2b9e3a46-1132-5c4d-82d4-601ded9b178c"))
     (comp
       (ref "U57")
       (value "1N4007")
@@ -3487,9 +3487,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "YnbOIMfqSU")
+          (name "SKiDL Tag") "Zb62rxMDss")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:411"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:420"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3497,7 +3497,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "282d6612-7d05-5471-b32a-263191dae7f0"))
+      (tstamps "773b32a1-3cc7-566c-9d9b-ea436b723152"))
     (comp
       (ref "U58")
       (value "1N4007")
@@ -3511,9 +3511,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "vvaiBlPJWQ")
+          (name "SKiDL Tag") "JdHTl84kpo")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:412"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:421"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3521,7 +3521,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3399cf13-9015-5f03-9b4c-7e188123a74f"))
+      (tstamps "a3ea0a43-f007-55f0-ba47-7fedd96f305e"))
     (comp
       (ref "U59")
       (value "1N4007")
@@ -3535,9 +3535,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "OM0wEGFjFa")
+          (name "SKiDL Tag") "sXUywv41Po")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:413"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:422"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3545,7 +3545,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a04de317-736b-5b57-a104-48a7baf1a5c4"))
+      (tstamps "b3783590-66cb-5483-82da-589970a3a563"))
     (comp
       (ref "U60")
       (value "BZT03C82")
@@ -3559,9 +3559,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "in22x0GCQU")
+          (name "SKiDL Tag") "mds6XVXL53")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:414"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:423"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3569,7 +3569,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "20d32dcf-ad2f-5d0c-ac9b-67c570b844d6"))
+      (tstamps "bec7ecc1-86e7-56e7-b144-ae0e51c61f5f"))
     (comp
       (ref "U64")
       (value "BK2125HS601-T")
@@ -3583,9 +3583,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "nkKOtSOIxe")
+          (name "SKiDL Tag") "VC1OziJ2kR")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:422"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:431"))
       (libsource
         (lib "NO_LIB")
         (part "FB"))
@@ -3593,7 +3593,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "dcb0ea7a-02e5-5e10-88bb-46b3d139944c"))
+      (tstamps "e1858efb-c719-5acb-baaf-5bbfdf6c5b0e"))
     (comp
       (ref "U79")
       (value "1N5819")
@@ -3607,9 +3607,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2VPaSayVj9")
+          (name "SKiDL Tag") "Xj1JRLyjCk")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:452"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:464"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3617,7 +3617,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "883b8631-a8a3-51c2-9415-af9d4e936bab"))
+      (tstamps "60d1e533-fc38-5988-9093-01bf09ecf06f"))
     (comp
       (ref "U82")
       (value "P3100SC")
@@ -3631,9 +3631,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "DHUVH0nQLM")
+          (name "SKiDL Tag") "USYENtuvdf")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:408"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:417"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3641,7 +3641,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2a5c527b-e69e-5810-921f-5a4fbb349ff6"))
+      (tstamps "50f73638-40a4-57ce-90a4-938ce3d0350b"))
     (comp
       (ref "U83")
       (value "1N4007")
@@ -3655,9 +3655,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Xm1ELKX5y5")
+          (name "SKiDL Tag") "EDiBraCFH1")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:410"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:419"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3665,7 +3665,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ca3bd450-b3b8-5ae0-9a4c-33af2b6f9c80"))
+      (tstamps "31cd0d49-d026-52d4-a1b1-681319738ee0"))
     (comp
       (ref "U84")
       (value "1N4007")
@@ -3679,9 +3679,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "yQbJi1OEQM")
+          (name "SKiDL Tag") "sZ_PSt9PaL")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:411"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:420"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3689,7 +3689,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "47a41580-745a-5462-89f7-5c301fe3a48c"))
+      (tstamps "8a72771b-c379-5e05-86f6-68454462a814"))
     (comp
       (ref "U85")
       (value "1N4007")
@@ -3703,9 +3703,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "tLfcUgOT3V")
+          (name "SKiDL Tag") "SNPhzxxhCj")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:412"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:421"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3713,7 +3713,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "78c2eb7c-cacf-5cd8-9e48-16c13b8b0f33"))
+      (tstamps "4e82dfa0-880d-5ffe-b63a-cb35b82436f7"))
     (comp
       (ref "U86")
       (value "1N4007")
@@ -3727,9 +3727,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "f88D5BFPAz")
+          (name "SKiDL Tag") "T2LQhbMeHB")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:413"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:422"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3737,7 +3737,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "207f768e-37f6-5c18-860d-f36bdffeb573"))
+      (tstamps "ed3e20ee-cc45-5d0b-9dab-174a8b894676"))
     (comp
       (ref "U87")
       (value "BZT03C82")
@@ -3751,9 +3751,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "qdFjNiBgsk")
+          (name "SKiDL Tag") "ZGpeKoXFMr")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:414"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:423"))
       (libsource
         (lib "NO_LIB")
         (part "D"))
@@ -3761,7 +3761,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a3df76f6-870f-5689-820f-d9086e839f8c"))
+      (tstamps "977e9ec2-76db-5a8c-95db-c8e009cabb75"))
     (comp
       (ref "U91")
       (value "BK2125HS601-T")
@@ -3775,9 +3775,9 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "uxZ50xEbZj")
+          (name "SKiDL Tag") "V9ATG06S0H")
         (field
-          (name "SKiDL Line") "repo-v2/kicad/skidl/m5stamp_slic2port.py:422"))
+          (name "SKiDL Line") "m5stamp_slic2port.py:431"))
       (libsource
         (lib "NO_LIB")
         (part "FB"))
@@ -3785,7 +3785,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0cf10f28-794f-5505-91fe-d35be5096518")))
+      (tstamps "c7412570-2ce0-5927-801b-65e35628293e")))
   (nets
     (net
       (code 1)
@@ -3933,38 +3933,6 @@
         (pintype "PASSIVE")))
     (net
       (code 5)
-      (name "BRM_A")
-      (class "Default")
-      (node
-        (ref "U58")
-        (pin "2")
-        (pintype "PASSIVE"))
-      (node
-        (ref "U59")
-        (pin "2")
-        (pintype "PASSIVE"))
-      (node
-        (ref "U60")
-        (pin "2")
-        (pintype "PASSIVE")))
-    (net
-      (code 6)
-      (name "BRM_B")
-      (class "Default")
-      (node
-        (ref "U85")
-        (pin "2")
-        (pintype "PASSIVE"))
-      (node
-        (ref "U86")
-        (pin "2")
-        (pintype "PASSIVE"))
-      (node
-        (ref "U87")
-        (pin "2")
-        (pintype "PASSIVE")))
-    (net
-      (code 7)
       (name "BRP_A")
       (class "Default")
       (node
@@ -3980,7 +3948,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 8)
+      (code 6)
       (name "BRP_B")
       (class "Default")
       (node
@@ -3996,7 +3964,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 9)
+      (code 7)
       (name "EN")
       (class "Default")
       (node
@@ -4012,7 +3980,7 @@
         (pin "22")
         (pintype "PASSIVE")))
     (net
-      (code 10)
+      (code 8)
       (name "FR_A_33")
       (class "Default")
       (node
@@ -4028,7 +3996,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 11)
+      (code 9)
       (name "FR_A_5V")
       (class "Default")
       (node
@@ -4044,7 +4012,7 @@
         (pin "18")
         (pintype "PASSIVE")))
     (net
-      (code 12)
+      (code 10)
       (name "FR_B_33")
       (class "Default")
       (node
@@ -4060,7 +4028,7 @@
         (pin "11")
         (pintype "PASSIVE")))
     (net
-      (code 13)
+      (code 11)
       (name "FR_B_5V")
       (class "Default")
       (node
@@ -4076,7 +4044,7 @@
         (pin "9")
         (pintype "PASSIVE")))
     (net
-      (code 14)
+      (code 12)
       (name "GND")
       (class "Default")
       (node
@@ -4358,9 +4326,33 @@
       (node
         (ref "U2")
         (pin "19")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U58")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U59")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U60")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U85")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U86")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U87")
+        (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 15)
+      (code 13)
       (name "GPIO0")
       (class "Default")
       (node
@@ -4372,7 +4364,7 @@
         (pin "20")
         (pintype "PASSIVE")))
     (net
-      (code 16)
+      (code 14)
       (name "GPIO3")
       (class "Default")
       (node
@@ -4384,7 +4376,7 @@
         (pin "3")
         (pintype "PASSIVE")))
     (net
-      (code 17)
+      (code 15)
       (name "GPIO39")
       (class "Default")
       (node
@@ -4396,7 +4388,7 @@
         (pin "19")
         (pintype "PASSIVE")))
     (net
-      (code 18)
+      (code 16)
       (name "GPIO4")
       (class "Default")
       (node
@@ -4412,7 +4404,7 @@
         (pin "4")
         (pintype "PASSIVE")))
     (net
-      (code 19)
+      (code 17)
       (name "GPIO40")
       (class "Default")
       (node
@@ -4424,7 +4416,7 @@
         (pin "21")
         (pintype "PASSIVE")))
     (net
-      (code 20)
+      (code 18)
       (name "GPIO41")
       (class "Default")
       (node
@@ -4436,7 +4428,7 @@
         (pin "23")
         (pintype "PASSIVE")))
     (net
-      (code 21)
+      (code 19)
       (name "GPIO42")
       (class "Default")
       (node
@@ -4448,7 +4440,7 @@
         (pin "25")
         (pintype "PASSIVE")))
     (net
-      (code 22)
+      (code 20)
       (name "GPIO43")
       (class "Default")
       (node
@@ -4460,7 +4452,7 @@
         (pin "26")
         (pintype "PASSIVE")))
     (net
-      (code 23)
+      (code 21)
       (name "GPIO44")
       (class "Default")
       (node
@@ -4472,7 +4464,7 @@
         (pin "24")
         (pintype "PASSIVE")))
     (net
-      (code 24)
+      (code 22)
       (name "GPIO46")
       (class "Default")
       (node
@@ -4484,7 +4476,7 @@
         (pin "27")
         (pintype "PASSIVE")))
     (net
-      (code 25)
+      (code 23)
       (name "GPIO5")
       (class "Default")
       (node
@@ -4496,7 +4488,7 @@
         (pin "5")
         (pintype "PASSIVE")))
     (net
-      (code 26)
+      (code 24)
       (name "HK_A_DRV")
       (class "Default")
       (node
@@ -4508,7 +4500,7 @@
         (pin "3")
         (pintype "PASSIVE")))
     (net
-      (code 27)
+      (code 25)
       (name "HK_B_DRV")
       (class "Default")
       (node
@@ -4520,7 +4512,7 @@
         (pin "3")
         (pintype "PASSIVE")))
     (net
-      (code 28)
+      (code 26)
       (name "LED_HK_A")
       (class "Default")
       (node
@@ -4532,7 +4524,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 29)
+      (code 27)
       (name "LED_HK_B")
       (class "Default")
       (node
@@ -4544,7 +4536,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 30)
+      (code 28)
       (name "LED_LK_A")
       (class "Default")
       (node
@@ -4556,7 +4548,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 31)
+      (code 29)
       (name "LED_LK_B")
       (class "Default")
       (node
@@ -4568,7 +4560,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 32)
+      (code 30)
       (name "LED_PWR_A")
       (class "Default")
       (node
@@ -4580,7 +4572,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 33)
+      (code 31)
       (name "LED_RG_A")
       (class "Default")
       (node
@@ -4592,7 +4584,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 34)
+      (code 32)
       (name "LED_RG_B")
       (class "Default")
       (node
@@ -4604,7 +4596,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 35)
+      (code 33)
       (name "LED_ST_A")
       (class "Default")
       (node
@@ -4616,7 +4608,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 36)
+      (code 34)
       (name "MON_A")
       (class "Default")
       (node
@@ -4636,7 +4628,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 37)
+      (code 35)
       (name "MON_B")
       (class "Default")
       (node
@@ -4656,7 +4648,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 38)
+      (code 36)
       (name "N$1")
       (class "Default")
       (node
@@ -4668,7 +4660,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 39)
+      (code 37)
       (name "N$2")
       (class "Default")
       (node
@@ -4680,7 +4672,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 40)
+      (code 38)
       (name "PD_A")
       (class "Default")
       (node
@@ -4696,7 +4688,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 41)
+      (code 39)
       (name "PD_B")
       (class "Default")
       (node
@@ -4712,7 +4704,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 42)
+      (code 40)
       (name "PD_BUS")
       (class "Default")
       (node
@@ -4728,7 +4720,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 43)
+      (code 41)
       (name "PD_EN")
       (class "Default")
       (node
@@ -4744,7 +4736,7 @@
         (pin "17")
         (pintype "PASSIVE")))
     (net
-      (code 44)
+      (code 42)
       (name "Q1_GATE")
       (class "Default")
       (node
@@ -4756,7 +4748,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 45)
+      (code 43)
       (name "RING_A")
       (class "Default")
       (node
@@ -4792,7 +4784,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 46)
+      (code 44)
       (name "RING_B")
       (class "Default")
       (node
@@ -4828,7 +4820,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 47)
+      (code 45)
       (name "RLY_A_COIL")
       (class "Default")
       (node
@@ -4844,7 +4836,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 48)
+      (code 46)
       (name "RLY_B_COIL")
       (class "Default")
       (node
@@ -4860,7 +4852,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 49)
+      (code 47)
       (name "RM_A_33")
       (class "Default")
       (node
@@ -4876,7 +4868,7 @@
         (pin "4")
         (pintype "PASSIVE")))
     (net
-      (code 50)
+      (code 48)
       (name "RM_A_5V")
       (class "Default")
       (node
@@ -4896,7 +4888,7 @@
         (pin "16")
         (pintype "PASSIVE")))
     (net
-      (code 51)
+      (code 49)
       (name "RM_B_33")
       (class "Default")
       (node
@@ -4912,7 +4904,7 @@
         (pin "13")
         (pintype "PASSIVE")))
     (net
-      (code 52)
+      (code 50)
       (name "RM_B_5V")
       (class "Default")
       (node
@@ -4932,7 +4924,7 @@
         (pin "7")
         (pintype "PASSIVE")))
     (net
-      (code 53)
+      (code 51)
       (name "SEL_A_33")
       (class "Default")
       (node
@@ -4948,7 +4940,7 @@
         (pin "6")
         (pintype "PASSIVE")))
     (net
-      (code 54)
+      (code 52)
       (name "SEL_A_5V")
       (class "Default")
       (node
@@ -4972,7 +4964,7 @@
         (pin "14")
         (pintype "PASSIVE")))
     (net
-      (code 55)
+      (code 53)
       (name "SEL_B_33")
       (class "Default")
       (node
@@ -4988,7 +4980,7 @@
         (pin "15")
         (pintype "PASSIVE")))
     (net
-      (code 56)
+      (code 54)
       (name "SEL_B_5V")
       (class "Default")
       (node
@@ -5012,7 +5004,7 @@
         (pin "5")
         (pintype "PASSIVE")))
     (net
-      (code 57)
+      (code 55)
       (name "SHK_A_33")
       (class "Default")
       (node
@@ -5032,7 +5024,7 @@
         (pin "7")
         (pintype "PASSIVE")))
     (net
-      (code 58)
+      (code 56)
       (name "SHK_A_RAW")
       (class "Default")
       (node
@@ -5052,7 +5044,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 59)
+      (code 57)
       (name "SHK_B_33")
       (class "Default")
       (node
@@ -5072,7 +5064,7 @@
         (pin "10")
         (pintype "PASSIVE")))
     (net
-      (code 60)
+      (code 58)
       (name "SHK_B_RAW")
       (class "Default")
       (node
@@ -5092,7 +5084,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 61)
+      (code 59)
       (name "TAP_A_N")
       (class "Default")
       (node
@@ -5108,7 +5100,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 62)
+      (code 60)
       (name "TAP_B_N")
       (class "Default")
       (node
@@ -5124,7 +5116,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 63)
+      (code 61)
       (name "TIP_A")
       (class "Default")
       (node
@@ -5160,7 +5152,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 64)
+      (code 62)
       (name "TIP_B")
       (class "Default")
       (node
@@ -5196,7 +5188,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 65)
+      (code 63)
       (name "TONE_5V")
       (class "Default")
       (node
@@ -5212,7 +5204,7 @@
         (pin "12")
         (pintype "PASSIVE")))
     (net
-      (code 66)
+      (code 64)
       (name "TONE_AC")
       (class "Default")
       (node
@@ -5228,7 +5220,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 67)
+      (code 65)
       (name "TONE_BUS")
       (class "Default")
       (node
@@ -5260,7 +5252,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 68)
+      (code 66)
       (name "TONE_N1")
       (class "Default")
       (node
@@ -5276,7 +5268,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 69)
+      (code 67)
       (name "TONE_N2")
       (class "Default")
       (node
@@ -5292,7 +5284,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 70)
+      (code 68)
       (name "TONE_PWM_33")
       (class "Default")
       (node
@@ -5308,7 +5300,7 @@
         (pin "8")
         (pintype "PASSIVE")))
     (net
-      (code 71)
+      (code 69)
       (name "VAUD")
       (class "Default")
       (node
@@ -5352,7 +5344,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 72)
+      (code 70)
       (name "VIN_F")
       (class "Default")
       (node
@@ -5368,7 +5360,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 73)
+      (code 71)
       (name "VIN_RAW")
       (class "Default")
       (node
@@ -5400,7 +5392,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 74)
+      (code 72)
       (name "VREF165")
       (class "Default")
       (node
@@ -5428,7 +5420,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 75)
+      (code 73)
       (name "VR_A_IN")
       (class "Default")
       (node
@@ -5452,7 +5444,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 76)
+      (code 74)
       (name "VR_A_PIN")
       (class "Default")
       (node
@@ -5468,7 +5460,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 77)
+      (code 75)
       (name "VR_B_IN")
       (class "Default")
       (node
@@ -5492,7 +5484,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 78)
+      (code 76)
       (name "VR_B_PIN")
       (class "Default")
       (node
@@ -5508,7 +5500,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 79)
+      (code 77)
       (name "VX_A_AUD")
       (class "Default")
       (node
@@ -5532,7 +5524,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 80)
+      (code 78)
       (name "VX_A_IN")
       (class "Default")
       (node
@@ -5548,7 +5540,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 81)
+      (code 79)
       (name "VX_A_PIN")
       (class "Default")
       (node
@@ -5564,7 +5556,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 82)
+      (code 80)
       (name "VX_B_AUD")
       (class "Default")
       (node
@@ -5588,7 +5580,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 83)
+      (code 81)
       (name "VX_B_IN")
       (class "Default")
       (node
@@ -5604,7 +5596,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 84)
+      (code 82)
       (name "VX_B_PIN")
       (class "Default")
       (node
