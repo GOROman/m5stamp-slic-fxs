@@ -6,11 +6,11 @@
 |------|------|
 | 回路定義（SKiDL ソース） | ✅ 完了。全回路を `skidl/m5stamp_slic2port.py` に定義 |
 | ERC | △ SKiDL 簡易 ERC はエラー/警告0件。ただし全ピンPASSIVE定義のため駆動競合・電圧・極性の保証はしない。追加の接続回帰検査は `tests/test_hardware.py` |
-| KiCad ネットリスト | ✅ 生成済み `skidl/m5stamp_slic2port.net`（142 部品 / 76 ネット。SKiDL 再生成との位相一致を検証済み） |
+| KiCad ネットリスト | ✅ 生成済み `skidl/m5stamp_slic2port.net`（156 部品 / 84 ネット。v3.2 でステータス LED 追加、意味差分は追加のみであることを検証済み） |
 | KiCad シンボル | ✅ M5STAMPS3 は M5Stack 公式ライブラリから抽出して同梱。その他の部品シンボルは未作成（回路図エディタで開く形にはなっていない） |
 | KiCad フットプリント | △ KS0835F / RJ11 / Stamp-S3-Socket は自作、Stamp-S3-SMD は公式コピーを同梱（寸法実測の出典）。その他は標準ライブラリ名をネットリストに**文字列で指定**した状態（一部は想定名・要実在確認） |
 | 回路図（.kicad_sch） | ❌ 未作成 |
-| 基板（.kicad_pcb）・配置・配線 | △ 配置まで完了（`SLIC2PORT-FXS.kicad_pcb`、v3.1: 142部品全配置・未配線、120×90mm、U1 ソケット実装。v3.1 でパスコンを IC/モジュール電源ピン近傍へ是正 — C10 のみ U1 ソケット直下の裏面（B.Cu）配置）。生成は `build_pcb_v31.py`（KiCad Python、ネットリスト JSON は `netlist_v3.json`）、検証は `check_v31.py`（パッド↔ネット不一致 0 件、コートヤード重なりは v3 引継ぎの 2 組のみ・層別判定）。配線は EasyEDA に取り込んで仕上げる方針 |
+| 基板（.kicad_pcb）・配置・配線 | △ 配置まで完了（`SLIC2PORT-FXS.kicad_pcb`、v3.2: 156部品全配置・未配線、120×90mm、U1 ソケット実装。v3.1 でパスコンを IC/モジュール電源ピン近傍へ是正 — C10 のみ U1 ソケット直下の裏面（B.Cu）配置。v3.2 でステータス LED ×6 + 抵抗 ×6 + バッファ FET ×2 を基板上端の空き帯へ追加配置し、役割シルク（HOOK_x/RING_x/LINK_x）を付けた）。生成は `build_pcb_v32.py`（KiCad Python、ネットリスト JSON は `netlist_v32.json`）、検証は `check_v32.py`（パッド↔ネット不一致 0 件、コートヤード重なりは v3.1 引継ぎの 2 組のみ・新規 0 組、既存部品の移動なし）。配線は EasyEDA に取り込んで仕上げる方針 |
 | ガーバー | ❌ 未作成（発注は本タスク範囲外） |
 
 この VM には KiCad 本体が無く、apt 導入も試みたがパッケージ取得が完了しなかったため、上記の「データとしての到達度」に留まる。ネットリストとソースの一致は接続検査で確認し、回路の電気的成立性はデータシート照合と実機で検証する。KiCad 側は下記の手順で取り込んで仕上げる想定。
@@ -54,10 +54,10 @@
 ```
 kicad/
 ├─ SLIC2PORT-FXS.kicad_pro     プロジェクト (スケルトン)
-├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (v3: 142部品・未配線・120x90mm、EasyEDA 仕上げ用)
+├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (v3.2: 156部品・未配線・120x90mm、EasyEDA 仕上げ用)
 ├─ build_pcb_v2.py             基板生成スクリプト v2 (旧、PR マージ済み 106 部品版)
 ├─ netlist_v2.json             v2 用ネットリスト JSON
-├─ build_pcb_v3.py             基板生成スクリプト v3 (現行、142 部品・120x90mm・ソケット)
+├─ build_pcb_v32.py            基板生成スクリプト v3.2 (現行、156 部品・120x90mm・ソケット)
 ├─ netlist_v3.json             skidl/m5stamp_slic2port.net の JSON 変換 (build_pcb_v3.py の入力)
 ├─ check_v3.py                 v3 基板の独立検証スクリプト
 ├─ fp-lib-table / sym-lib-table
