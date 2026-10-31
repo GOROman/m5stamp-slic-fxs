@@ -41,6 +41,17 @@ out_d = cav_d + 2*wall;             // 98
 cx = pcb_w/2;  cy = pcb_d/2;        // board centre (60,45)
 
 // ---- Connector / control positions (KiCad coords, from the PCB file) ----
+// =====================================================================
+// BOARD INTERFACE - every board-dependent value lives in this section.
+// The case structure (walls, bosses, screw scheme) and print design do
+// NOT depend on the PCB revision. For a new board revision (v4.0):
+// re-extract the values below from the new .kicad_pcb, regenerate the
+// STLs, and re-check inner_h against the new tallest part.
+// v4.0 status: outline 120x90 and H1..H4 are expected to be kept, but
+// connector edge positions and the height map may change - the values
+// below are still v3.4/v3.4.1 and MUST be refreshed before printing
+// a fit-critical case for v4.0.
+// =====================================================================
 rj11_x   = [18, 102];               // J_3 port A / J_4 port B, body centre X (front face y=0.45)
 usb_x    = 16;                      // J1 USB-C centre X, shell front y=88.6, shell centre z = pcb_top+1.6
 tb_cx    = 32.5;                    // J2 terminal block centre X (pins at x=30,35, y=85)
@@ -51,6 +62,20 @@ led_pos  = [[45.51,8.18],[54.10,8.18],[50.70,11.97],     // D4 HOOK_A, D5 RING_A
             [67.70,83.47],[78.20,83.47]];                // D2 PWR, D3 STAT
 button_h = 5.0;                     // SW_PUSH_6mm total height above PCB (verify variant!)
 plunger_gap = 1.2;                  // plunger tip -> button top clearance at rest
+
+// Component zones / height map (drives lid vents + assembly mock; fit-relevant
+// via inner_h check against tallest_part_h)
+mod_zones   = [[24.5, 30.8], [45.3, 43.8]];   // KS0835F plates [x0, y0] (MOD_A / MOD_B)
+mod_size    = [50.2, 6.3, 13.0];              // plate L x T x H, stands 2.4 above PCB
+relay_zones = [[30.4, 52.9], [98.4, 30.4]];   // G5V-2 bodies [x0, y0] (K1 / K2)
+relay_size  = [20.5, 10.1, 11.5];
+cap_pos     = [[22.52, 65.28], [54.12, 56.98], [4.53, 61.77]];  // D8 electrolytics C13/C22/C1
+cap_d = 8;  cap_h = 12;
+stamp_xy = [41, 65];  stamp_size = [18, 24];  stamp_socket_h = 4.3;  stamp_t = 3;
+tallest_part_h = 15.5;              // KS0835F top above PCB; inner_h (18.0) must exceed this
+// Lid ventilation slot maps: [ [row Ys], [slot centre Xs], slot length ]
+vent_mod   = [ [[31.5, 36.5], [37, 51, 65], 14], [[45, 49.5], [58, 72, 86], 14] ];
+vent_relay = [ [[56, 60.5], [36, 46], 12], [[33, 38], [108], 14] ];
 
 $fn = 48;
 
@@ -122,16 +147,11 @@ module lid() {
     // button plunger holes
     for (p = sw_pos) translate([p[0], p[1], lid_bot-0.1]) cylinder(d=7.0, h=lid_t+0.2);
     // ventilation slots over SLIC modules (main heat source when ringing)
-    for (yy = [31.5, 36.5], xx = [37, 51, 65])
-      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(14, 3);
-    for (yy = [45, 49.5], xx = [58, 72, 86])
-      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(14, 3);
-    // ventilation slots over relay K1
-    for (yy = [56, 60.5], xx = [36, 46])
-      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(12, 3);
-    // ventilation slots over relay K2
-    for (yy = [33, 38])
-      translate([108, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(14, 3);
+    for (v = vent_mod) for (yy = v[0], xx = v[1])
+      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(v[2], 3);
+    // ventilation slots over relays K1 / K2
+    for (v = vent_relay) for (yy = v[0], xx = v[1])
+      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(v[2], 3);
   }
   // raised lettering (safety + identification), readable from the south side
   lid_text("SLIC2PORT-FXS", 6, 34, 67);
@@ -163,18 +183,15 @@ module board_mock() {
   color("green") translate([0, 0, pcb_bot]) cube([pcb_w, pcb_d, pcb_t]);
   color("white") for (x = rj11_x) translate([x-6.75, 0.45, pcb_top]) cube([13.5, 13.5, 13.5]);       // RJ11 jacks
   color("silver") translate([usb_x-4.5, 81.2, pcb_top]) cube([9, 7.4, 3.3]);                          // USB-C
-  color("green") translate([27.4, 80.2, pcb_top]) cube([10.2, 9.8, 10]);                              // terminal block J2
-  color("gray") {                                                                                     // SLIC modules (vertical plates)
-    translate([24.5, 30.8, pcb_top+2.4]) cube([50.2, 6.3, 13.0]);
-    translate([45.3, 43.8, pcb_top+2.4]) cube([50.2, 6.3, 13.0]);
-  }
-  color("black") {                                                                                    // relays G5V-2
-    translate([30.4, 52.9, pcb_top]) cube([20.5, 10.1, 11.5]);
-    translate([98.4, 30.4, pcb_top]) cube([20.5, 10.1, 11.5]);
-  }
-  color("blue") for (p = [[22.52,65.28],[54.12,56.98],[4.53,61.77]])                                  // electrolytics D8
-    translate([p[0], p[1], pcb_top]) cylinder(d=8, h=12);
-  color("darkgray") translate([41, 65, pcb_top+4.3]) cube([18, 24, 3]);                               // Stamp S3 on socket
+  color("green") translate([tb_cx-5.1, 80.2, pcb_top]) cube([10.2, 9.8, 10]);                         // terminal block J2
+  color("gray") for (z = mod_zones)                                                                   // SLIC modules (vertical plates)
+    translate([z[0], z[1], pcb_top+2.4]) cube(mod_size);
+  color("black") for (z = relay_zones)                                                                // relays G5V-2
+    translate([z[0], z[1], pcb_top]) cube(relay_size);
+  color("blue") for (p = cap_pos)                                                                     // electrolytics D8
+    translate([p[0], p[1], pcb_top]) cylinder(d=cap_d, h=cap_h);
+  color("darkgray") translate([stamp_xy[0], stamp_xy[1], pcb_top+stamp_socket_h])                     // Stamp S3 on socket
+    cube([stamp_size[0], stamp_size[1], stamp_t]);
   color("black") for (p = sw_pos) translate([p[0]-3, p[1]-3, pcb_top]) cube([6, 6, button_h]);        // switches
   color("red") for (p = led_pos) translate([p[0]-1, p[1]-0.5, pcb_top]) cube([2, 1, 0.8]);            // LEDs
 }
