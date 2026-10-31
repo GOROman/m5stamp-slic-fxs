@@ -179,7 +179,7 @@
 		(descr "Neltron 7002-6P6C side-entry modular jack (Akizuki 100954): staggered 2-row pins, contact pitch 1.02, row gap 2.54, drill 0.90 / pad 1.50 (annular 0.30), 2x NPTH peg holes dia 2.30 at 12.00 pitch, body 12.20x15.00. Per manufacturer drawing research/neltron-7002-XPXC.pdf (v3.4.2)")
 		(tags "RJ11 6P6C modular Neltron 7002 Akizuki 100954")
 		(property "Reference" "J_4"
-			(at 6.07 10.785 0)
+			(at 9.289938 9.175031 0)
 			(layer "F.SilkS")
 			(uuid "afe863ec-05fc-46ef-a6a5-28d97162cfa6")
 			(effects
@@ -394,7 +394,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R36"
-			(at 0 2.205 0)
+			(at 0.282843 1.922157 0)
 			(layer "F.SilkS")
 			(uuid "f624248c-a343-4140-84da-82d08bd1e735")
 			(effects
@@ -541,7 +541,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_LED7"
-			(at 0 -2.32 0)
+			(at 0 -1.92 0)
 			(layer "F.SilkS")
 			(uuid "ad530db1-4636-4da5-a492-c7e41513822f")
 			(effects
@@ -1054,7 +1054,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C7"
-			(at -1.265 3.885 0)
+			(at -2.113528 4.733528 0)
 			(layer "F.SilkS")
 			(uuid "a310350e-eb9b-400e-8200-05a74699a3cb")
 			(effects
@@ -1201,7 +1201,7 @@
 		(descr "SOT, 3 Pin (JEDEC TO-236 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=TO-236)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q6"
-			(at 0 -3.07 0)
+			(at 0 2.93 0)
 			(layer "F.SilkS")
 			(uuid "76a6d97e-8e91-45b6-baf1-93c2e41f9965")
 			(effects
@@ -1715,7 +1715,7 @@
 		(descr "Fuse SMD 1812 (4532 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://www.nikhef.nl/pub/departments/mt/projects/detectorR_D/dtddice/ERJ2G.pdf)")
 		(tags "fuse")
 		(property "Reference" "F1"
-			(at 0 -3.205 0)
+			(at -1.96774 -7.14048 0)
 			(layer "F.SilkS")
 			(uuid "7465985b-f227-4268-af31-5f18c9b026c1")
 			(effects
@@ -1862,7 +1862,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C14"
-			(at -3.07 0 90)
+			(at -3.07 1.6 90)
 			(layer "F.SilkS")
 			(uuid "8dc109fc-22be-4c75-825a-fa805463258c")
 			(effects
@@ -2156,7 +2156,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R14"
-			(at 1.005 3.855 0)
+			(at 1.005 6.655 0)
 			(layer "F.SilkS")
 			(uuid "1511ca51-1027-4b39-88d3-0fa83fbd3a00")
 			(effects
@@ -2522,7 +2522,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U83"
-			(at -2.605 -0.651625 90)
+			(at -2.205 -0.651625 90)
 			(layer "F.SilkS")
 			(uuid "7382be27-a8db-481b-9a81-d683cd0f47e9")
 			(effects
@@ -2932,7 +2932,7 @@
 		(descr "SOT, 3 Pin (JEDEC TO-236 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=TO-236)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q3"
-			(at 1.495 -4.605 0)
+			(at -1.903823 2.192647 0)
 			(layer "F.SilkS")
 			(uuid "76147f16-e05d-40ae-9917-e895cb87d4da")
 			(effects
@@ -3856,7 +3856,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R10"
-			(at 0 2.205 0)
+			(at -2.12132 4.32632 90)
 			(layer "F.SilkS")
 			(uuid "7195b741-8f0b-4e39-bd3c-e4a2508fb1d1")
 			(effects
@@ -4588,7 +4588,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP17"
-			(at 0 3.168333 0)
+			(at 5.008792 5.672729 0)
 			(layer "F.SilkS")
 			(uuid "f0ab6b4f-a24a-4f3f-9dfa-a34523d06c64")
 			(effects
@@ -5321,7 +5321,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D5"
-			(at 0 2.32 0)
+			(at 3.394113 -1.074113 0)
 			(layer "F.SilkS")
 			(uuid "f26094b7-aa75-40dc-a249-bc7cbf25b274")
 			(effects
@@ -5780,7 +5780,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP7"
-			(at 0 -3.14 0)
+			(at 0 -2.74 0)
 			(layer "F.SilkS")
 			(uuid "3ad93100-8e72-4474-a548-a2f2b7ed1b68")
 			(effects
@@ -5999,7 +5999,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP27"
-			(at 3.025 0 90)
+			(at 2.225 0 90)
 			(layer "F.SilkS")
 			(uuid "907ea56f-ccd3-4612-8db0-c4e8bab44d0d")
 			(effects
@@ -6365,7 +6365,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_LED4"
-			(at 0 -2.32 0)
+			(at 0 -1.92 0)
 			(layer "F.SilkS")
 			(uuid "01167824-57f2-4ea9-a732-8344f9fb3950")
 			(effects
@@ -6806,7 +6806,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R7"
-			(at -3.05 0 90)
+			(at -3.05 0.4 90)
 			(layer "F.SilkS")
 			(uuid "5268e1e6-7f00-4eff-b042-09a16625fdbb")
 			(effects
@@ -6953,7 +6953,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U56"
-			(at 10.835 -4.15825 0)
+			(at 10.435 -4.15825 0)
 			(layer "F.SilkS")
 			(uuid "a95aa537-a139-44c3-a649-893ce34e447e")
 			(effects
@@ -7145,7 +7145,7 @@
 			(uuid "7f9a83d6-335a-4351-8571-c2ef6fa12fcb")
 		)
 		(fp_text user "K"
-			(at -2.405 -1.195 0)
+			(at 1.98 -2.0516 0)
 			(layer "F.SilkS")
 			(uuid "724fc867-08f6-4a37-ba89-f460769bcad5")
 			(effects
@@ -7435,7 +7435,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP34"
-			(at 0 3.168333 0)
+			(at 0 2.768333 0)
 			(layer "F.SilkS")
 			(uuid "8a20c253-f66f-41bb-b420-fc6d6f6ba81b")
 			(effects
@@ -7654,7 +7654,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R21"
-			(at 0 2.205 0)
+			(at -2 2.205 0)
 			(layer "F.SilkS")
 			(uuid "f4db50c1-c07f-4c4d-8274-af2957cbbbbe")
 			(effects
@@ -8680,7 +8680,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP8"
-			(at 0 -3.14 0)
+			(at 0 -2.34 0)
 			(layer "F.SilkS")
 			(uuid "85c291b0-f17f-4a6d-b4ae-cc954cb205be")
 			(effects
@@ -9006,7 +9006,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP5"
-			(at -3.14 0 90)
+			(at 3.657647 -3.398823 90)
 			(layer "F.SilkS")
 			(uuid "0db00d2e-84dd-44c6-9a95-55029adeb706")
 			(effects
@@ -9225,7 +9225,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R13"
-			(at 0 2.32 0)
+			(at -0.565685 1.754315 0)
 			(layer "F.SilkS")
 			(uuid "18644b60-427d-4b3e-b460-ab7b92949a0d")
 			(effects
@@ -9765,7 +9765,7 @@
 		(descr "SOIC, 20 Pin (JEDEC MS-013AC, https://www.analog.com/media/en/package-pcb-resources/package/233848rw_20.pdf)")
 		(tags "SOIC SO")
 		(property "Reference" "U2"
-			(at -5.255 -8.135 0)
+			(at -9.548251 0.451501 0)
 			(layer "F.SilkS")
 			(uuid "2952a126-41a7-4273-9470-2438947b346c")
 			(effects
@@ -10604,7 +10604,7 @@
 		(descr "Inductor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 80, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "inductor")
 		(property "Reference" "U64"
-			(at -3.12 0 90)
+			(at -3.12 2 90)
 			(layer "F.SilkS")
 			(uuid "7f7eab43-8648-40c8-a1ec-5be4917a31ea")
 			(effects
@@ -11887,7 +11887,7 @@
 		(descr "Diode SMC (DO-214AB)")
 		(tags "Diode SMC (DO-214AB)")
 		(property "Reference" "U55"
-			(at -4.225 -4.605 0)
+			(at -4.582771 -5.320542 0)
 			(layer "F.SilkS")
 			(uuid "ea9a85d2-70de-43a6-87c8-1ade464b5ee8")
 			(effects
@@ -12373,7 +12373,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R20"
-			(at 0 2.205 0)
+			(at 6.788225 8.993225 0)
 			(layer "F.SilkS")
 			(uuid "09314348-3b2d-4dca-b93f-040b7d644e72")
 			(effects
@@ -13108,7 +13108,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP11"
-			(at 0 -3.283334 0)
+			(at 3.577709 -5.072188 0)
 			(layer "F.SilkS")
 			(uuid "60ba5977-63a7-4a62-a1b6-e2d77e809282")
 			(effects
@@ -13474,7 +13474,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C8"
-			(at 0 2.35 0)
+			(at 0 3.15 0)
 			(layer "F.SilkS")
 			(uuid "3fda73dd-421c-411f-a205-b2a9cee33ea1")
 			(effects
@@ -13626,7 +13626,7 @@
 			(uuid "6b200caa-c146-41d9-8828-d18893c5b788")
 			(effects
 				(font
-					(size 1 1)
+					(size 0.8 0.8)
 					(thickness 0.15)
 				)
 			)
@@ -14031,7 +14031,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D9"
-			(at 0 -2.32 0)
+			(at 9.6 -2.32 0)
 			(layer "F.SilkS")
 			(uuid "5f26c1f9-820f-4a56-99f9-74c60508bc51")
 			(effects
@@ -14593,7 +14593,7 @@
 		(descr "SOT, 3 Pin (JEDEC TO-236 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=TO-236)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q5"
-			(at 0 -3.07 0)
+			(at 0 2.93 0)
 			(layer "F.SilkS")
 			(uuid "155bc905-ce68-4b52-b0c6-8e4087593714")
 			(effects
@@ -15179,7 +15179,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP30"
-			(at 0 -3.283334 0)
+			(at 0 5.116666 0)
 			(layer "F.SilkS")
 			(uuid "052ebcbc-4821-4a29-a40e-777f2e91c3ce")
 			(effects
@@ -15617,7 +15617,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R11"
-			(at -1.005 3.855 0)
+			(at 4.003792 6.359396 0)
 			(layer "F.SilkS")
 			(uuid "ae9d4a70-7a7f-4ed1-9b7b-4214a1cda30d")
 			(effects
@@ -15764,7 +15764,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D6"
-			(at 0 -2.32 0)
+			(at -2.146625 1.973251 0)
 			(layer "F.SilkS")
 			(uuid "593526ce-018c-44ef-b0d3-553b8b1c3c0d")
 			(effects
@@ -15960,7 +15960,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R33"
-			(at -1.005 -2.205 0)
+			(at -6.371563 -4.888282 0)
 			(layer "F.SilkS")
 			(uuid "fe5bb3cc-12e1-4f5b-8692-b3768d61839b")
 			(effects
@@ -16194,8 +16194,8 @@
 			(uuid "a2387703-f31f-41cf-80d1-beb3cd9252a4")
 		)
 		(fp_circle
-			(center 0 -3.6)
-			(end 0.8 -3.6)
+			(center 0 -2.1)
+			(end 0.8 -2.1)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -16351,7 +16351,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R24"
-			(at 2.935 0 90)
+			(at 3.500685 0.565685 90)
 			(layer "F.SilkS")
 			(uuid "657fdb5c-3066-4ed1-ab61-6acd8b872e8a")
 			(effects
@@ -16498,7 +16498,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U84"
-			(at -0.495 -4.27325 0)
+			(at -0.495 -9.47325 0)
 			(layer "F.SilkS")
 			(uuid "72632c0c-a9ed-4742-b985-a002e1e7d5d4")
 			(effects
@@ -16761,7 +16761,7 @@
 		(descr "CP, Radial series, Radial, pin pitch=3.50mm, diameter=8mm, height=12mm, Electrolytic Capacitor")
 		(tags "CP Radial series Radial pin pitch 3.50mm diameter 8mm height 12mm Electrolytic Capacitor")
 		(property "Reference" "C13"
-			(at 1.74876 -5.621239 0)
+			(at 2.822073 -5.084583 0)
 			(layer "F.SilkS")
 			(uuid "db4a94d2-d5f6-408d-8271-837d5efc519c")
 			(effects
@@ -18492,7 +18492,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D4"
-			(at 0 2.32 0)
+			(at 1.073313 2.856656 0)
 			(layer "F.SilkS")
 			(uuid "5e4e53de-5750-4c77-8653-7cd61c626bb6")
 			(effects
@@ -20419,7 +20419,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C24"
-			(at 3.07 0 90)
+			(at 9.009697 5.939697 90)
 			(layer "F.SilkS")
 			(uuid "5317bc0d-42a3-48d7-9f1c-cf0d99a5a495")
 			(effects
@@ -20566,7 +20566,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP19"
-			(at 0 3.168333 0)
+			(at 0 2.768333 0)
 			(layer "F.SilkS")
 			(uuid "f26435b9-e942-4721-a301-f8bf1ca5ba7a")
 			(effects
@@ -20785,7 +20785,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U57"
-			(at 14.415 -0.651625 90)
+			(at 14.415 -8.251625 90)
 			(layer "F.SilkS")
 			(uuid "2205c9c0-9e84-416f-8482-24fda6dac3c7")
 			(effects
@@ -21462,7 +21462,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP24"
-			(at 0 -3.283334 0)
+			(at 0.8 -3.283334 0)
 			(layer "F.SilkS")
 			(uuid "c514e2d7-0abf-4ede-af64-5e329c9f917d")
 			(effects
@@ -21828,7 +21828,7 @@
 		(descr "Inductor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 80, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "inductor")
 		(property "Reference" "U91"
-			(at -4.655 0 90)
+			(at -9.746169 5.091169 90)
 			(layer "F.SilkS")
 			(uuid "6da3790e-d514-4b75-9046-2fcc43a8337f")
 			(effects
@@ -22194,7 +22194,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP9"
-			(at 0 -3.14 0)
+			(at 0 -2.34 0)
 			(layer "F.SilkS")
 			(uuid "db7e3607-e6e6-45f0-9b9a-038a1b6a255f")
 			(effects
@@ -22413,7 +22413,7 @@
 		(descr "http://omronfs.omron.com/en_US/ecb/products/pdf/en-g5v2.pdf")
 		(tags "Omron G5V-2 Relay DPDT")
 		(property "Reference" "K1"
-			(at -2.827 8.9 0)
+			(at -2.427 8.9 0)
 			(layer "F.SilkS")
 			(uuid "4e2faf47-fb76-4df7-9762-04b440832e6c")
 			(effects
@@ -22816,7 +22816,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R25"
-			(at 0 2.205 0)
+			(at -0.825 2.755 0)
 			(layer "F.SilkS")
 			(uuid "15b1c229-0c0d-4542-ace3-e2c5e7655446")
 			(effects
@@ -22963,7 +22963,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D2"
-			(at 3.05 0 90)
+			(at 3.45 0 90)
 			(layer "F.SilkS")
 			(uuid "1ed3ce46-df82-48e7-bb1a-6573b47516ea")
 			(effects
@@ -23159,7 +23159,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R3"
-			(at -1.245 2.205 0)
+			(at -1.645 2.205 0)
 			(layer "F.SilkS")
 			(uuid "48aba5f6-a9ac-4745-9191-e799618ff946")
 			(effects
@@ -23306,7 +23306,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP13"
-			(at -3.14 0 90)
+			(at -11.14 0 90)
 			(layer "F.SilkS")
 			(uuid "b461efa7-977a-408a-841a-c8123f38f9d1")
 			(effects
@@ -23819,7 +23819,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_LED2"
-			(at -3.785 0 90)
+			(at 4.801501 4.293251 90)
 			(layer "F.SilkS")
 			(uuid "1684a16a-1b53-49e1-8807-049f0df5305c")
 			(effects
@@ -23966,7 +23966,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP18"
-			(at 0 3.168333 0)
+			(at 0 2.768333 0)
 			(layer "F.SilkS")
 			(uuid "7935f893-1208-4242-ba75-3025bec06476")
 			(effects
@@ -24185,7 +24185,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP4"
-			(at -3.025 0 90)
+			(at -3.025 1.6 90)
 			(layer "F.SilkS")
 			(uuid "47a2d532-43dd-41c6-b53e-bab022e538c4")
 			(effects
@@ -24551,7 +24551,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U106"
-			(at 5.08 -4.49825 0)
+			(at 5.08 -6.09825 0)
 			(layer "F.SilkS")
 			(uuid "2a79fc39-db4c-4c65-ae3e-209336740c69")
 			(effects
@@ -24814,7 +24814,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C4"
-			(at -1.265 3.885 0)
+			(at -1.265 7.485 0)
 			(layer "F.SilkS")
 			(uuid "a6fd735d-d44c-4832-a78c-35c8d0b11b99")
 			(effects
@@ -25153,7 +25153,7 @@
 			(uuid "c5f9a992-9f99-4731-b4d7-f0b79c1d5f16")
 		)
 		(fp_text user "K"
-			(at -2.395 -0.005 0)
+			(at -2.395 -2.405 0)
 			(layer "F.SilkS")
 			(uuid "f5bed9f4-df3d-4249-bf93-faecc1f3e633")
 			(effects
@@ -25491,7 +25491,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R37"
-			(at 2.935 0 90)
+			(at 2.535 0 90)
 			(layer "F.SilkS")
 			(uuid "f3502289-3f93-4beb-a257-4236b5fa093b")
 			(effects
@@ -25638,7 +25638,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U87"
-			(at 5.08 2.97 0)
+			(at 3.33 2.97 0)
 			(layer "F.SilkS")
 			(uuid "18295e9f-c656-4fc9-a3ef-5dbeb973fdcc")
 			(effects
@@ -25830,7 +25830,7 @@
 			(uuid "bd68f54f-6dfd-40be-9afd-5b562f1abc4e")
 		)
 		(fp_text user "K"
-			(at -0.395 -2.405 0)
+			(at -1.595 -2.405 0)
 			(layer "F.SilkS")
 			(uuid "1521e8ef-53b2-49de-a016-f398254101e6")
 			(effects
@@ -25901,7 +25901,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R35"
-			(at 0 2.205 0)
+			(at -0.4 2.205 0)
 			(layer "F.SilkS")
 			(uuid "26615211-dc82-4e2f-9ed8-afd262c62e96")
 			(effects
@@ -26048,7 +26048,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D7"
-			(at 0 2.32 0)
+			(at -1.073313 2.856656 0)
 			(layer "F.SilkS")
 			(uuid "f5d4723a-3d51-4e91-82a3-b1feec8a62ea")
 			(effects
@@ -26244,7 +26244,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R_LED1"
-			(at 0 -2.205 0)
+			(at 0 -1.805 0)
 			(layer "F.SilkS")
 			(uuid "1f484a73-a2d9-4509-82e5-a1a1709c692b")
 			(effects
@@ -26391,7 +26391,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D8"
-			(at 0 2.32 0)
+			(at -3.394113 -1.074113 0)
 			(layer "F.SilkS")
 			(uuid "782b644e-ad0f-4f3e-800b-4a7277c5fd61")
 			(effects
@@ -27208,7 +27208,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP28"
-			(at 0 3.283333 0)
+			(at 0.282843 3.00049 0)
 			(layer "F.SilkS")
 			(uuid "bf784d31-8492-4139-8171-120084c0d269")
 			(effects
@@ -27793,7 +27793,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C15"
-			(at -3.07 0 90)
+			(at -5.049899 1.979899 90)
 			(layer "F.SilkS")
 			(uuid "61bf434d-71df-4775-a163-c15da9feb209")
 			(effects
@@ -28306,7 +28306,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C16"
-			(at 1.025 3.885 0)
+			(at 1.025 4.285 0)
 			(layer "F.SilkS")
 			(uuid "cf1e2f06-1f05-4bd9-89ca-c746cf2c2053")
 			(effects
@@ -28823,7 +28823,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R17"
-			(at 3.05 0 90)
+			(at 7.164365 8.22873 90)
 			(layer "F.SilkS")
 			(uuid "e17324cb-08de-4437-8585-4ede1556064d")
 			(effects
@@ -28970,7 +28970,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R1"
-			(at 1.125 2.32 0)
+			(at -2.631594 9.833188 0)
 			(layer "F.SilkS")
 			(uuid "3593d509-6d6a-4cf9-91a2-db0f11a7cd46")
 			(effects
@@ -29443,7 +29443,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP14"
-			(at -3.025 0 90)
+			(at -3.025 -0.8 90)
 			(layer "F.SilkS")
 			(uuid "e2187791-0925-43de-8fdb-02c84678c870")
 			(effects
@@ -30065,7 +30065,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R18"
-			(at -2.935 0 90)
+			(at -6.611955 3.676955 90)
 			(layer "F.SilkS")
 			(uuid "02bbc93d-d698-4c59-b6d3-0030492c05b4")
 			(effects
@@ -30212,7 +30212,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U79"
-			(at 5.08 -4.27325 0)
+			(at 5.48 -4.27325 0)
 			(layer "F.SilkS")
 			(uuid "5005adb5-f4cb-41ab-87e6-3445b6f35751")
 			(effects
@@ -30828,7 +30828,7 @@
 		(descr "Neltron 7002-6P6C side-entry modular jack (Akizuki 100954): staggered 2-row pins, contact pitch 1.02, row gap 2.54, drill 0.90 / pad 1.50 (annular 0.30), 2x NPTH peg holes dia 2.30 at 12.00 pitch, body 12.20x15.00. Per manufacturer drawing research/neltron-7002-XPXC.pdf (v3.4.2)")
 		(tags "RJ11 6P6C modular Neltron 7002 Akizuki 100954")
 		(property "Reference" "J_3"
-			(at -6.07 10.785 0)
+			(at -10.029798 6.825202 0)
 			(layer "F.SilkS")
 			(uuid "a4910422-fd80-48c7-a463-e104e673b696")
 			(effects
@@ -31190,7 +31190,7 @@
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C12"
-			(at 3.67 0 0)
+			(at 7.068823 6.797647 0)
 			(layer "F.SilkS")
 			(uuid "ec25faa5-20f9-4fb5-a75b-ef40f90bfff8")
 			(effects
@@ -31484,7 +31484,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R29"
-			(at -3.05 0 90)
+			(at -3.05 0.4 90)
 			(layer "F.SilkS")
 			(uuid "b1ba238c-47cb-479b-9143-a8451ebed642")
 			(effects
@@ -31631,7 +31631,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R27"
-			(at 0 3.855 0)
+			(at 0.282843 4.137843 0)
 			(layer "F.SilkS")
 			(uuid "48eca755-638f-48fc-9b14-d53a527bf041")
 			(effects
@@ -32121,7 +32121,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R22"
-			(at 1.005 3.855 0)
+			(at 7.087105 6.896052 0)
 			(layer "F.SilkS")
 			(uuid "1b8ec289-5715-48d7-a02b-3ff47a159037")
 			(effects
@@ -32634,7 +32634,7 @@
 		(descr "Through hole straight pin header, 1x01, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x01 2.54mm single row")
 		(property "Reference" "TP16"
-			(at 0.855 3.168333 0)
+			(at 2.240819 2.594308 0)
 			(layer "F.SilkS")
 			(uuid "bef5463f-bfa2-4687-b28d-e008c729716b")
 			(effects
@@ -33367,7 +33367,7 @@
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C11"
-			(at 3.67 0 0)
+			(at 7.27 0 0)
 			(layer "F.SilkS")
 			(uuid "f4cb9361-1d44-4448-80d8-91ca171ecfb1")
 			(effects
@@ -35539,7 +35539,7 @@
 		(descr "KS0835F ringing SLIC module (R-Tone), 11-pin SIL 2-cluster, GAP56=20.3mm - VERIFY against physical module before fabrication")
 		(tags "SLIC KS0835F AG1171 FXS")
 		(property "Reference" "MOD_B"
-			(at -23.6 -3.985 0)
+			(at -52 0 90)
 			(layer "F.SilkS")
 			(uuid "f2554226-42e3-4a91-b34b-f810f26bf5db")
 			(effects
@@ -35783,7 +35783,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U59"
-			(at 5.08 -4.15825 0)
+			(at 5.08 -8.95825 0)
 			(layer "F.SilkS")
 			(uuid "2fed09eb-ce6e-4376-b5b3-8870a749ebb1")
 			(effects
@@ -35975,7 +35975,7 @@
 			(uuid "ac877269-55d8-4e9e-bee8-db789146715c")
 		)
 		(fp_text user "K"
-			(at -2.405 -0.005 0)
+			(at -2.405 -2.405 0)
 			(layer "F.SilkS")
 			(uuid "53da3abf-0a0e-41af-888c-102108b8900d")
 			(effects
@@ -36193,7 +36193,7 @@
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U58"
-			(at -0.495 2.97 0)
+			(at 5.38 4.3484 0)
 			(layer "F.SilkS")
 			(uuid "47920f25-3b87-497e-82e3-f9c22578b6e0")
 			(effects
@@ -36456,7 +36456,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R26"
-			(at 0.825 2.32 0)
+			(at 1.898313 1.783344 0)
 			(layer "F.SilkS")
 			(uuid "3f5da90a-c876-40b6-a58b-c56c037efe08")
 			(effects
@@ -36795,7 +36795,7 @@
 			(uuid "fae8ba3f-d18c-413a-a47a-78dacb4a80aa")
 		)
 		(fp_text user "K"
-			(at -2.405 -0.005 0)
+			(at -2.005 -0.005 0)
 			(layer "F.SilkS")
 			(uuid "a2c03990-a7a6-482b-aac2-33009101f114")
 			(effects
@@ -36866,7 +36866,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C10"
-			(at 0 -2.235 0)
+			(at -6.788225 4.553225 0)
 			(layer "B.SilkS")
 			(uuid "4dd2f253-e275-40e7-91d2-bb02ba3b8b11")
 			(effects
@@ -37792,7 +37792,7 @@
 		(uuid "8a220a6d-7933-4a99-960e-3a672e1d97ec")
 		(effects
 			(font
-				(size 1.8 1.8)
+				(size 1.5 1.5)
 				(thickness 0.27)
 			)
 			(justify mirror)
@@ -37804,7 +37804,7 @@
 		(uuid "da5d1dcf-e6e1-496d-ac10-006d6d2e9e7a")
 		(effects
 			(font
-				(size 1.8 1.8)
+				(size 1.5 1.5)
 				(thickness 0.27)
 			)
 			(justify mirror)
@@ -37816,7 +37816,7 @@
 		(uuid "29a4ce92-2b26-4252-b127-3fe4c0998cd1")
 		(effects
 			(font
-				(size 1.8 1.8)
+				(size 1.5 1.5)
 				(thickness 0.27)
 			)
 			(justify mirror)
@@ -37828,7 +37828,7 @@
 		(uuid "e237c5e8-07b5-4ff9-a0e7-e58869102f6e")
 		(effects
 			(font
-				(size 1.8 1.8)
+				(size 1.5 1.5)
 				(thickness 0.27)
 			)
 			(justify mirror)
