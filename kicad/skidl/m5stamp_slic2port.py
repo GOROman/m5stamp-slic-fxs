@@ -99,13 +99,14 @@ HCT244 = tmpl("74HCT244",
                (15, "2A3"), (16, "1Y2"), (17, "2A4"), (18, "1Y1"),
                (19, "2OE"), (20, "VCC")], FP_SOIC20)
 
-# CD4053B (TI): 1:Y1 2:Y0 3:Z1 4:ZCOM 5:Z0 6:INH 7:VEE 8:VSS
-#               9:SZ 10:SY 11:SX 12:X0 13:X1 14:XCOM 15:YCOM 16:VDD
-CD4053 = tmpl("CD4053B",
-              [(1, "Y1"), (2, "Y0"), (3, "Z1"), (4, "ZCOM"), (5, "Z0"),
-               (6, "INH"), (7, "VEE"), (8, "VSS"), (9, "SZ"), (10, "SY"),
-               (11, "SX"), (12, "X0"), (13, "X1"), (14, "XCOM"),
-               (15, "YCOM"), (16, "VDD")], FP_SOIC16)
+# Omron G5V-2 (DPDT 信号リレー) 端子番号はデータシート (bottom view) 準拠:
+#   コイル: 1 / 16 (標準タイプは無極性)
+#   極1: COM=4, NC=6, NO=8    極2: COM=13, NC=11, NO=9
+FP_G5V2 = "Relay_THT:Relay_DPDT_Omron_G5V-2"
+G5V2 = tmpl("G5V-2",
+            [(1, "COIL1"), (16, "COIL2"),
+             (4, "COM1"), (6, "NC1"), (8, "NO1"),
+             (13, "COM2"), (11, "NC2"), (9, "NO2")], FP_G5V2)
 
 # HRO TYPE-C-31-M-12 / KiCad 公式フットプリントの実パッド番号。
 USBC = tmpl("USB_C",
@@ -163,7 +164,6 @@ VAUD     = Net("VAUD")
 VREF165  = Net("VREF165")
 TONE_BUS = Net("TONE_BUS")
 PD_BUS   = Net("PD_BUS")
-AUX_TP   = Net("AUX_TP")
 
 # ===========================================================================
 # 電源入力
@@ -283,7 +283,7 @@ GND += j_dbg[1]; GPIO43 += j_dbg[2]; GPIO44 += j_dbg[3]; P3V3 += j_dbg[4]
 # テストポイント
 tp1 = TP(); tp1.ref = "TP1"; P5V += tp1[1]
 tp2 = TP(); tp2.ref = "TP2"; GND += tp2[1]
-tp3 = TP(); tp3.ref = "TP3"; AUX_TP += tp3[1]
+tp3 = TP(); tp3.ref = "TP3"; TONE_BUS += tp3[1]
 
 # ===========================================================================
 # 74HCT244 レベル変換 (U2)
@@ -320,23 +320,37 @@ between(R("100K"), TONE_BUS, VAUD)
 between(C("100nF"), TN2, TONE_AC)
 
 # ===========================================================================
-# CD4053B 音声 MUX (U3)
+# 音声クロス接続リレー (K1/K2)
+# 秋月電子の簡易擬似電話交換機キットと同様、通話路はリレー接点で切り替える。
+# リレー: Omron G5V-2 DC5 (DPDT、コイル 50ohm / 100mA @5V)。
+#   SEL_x = L (無励磁): NC 接点 = 相手 VX (クロス接続。電源断時もこの状態)
+#   SEL_x = H (励磁)  : NO 接点 = TONE_BUS
+# ファームウェアの SEL 意味論 (L=相手VX / H=トーン) は CD4053 版と同一で変更不要。
+# 2 極は同一ネットへ並列接続し、接点抵抗と信頼性を稼ぐ。
+# ドライバはキット (2SC2712) と同じローサイド方式: 2N7002 + 還流ダイオード。
+# 旧 CD4053 の Z チャネル (AUX_TP モニタ) は、TP 増設で各音声ノードを直接
+# 測れるようになったため廃止した (TP3 は TONE_BUS に割当変更)。
 # ===========================================================================
-u3 = CD4053(); u3.ref = "U3"; u3.value = "CD4053B"
-P5V += u3["VDD"]
-GND += u3["VSS"]; GND += u3["VEE"]; GND += u3["INH"]
-SEL_A_5V += u3["SX"]; SEL_B_5V += u3["SY"]
-TONE_BUS += u3["X1"]; TONE_BUS += u3["Y1"]
-VAUD += u3["Z1"]
-AUX_TP += u3["ZCOM"]
 VR_A_IN = mknet("VR_A_IN"); VR_B_IN = mknet("VR_B_IN")
-VR_A_IN += u3["XCOM"]; VR_B_IN += u3["YCOM"]
-SEL_Z = mknet("SEL_Z")
-SEL_Z += u3["SZ"]
-between(R("10K"), SEL_Z, GND)
-j_sz = HDR1X2(); j_sz.ref = "J7"; j_sz.value = "SEL_Z_JMP"
-SEL_Z += j_sz[1]; P5V += j_sz[2]
-between(C("100nF"), P5V, GND)   # U3 デカップリング
+RLY = {}
+for s, sel5v in (("A", SEL_A_5V), ("B", SEL_B_5V)):
+    k = G5V2(); k.ref = "K%s" % ("1" if s == "A" else "2"); k.value = "G5V-2_DC5"
+    RLY[s] = k
+    VR_IN_REF = VR_A_IN if s == "A" else VR_B_IN
+    VR_IN_REF += k["COM1"]; VR_IN_REF += k["COM2"]
+    TONE_BUS += k["NO1"]; TONE_BUS += k["NO2"]
+    # NC 接点 (相手 VX) はポートループ後に VXIN が確定してから接続する
+    P5V += k["COIL1"]
+    n_coil = mknet("RLY_%s_COIL" % s)
+    n_coil += k["COIL2"]
+    q = SOT23(); q.ref = "Q%s" % ("3" if s == "A" else "4"); q.value = "2N7002"
+    sel5v += q["G"]
+    GND += q["S"]
+    n_coil += q["D"]
+    between(R("100K"), sel5v, GND)          # ゲートプルダウン
+    d_fl = DIO(); d_fl.value = "1N4007"     # コイル還流ダイオード
+    P5V += d_fl["K"]; n_coil += d_fl["A"]
+between(C("100nF"), P5V, GND)   # リレー駆動部デカップリング
 
 # ===========================================================================
 # PD 引き下げ (Q2)
@@ -355,7 +369,7 @@ RM_5V = {"A": RM_A_5V, "B": RM_B_5V}
 SHK_33 = {"A": SHK_A_33, "B": SHK_B_33}
 MON = {"A": MON_A, "B": MON_B}
 VR_IN = {"A": VR_A_IN, "B": VR_B_IN}
-VXIN = {}   # MUX 入力ノード (ポート毎)
+VXIN = {}   # リレー入力ノード (ポート毎)
 
 for s in ("A", "B"):
     TIP = mknet("TIP_%s" % s); RING = mknet("RING_%s" % s)
@@ -427,10 +441,9 @@ for s in ("A", "B"):
     d_pd = DIO(); d_pd.value = "1N4007"
     PDX += d_pd["A"]; PD_BUS += d_pd["K"]
 
-# MUX クロス接続: X0 = VX_B, Y0 = VX_A, Z0 = VX_A
-VXIN["B"] += u3["X0"]
-VXIN["A"] += u3["Y0"]
-VXIN["A"] += u3["Z0"]
+# リレー NC 接点 = 相手 VX (クロス接続)
+VXIN["B"] += RLY["A"]["NC1"]; VXIN["B"] += RLY["A"]["NC2"]
+VXIN["A"] += RLY["B"]["NC1"]; VXIN["A"] += RLY["B"]["NC2"]
 
 # ESP32 リセット/書き込み中も HCT 入力を確定させる。特に RM の浮遊を防止。
 for control in (FR_A_33, RM_A_33, SEL_A_33, TONE33,
