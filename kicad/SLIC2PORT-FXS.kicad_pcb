@@ -173,11 +173,11 @@
 	(footprint "RJ11_6P6C_TH"
 		(layer "F.Cu")
 		(uuid "0430e2a5-757e-451e-8d38-cca7aca437d8")
-		(at 102 7.2)
-		(descr "Generic side-entry RJ11 6P6C PCB jack, single row 1.27mm pitch pins at rear - VERIFY against actual part")
-		(tags "RJ11 6P6C modular")
+		(at 102 6.45)
+		(descr "Neltron 7002-6P6C side-entry modular jack (Akizuki 100954): staggered 2-row pins, contact pitch 1.02, row gap 2.54, drill 0.90 / pad 1.50 (annular 0.30), 2x NPTH peg holes dia 2.30 at 12.00 pitch, body 12.20x15.00. Per manufacturer drawing research/neltron-7002-XPXC.pdf (v3.4.2)")
+		(tags "RJ11 6P6C modular Neltron 7002 Akizuki 100954")
 		(property "Reference" "J_4"
-			(at 8.8 0 0)
+			(at 8.8 1.5 0)
 			(layer "F.SilkS")
 			(uuid "afe863ec-05fc-46ef-a6a5-28d97162cfa6")
 			(effects
@@ -222,95 +222,165 @@
 			)
 		)
 		(attr through_hole)
+		(fp_line
+			(start -6.10 -6.00)
+			(end 6.10 -6.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9de9897a-ace3-49a4-a9f1-3592c94f5be4")
+		)
+		(fp_line
+			(start 6.10 -6.00)
+			(end 6.10 9.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fdca287b-ecf1-4885-bfa3-9619a32e86c6")
+		)
+		(fp_line
+			(start 6.10 9.00)
+			(end -6.10 9.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ddc05ae5-7c10-4f70-ad9b-8a90995f1489")
+		)
+		(fp_line
+			(start -6.10 9.00)
+			(end -6.10 -6.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "69041931-afd9-4b38-9076-1e4caa6f57a7")
+		)
+		(fp_line
+			(start -6.35 -6.30)
+			(end 6.35 -6.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "ae39447c-8473-415f-8cd7-7a88274a3897")
+		)
+		(fp_line
+			(start 6.35 -6.30)
+			(end 6.35 9.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3cb8dbc2-ee27-4182-bd73-e5e08e9c0db1")
+		)
+		(fp_line
+			(start 6.35 9.30)
+			(end -6.35 9.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3a9e922c-fe87-4899-8f9e-847390d133fe")
+		)
+		(fp_line
+			(start -6.35 9.30)
+			(end -6.35 -6.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "6cd26b07-1b44-4f15-a57f-839f05192bfd")
+		)
+		(fp_circle
+			(center 4.35 4.64)
+			(end 4.85 4.64)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "84dcc740-7504-4a65-b5ee-ed148fa145d6")
+		)
 		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start -6.75 -6.75)
-			(end 6.75 -6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6680e4e4-8ebb-4209-9c55-901a33afd6b6")
+		(pad "" np_thru_hole circle
+			(at -6 0)
+			(size 2.3 2.3)
+			(drill 2.3)
+			(layers "*.Cu" "*.Mask")
+			(uuid "15d05c2f-e590-4bee-bd60-e5112384be48")
 		)
-		(fp_line
-			(start -6.75 6.75)
-			(end -6.75 -6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "e5a8fb7d-3339-48da-afd4-8f151fd8daad")
-		)
-		(fp_line
-			(start 6.75 -6.75)
-			(end 6.75 6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "386b8ddf-0ea2-4eeb-aeab-db37ab8641d3")
-		)
-		(fp_line
-			(start 6.75 6.75)
-			(end -6.75 6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "286c912b-a99a-46be-b86c-9051eecc8038")
+		(pad "" np_thru_hole circle
+			(at 6 0)
+			(size 2.3 2.3)
+			(drill 2.3)
+			(layers "*.Cu" "*.Mask")
+			(uuid "1a285486-354c-4ca5-9835-fb3a2a8ce0e8")
 		)
 		(pad "1" thru_hole rect
-			(at -3.175 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+			(at 2.55 4.64)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(uuid "0cee0103-d43a-49bd-95a0-3c49ebdf88d2")
 		)
-		(pad "2" thru_hole oval
-			(at -1.905 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "2" thru_hole circle
+			(at 1.53 2.1)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(thermal_bridge_angle 90)
 			(uuid "3342d519-e95a-4547-89bf-347d9df3e2dc")
 		)
-		(pad "3" thru_hole oval
-			(at -0.635 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "3" thru_hole circle
+			(at 0.51 4.64)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 1 "RING_B")
+			(thermal_bridge_angle 90)
 			(uuid "77eccf6b-ea14-480f-ac6e-9b3dd409c25f")
 		)
-		(pad "4" thru_hole oval
-			(at 0.635 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "4" thru_hole circle
+			(at -0.51 2.1)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 2 "TIP_B")
+			(thermal_bridge_angle 90)
 			(uuid "9d745100-1e80-4dde-a51e-7ad11475d615")
 		)
-		(pad "5" thru_hole oval
-			(at 1.905 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "5" thru_hole circle
+			(at -1.53 4.64)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(thermal_bridge_angle 90)
 			(uuid "52079564-b011-481d-9303-383e7d4eb30c")
 		)
-		(pad "6" thru_hole oval
-			(at 3.175 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "6" thru_hole circle
+			(at -2.55 2.1)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(thermal_bridge_angle 90)
 			(uuid "e52eaeb1-670b-431d-abd1-12c602024c2a")
 		)
 		(embedded_fonts no)
@@ -6844,7 +6914,7 @@
 	(footprint "D_DO-41_SOD81_P10.16mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "3b34cd45-638e-43a6-9b23-be686e31f9d0")
-		(at 15.025 16.625)
+		(at 32.035 24.175)
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U56"
@@ -8270,7 +8340,7 @@
 	(footprint "C_1206_3216Metric"
 		(layer "F.Cu")
 		(uuid "445141fb-10d8-4068-bbdb-eb505ff71ef6")
-		(at 91.745 23.725)
+		(at 91.745 19.745)
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C20"
@@ -13628,7 +13698,7 @@
 	(footprint "D_DO-41_SOD81_P10.16mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "65058ce1-bdc3-4364-8cc2-71d7217cd24f")
-		(at 101.445 16.625)
+		(at 104.195 24.175)
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U85"
@@ -16200,7 +16270,7 @@
 	(footprint "R_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "76f0bdec-940d-41d8-a17e-65c65a76ffad")
-		(at 102.025 23.525)
+		(at 102.025 27.975)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R24"
@@ -16346,7 +16416,7 @@
 	(footprint "D_DO-41_SOD81_P10.16mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "79cc51c2-22d8-491f-a6e8-b11a8245c60b")
-		(at 87.735 16.625)
+		(at 91.035 24.175)
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, length*diameter=5.2*2.7mm^2, https://www.diodes.com/assets/Package-Files/DO-41-Plastic.pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "U84"
@@ -27964,7 +28034,7 @@
 	(footprint "R_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "c06d38f7-9bd5-4cbd-a8b9-6ffbcf5caf92")
-		(at 43.025 23.525)
+		(at 43.025 19.625)
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R16"
@@ -30620,11 +30690,11 @@
 	(footprint "RJ11_6P6C_TH"
 		(layer "F.Cu")
 		(uuid "db8456ae-715a-4483-a6e6-f94f22599b97")
-		(at 18 7.2)
-		(descr "Generic side-entry RJ11 6P6C PCB jack, single row 1.27mm pitch pins at rear - VERIFY against actual part")
-		(tags "RJ11 6P6C modular")
+		(at 18 6.45)
+		(descr "Neltron 7002-6P6C side-entry modular jack (Akizuki 100954): staggered 2-row pins, contact pitch 1.02, row gap 2.54, drill 0.90 / pad 1.50 (annular 0.30), 2x NPTH peg holes dia 2.30 at 12.00 pitch, body 12.20x15.00. Per manufacturer drawing research/neltron-7002-XPXC.pdf (v3.4.2)")
+		(tags "RJ11 6P6C modular Neltron 7002 Akizuki 100954")
 		(property "Reference" "J_3"
-			(at -8.8 0 0)
+			(at -8.8 1.5 0)
 			(layer "F.SilkS")
 			(uuid "a4910422-fd80-48c7-a463-e104e673b696")
 			(effects
@@ -30669,95 +30739,165 @@
 			)
 		)
 		(attr through_hole)
+		(fp_line
+			(start -6.10 -6.00)
+			(end 6.10 -6.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9de9897a-ace3-49a4-a9f1-3592c94f5be4")
+		)
+		(fp_line
+			(start 6.10 -6.00)
+			(end 6.10 9.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "fdca287b-ecf1-4885-bfa3-9619a32e86c6")
+		)
+		(fp_line
+			(start 6.10 9.00)
+			(end -6.10 9.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "ddc05ae5-7c10-4f70-ad9b-8a90995f1489")
+		)
+		(fp_line
+			(start -6.10 9.00)
+			(end -6.10 -6.00)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "69041931-afd9-4b38-9076-1e4caa6f57a7")
+		)
+		(fp_line
+			(start -6.35 -6.30)
+			(end 6.35 -6.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "ae39447c-8473-415f-8cd7-7a88274a3897")
+		)
+		(fp_line
+			(start 6.35 -6.30)
+			(end 6.35 9.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3cb8dbc2-ee27-4182-bd73-e5e08e9c0db1")
+		)
+		(fp_line
+			(start 6.35 9.30)
+			(end -6.35 9.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3a9e922c-fe87-4899-8f9e-847390d133fe")
+		)
+		(fp_line
+			(start -6.35 9.30)
+			(end -6.35 -6.30)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "6cd26b07-1b44-4f15-a57f-839f05192bfd")
+		)
+		(fp_circle
+			(center 4.35 4.64)
+			(end 4.85 4.64)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "84dcc740-7504-4a65-b5ee-ed148fa145d6")
+		)
 		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start -6.75 -6.75)
-			(end 6.75 -6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "58a59a46-634a-4fe9-bb7b-19c726317346")
+		(pad "" np_thru_hole circle
+			(at -6 0)
+			(size 2.3 2.3)
+			(drill 2.3)
+			(layers "*.Cu" "*.Mask")
+			(uuid "de1139b2-fcea-47b8-aac4-06c0627af81c")
 		)
-		(fp_line
-			(start -6.75 6.75)
-			(end -6.75 -6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "8573ebf5-9388-4768-9ddb-f4b6aa021b24")
-		)
-		(fp_line
-			(start 6.75 -6.75)
-			(end 6.75 6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "4ac80d78-fb7b-4dfb-a3fb-f16d254c166a")
-		)
-		(fp_line
-			(start 6.75 6.75)
-			(end -6.75 6.75)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "8329d522-b9b6-4bc9-bd4d-05998f898699")
+		(pad "" np_thru_hole circle
+			(at 6 0)
+			(size 2.3 2.3)
+			(drill 2.3)
+			(layers "*.Cu" "*.Mask")
+			(uuid "e8ce93c1-9270-4367-b0fc-3db42012761f")
 		)
 		(pad "1" thru_hole rect
-			(at -3.175 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+			(at 2.55 4.64)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(uuid "1971aac1-32e2-4d40-8cd3-ffb7fcaf6eb5")
 		)
-		(pad "2" thru_hole oval
-			(at -1.905 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "2" thru_hole circle
+			(at 1.53 2.1)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(thermal_bridge_angle 90)
 			(uuid "862cf15b-c709-4d0c-89a9-1765cb60e0df")
 		)
-		(pad "3" thru_hole oval
-			(at -0.635 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "3" thru_hole circle
+			(at 0.51 4.64)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 41 "RING_A")
+			(thermal_bridge_angle 90)
 			(uuid "c3f4e5e7-febb-4517-a5d2-d3758ae203e5")
 		)
-		(pad "4" thru_hole oval
-			(at 0.635 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "4" thru_hole circle
+			(at -0.51 2.1)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 35 "TIP_A")
+			(thermal_bridge_angle 90)
 			(uuid "81661326-d155-48dd-b12f-7d682e24e3b4")
 		)
-		(pad "5" thru_hole oval
-			(at 1.905 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "5" thru_hole circle
+			(at -1.53 4.64)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(thermal_bridge_angle 90)
 			(uuid "1e69d1ad-a7f9-45c6-9542-73ac3577030f")
 		)
-		(pad "6" thru_hole oval
-			(at 3.175 4.7)
-			(size 1.13 1.7)
-			(drill 0.75)
+		(pad "6" thru_hole circle
+			(at -2.55 2.1)
+			(size 1.5 1.5)
+			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
+			(thermal_bridge_angle 90)
 			(uuid "6a64315c-941d-4f4d-bcc6-1d4d63ac6529")
 		)
 		(embedded_fonts no)
@@ -30911,7 +31051,7 @@
 	(footprint "C_1206_3216Metric"
 		(layer "F.Cu")
 		(uuid "df1cf5da-aa6e-4699-be44-c670212dcc20")
-		(at 38.195 23.725)
+		(at 38.195 19.745)
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C12"
@@ -33076,7 +33216,7 @@
 	(footprint "C_1206_3216Metric"
 		(layer "F.Cu")
 		(uuid "f3465520-e143-435a-9635-17db2d71f2c0")
-		(at 32.745 23.725)
+		(at 32.745 19.745)
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C11"
@@ -33222,7 +33362,7 @@
 	(footprint "C_1206_3216Metric"
 		(layer "F.Cu")
 		(uuid "f401f755-4553-4687-9e44-09c391ec4311")
-		(at 97.195 23.725)
+		(at 97.195 28.095)
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C21"
