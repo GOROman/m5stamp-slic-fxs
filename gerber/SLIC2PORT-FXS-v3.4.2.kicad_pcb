@@ -222,9 +222,10 @@
 			)
 		)
 		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start -6.10 -6.00)
-			(end 6.10 -6.00)
+			(start -6.1 -6)
+			(end 6.1 -6)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -233,28 +234,8 @@
 			(uuid "9de9897a-ace3-49a4-a9f1-3592c94f5be4")
 		)
 		(fp_line
-			(start 6.10 -6.00)
-			(end 6.10 9.00)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "fdca287b-ecf1-4885-bfa3-9619a32e86c6")
-		)
-		(fp_line
-			(start 6.10 9.00)
-			(end -6.10 9.00)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "ddc05ae5-7c10-4f70-ad9b-8a90995f1489")
-		)
-		(fp_line
-			(start -6.10 9.00)
-			(end -6.10 -6.00)
+			(start -6.1 9)
+			(end -6.1 -6)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -263,44 +244,24 @@
 			(uuid "69041931-afd9-4b38-9076-1e4caa6f57a7")
 		)
 		(fp_line
-			(start -6.35 -6.30)
-			(end 6.35 -6.30)
+			(start 6.1 -6)
+			(end 6.1 9)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "ae39447c-8473-415f-8cd7-7a88274a3897")
+			(layer "F.SilkS")
+			(uuid "fdca287b-ecf1-4885-bfa3-9619a32e86c6")
 		)
 		(fp_line
-			(start 6.35 -6.30)
-			(end 6.35 9.30)
+			(start 6.1 9)
+			(end -6.1 9)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "3cb8dbc2-ee27-4182-bd73-e5e08e9c0db1")
-		)
-		(fp_line
-			(start 6.35 9.30)
-			(end -6.35 9.30)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "3a9e922c-fe87-4899-8f9e-847390d133fe")
-		)
-		(fp_line
-			(start -6.35 9.30)
-			(end -6.35 -6.30)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "6cd26b07-1b44-4f15-a57f-839f05192bfd")
+			(layer "F.SilkS")
+			(uuid "ddc05ae5-7c10-4f70-ad9b-8a90995f1489")
 		)
 		(fp_circle
 			(center 4.35 4.64)
@@ -313,7 +274,46 @@
 			(layer "F.SilkS")
 			(uuid "84dcc740-7504-4a65-b5ee-ed148fa145d6")
 		)
-		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -6.35 -6.3)
+			(end 6.35 -6.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "ae39447c-8473-415f-8cd7-7a88274a3897")
+		)
+		(fp_line
+			(start -6.35 9.3)
+			(end -6.35 -6.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "6cd26b07-1b44-4f15-a57f-839f05192bfd")
+		)
+		(fp_line
+			(start 6.35 -6.3)
+			(end 6.35 9.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3cb8dbc2-ee27-4182-bd73-e5e08e9c0db1")
+		)
+		(fp_line
+			(start 6.35 9.3)
+			(end -6.35 9.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3a9e922c-fe87-4899-8f9e-847390d133fe")
+		)
 		(pad "" np_thru_hole circle
 			(at -6 0)
 			(size 2.3 2.3)
@@ -16678,7 +16678,7 @@
 	(footprint "CP_Radial_D8.0mm_P3.50mm"
 		(layer "F.Cu")
 		(uuid "79e2d004-5399-4445-a397-5795d2adcb6f")
-		(at 22.525 65.275)
+		(at 21.525 65.275)
 		(descr "CP, Radial series, Radial, pin pitch=3.50mm, diameter=8mm, height=12mm, Electrolytic Capacitor")
 		(tags "CP Radial series Radial pin pitch 3.50mm diameter 8mm height 12mm Electrolytic Capacitor")
 		(property "Reference" "C13"
@@ -30739,9 +30739,10 @@
 			)
 		)
 		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start -6.10 -6.00)
-			(end 6.10 -6.00)
+			(start -6.1 -6)
+			(end 6.1 -6)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -30750,28 +30751,8 @@
 			(uuid "9de9897a-ace3-49a4-a9f1-3592c94f5be4")
 		)
 		(fp_line
-			(start 6.10 -6.00)
-			(end 6.10 9.00)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "fdca287b-ecf1-4885-bfa3-9619a32e86c6")
-		)
-		(fp_line
-			(start 6.10 9.00)
-			(end -6.10 9.00)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "ddc05ae5-7c10-4f70-ad9b-8a90995f1489")
-		)
-		(fp_line
-			(start -6.10 9.00)
-			(end -6.10 -6.00)
+			(start -6.1 9)
+			(end -6.1 -6)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -30780,44 +30761,24 @@
 			(uuid "69041931-afd9-4b38-9076-1e4caa6f57a7")
 		)
 		(fp_line
-			(start -6.35 -6.30)
-			(end 6.35 -6.30)
+			(start 6.1 -6)
+			(end 6.1 9)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "ae39447c-8473-415f-8cd7-7a88274a3897")
+			(layer "F.SilkS")
+			(uuid "fdca287b-ecf1-4885-bfa3-9619a32e86c6")
 		)
 		(fp_line
-			(start 6.35 -6.30)
-			(end 6.35 9.30)
+			(start 6.1 9)
+			(end -6.1 9)
 			(stroke
-				(width 0.05)
+				(width 0.12)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "3cb8dbc2-ee27-4182-bd73-e5e08e9c0db1")
-		)
-		(fp_line
-			(start 6.35 9.30)
-			(end -6.35 9.30)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "3a9e922c-fe87-4899-8f9e-847390d133fe")
-		)
-		(fp_line
-			(start -6.35 9.30)
-			(end -6.35 -6.30)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "6cd26b07-1b44-4f15-a57f-839f05192bfd")
+			(layer "F.SilkS")
+			(uuid "ddc05ae5-7c10-4f70-ad9b-8a90995f1489")
 		)
 		(fp_circle
 			(center 4.35 4.64)
@@ -30830,7 +30791,46 @@
 			(layer "F.SilkS")
 			(uuid "84dcc740-7504-4a65-b5ee-ed148fa145d6")
 		)
-		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -6.35 -6.3)
+			(end 6.35 -6.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "ae39447c-8473-415f-8cd7-7a88274a3897")
+		)
+		(fp_line
+			(start -6.35 9.3)
+			(end -6.35 -6.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "6cd26b07-1b44-4f15-a57f-839f05192bfd")
+		)
+		(fp_line
+			(start 6.35 -6.3)
+			(end 6.35 9.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3cb8dbc2-ee27-4182-bd73-e5e08e9c0db1")
+		)
+		(fp_line
+			(start 6.35 9.3)
+			(end -6.35 9.3)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3a9e922c-fe87-4899-8f9e-847390d133fe")
+		)
 		(pad "" np_thru_hole circle
 			(at -6 0)
 			(size 2.3 2.3)
