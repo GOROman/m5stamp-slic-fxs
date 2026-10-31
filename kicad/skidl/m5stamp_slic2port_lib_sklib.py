@@ -3,39 +3,44 @@ from skidl import Pin, Part, Alias, SchLib, SKIDL, TEMPLATE
 SKIDL_lib_version = '0.0.1'
 
 m5stamp_slic2port_lib = SchLib(tool=SKIDL).add_parts(*[
-        Part(**{ 'name':'USB_C', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'USB_C'}), 'value_str':'USB-C_PWR', '_name':'USB_C', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'USB_C'}), 'pin':None, 'footprint':'Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12', 'pins':[
-            Pin(num=1,name='GND',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=2,name='VBUS',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=3,name='CC1',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=4,name='DP',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=5,name='DN',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=6,name='VBUS',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=7,name='GND',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=8,name='GND',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=9,name='VBUS',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=10,name='CC2',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=11,name='GND',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=12,name='SHIELD',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'R', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'R'}), 'value_str':'5.1K', '_name':'R', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'R'}), 'pin':None, 'footprint':'Resistor_SMD:R_0805_2012Metric', 'pins':[
+        Part(**{ 'name':'USB_C', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'USB_C', 'description':'', '_match_pin_regex':False, 'value_str':'USB-C_PWR', '_aliases':Alias({'USB_C'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'USB_C'}), 'pin':None, 'footprint':'Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12', 'pins':[
+            Pin(num='A1',name='GND_A1',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A12',name='GND_A12',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B1',name='GND_B1',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B12',name='GND_B12',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A4',name='VBUS_A4',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A9',name='VBUS_A9',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B4',name='VBUS_B4',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B9',name='VBUS_B9',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A5',name='CC1',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B5',name='CC2',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A6',name='DP_A',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B6',name='DP_B',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A7',name='DN_A',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B7',name='DN_B',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='A8',name='SBU1',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='B8',name='SBU2',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num='S1',name='SHIELD',func=Pin.types.PASSIVE,do_erc=True)] }),
+        Part(**{ 'name':'R', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'R', 'description':'', '_match_pin_regex':False, 'value_str':'5.1K', '_aliases':Alias({'R'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'R'}), 'pin':None, 'footprint':'Resistor_SMD:R_0805_2012Metric', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='2',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'TB', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'TB'}), 'value_str':'DC5V_IN', '_name':'TB', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'TB'}), 'pin':None, 'footprint':'TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal', 'pins':[
+        Part(**{ 'name':'TB', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'TB', 'description':'', '_match_pin_regex':False, 'value_str':'DC5V_IN', '_aliases':Alias({'TB'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'TB'}), 'pin':None, 'footprint':'TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal', 'pins':[
             Pin(num=1,name='+',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='-',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'F', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'F'}), 'value_str':'Polyfuse_2A', '_name':'F', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'F'}), 'pin':None, 'footprint':'Fuse:Fuse_1812_4532Metric', 'pins':[
+        Part(**{ 'name':'F', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'F', 'description':'', '_match_pin_regex':False, 'value_str':'Polyfuse_2A', '_aliases':Alias({'F'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'F'}), 'pin':None, 'footprint':'Fuse:Fuse_1812_4532Metric', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='2',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'Q', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'Q'}), 'value_str':'AO3401A', '_name':'Q', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'Q'}), 'pin':None, 'footprint':'Package_TO_SOT_SMD:SOT-23', 'pins':[
+        Part(**{ 'name':'Q', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'Q', 'description':'', '_match_pin_regex':False, 'value_str':'AO3401A', '_aliases':Alias({'Q'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'Q'}), 'pin':None, 'footprint':'Package_TO_SOT_SMD:SOT-23', 'pins':[
             Pin(num=1,name='G',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='S',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='D',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'D', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'D'}), 'value_str':'SMBJ5.0A', '_name':'D', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'D'}), 'pin':None, 'footprint':'Diode_SMD:D_SMB', 'pins':[
-            Pin(num=1,name='A',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=2,name='K',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'C', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'C'}), 'value_str':'1000uF/10V', '_name':'C', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'C'}), 'pin':None, 'footprint':'Capacitor_THT:CP_Radial_D8.0mm_P3.50mm', 'pins':[
+        Part(**{ 'name':'D', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'D', 'description':'', '_match_pin_regex':False, 'value_str':'SMBJ5.0A', '_aliases':Alias({'D'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'D'}), 'pin':None, 'footprint':'Diode_SMD:D_SMB', 'pins':[
+            Pin(num=1,name='K',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num=2,name='A',func=Pin.types.PASSIVE,do_erc=True)] }),
+        Part(**{ 'name':'C', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'C', 'description':'', '_match_pin_regex':False, 'value_str':'1000uF/10V', '_aliases':Alias({'C'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'C'}), 'pin':None, 'footprint':'Capacitor_THT:CP_Radial_D8.0mm_P3.50mm', 'pins':[
             Pin(num=1,name='+',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='-',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'M5STAMPS3', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'M5STAMPS3'}), 'value_str':'M5StampS3/S3A', '_name':'M5STAMPS3', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'M5STAMPS3'}), 'pin':None, 'footprint':'SLIC2PORT:Stamp-S3-SMD', 'pins':[
+        Part(**{ 'name':'M5STAMPS3', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'M5STAMPS3', 'description':'', '_match_pin_regex':False, 'value_str':'M5StampS3/S3A', '_aliases':Alias({'M5STAMPS3'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'M5STAMPS3'}), 'pin':None, 'footprint':'SLIC2PORT:Stamp-S3-SMD', 'pins':[
             Pin(num=1,name='G1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='G2',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='G3',func=Pin.types.PASSIVE,do_erc=True),
@@ -64,13 +69,13 @@ m5stamp_slic2port_lib = SchLib(tool=SKIDL).add_parts(*[
             Pin(num=26,name='G43',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=27,name='G46',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=28,name='3V3',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'SW', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'SW'}), 'value_str':'RST', '_name':'SW', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'SW'}), 'pin':None, 'footprint':'Button_Switch_THT:SW_PUSH_6mm', 'pins':[
+        Part(**{ 'name':'SW', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'SW', 'description':'', '_match_pin_regex':False, 'value_str':'RST', '_aliases':Alias({'SW'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'SW'}), 'pin':None, 'footprint':'Button_Switch_THT:SW_PUSH_6mm', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='2',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'LED', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'LED'}), 'value_str':'LED_GRN', '_name':'LED', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'LED'}), 'pin':None, 'footprint':'LED_SMD:LED_0805_2012Metric', 'pins':[
-            Pin(num=1,name='A',func=Pin.types.PASSIVE,do_erc=True),
-            Pin(num=2,name='K',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'HDR', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'HDR'}), 'value_str':'EXPANSION', '_name':'HDR', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'HDR'}), 'pin':None, 'footprint':'Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical', 'pins':[
+        Part(**{ 'name':'LED', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'LED', 'description':'', '_match_pin_regex':False, 'value_str':'LED_GRN', '_aliases':Alias({'LED'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'LED'}), 'pin':None, 'footprint':'LED_SMD:LED_0805_2012Metric', 'pins':[
+            Pin(num=1,name='K',func=Pin.types.PASSIVE,do_erc=True),
+            Pin(num=2,name='A',func=Pin.types.PASSIVE,do_erc=True)] }),
+        Part(**{ 'name':'HDR', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'HDR', 'description':'', '_match_pin_regex':False, 'value_str':'EXPANSION', '_aliases':Alias({'HDR'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'HDR'}), 'pin':None, 'footprint':'Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='2',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='3',func=Pin.types.PASSIVE,do_erc=True),
@@ -81,9 +86,9 @@ m5stamp_slic2port_lib = SchLib(tool=SKIDL).add_parts(*[
             Pin(num=8,name='8',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=9,name='9',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=10,name='10',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'TP', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'TP'}), 'value_str':'TP', '_name':'TP', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'TP'}), 'pin':None, 'footprint':'Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical', 'pins':[
+        Part(**{ 'name':'TP', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'TP', 'description':'', '_match_pin_regex':False, 'value_str':'TP', '_aliases':Alias({'TP'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'TP'}), 'pin':None, 'footprint':'Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'74HCT244', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'74HCT244'}), 'value_str':'74HCT244', '_name':'74HCT244', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'74HCT244'}), 'pin':None, 'footprint':'Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm', 'pins':[
+        Part(**{ 'name':'74HCT244', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'74HCT244', 'description':'', '_match_pin_regex':False, 'value_str':'74HCT244', '_aliases':Alias({'74HCT244'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'74HCT244'}), 'pin':None, 'footprint':'Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm', 'pins':[
             Pin(num=1,name='1OE',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='1A1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='2Y4',func=Pin.types.PASSIVE,do_erc=True),
@@ -104,7 +109,7 @@ m5stamp_slic2port_lib = SchLib(tool=SKIDL).add_parts(*[
             Pin(num=18,name='1Y1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=19,name='2OE',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=20,name='VCC',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'CD4053B', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'CD4053B'}), 'value_str':'CD4053B', '_name':'CD4053B', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'CD4053B'}), 'pin':None, 'footprint':'Package_SO:SOIC-16_3.9x9.9mm_P1.27mm', 'pins':[
+        Part(**{ 'name':'CD4053B', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'CD4053B', 'description':'', '_match_pin_regex':False, 'value_str':'CD4053B', '_aliases':Alias({'CD4053B'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'CD4053B'}), 'pin':None, 'footprint':'Package_SO:SOIC-16_3.9x9.9mm_P1.27mm', 'pins':[
             Pin(num=1,name='Y1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='Y0',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='Z1',func=Pin.types.PASSIVE,do_erc=True),
@@ -121,7 +126,7 @@ m5stamp_slic2port_lib = SchLib(tool=SKIDL).add_parts(*[
             Pin(num=14,name='XCOM',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=15,name='YCOM',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=16,name='VDD',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'KS0835F', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'KS0835F'}), 'value_str':'KS0835F', '_name':'KS0835F', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'KS0835F'}), 'pin':None, 'footprint':'SLIC2PORT:KS0835F', 'pins':[
+        Part(**{ 'name':'KS0835F', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'KS0835F', 'description':'', '_match_pin_regex':False, 'value_str':'KS0835F', '_aliases':Alias({'KS0835F'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'KS0835F'}), 'pin':None, 'footprint':'SLIC2PORT:KS0835F', 'pins':[
             Pin(num=1,name='RING',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='TIP',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='FR',func=Pin.types.PASSIVE,do_erc=True),
@@ -133,13 +138,13 @@ m5stamp_slic2port_lib = SchLib(tool=SKIDL).add_parts(*[
             Pin(num=9,name='GND',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=10,name='VDC',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=11,name='PD',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'RJ11_6P6C', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'RJ11_6P6C'}), 'value_str':'RJ11_6P6C', '_name':'RJ11_6P6C', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'RJ11_6P6C'}), 'pin':None, 'footprint':'SLIC2PORT:RJ11_6P6C_TH', 'pins':[
+        Part(**{ 'name':'RJ11_6P6C', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'RJ11_6P6C', 'description':'', '_match_pin_regex':False, 'value_str':'RJ11_6P6C', '_aliases':Alias({'RJ11_6P6C'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'RJ11_6P6C'}), 'pin':None, 'footprint':'SLIC2PORT:RJ11_6P6C_TH', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='2',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=3,name='3',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=4,name='4',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=5,name='5',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=6,name='6',func=Pin.types.PASSIVE,do_erc=True)] }),
-        Part(**{ 'name':'FB', 'dest':TEMPLATE, 'tool':SKIDL, 'description':'', '_aliases':Alias({'FB'}), 'value_str':'BLM21_600R', '_name':'FB', '_match_pin_regex':False, 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'FB'}), 'pin':None, 'footprint':'Inductor_SMD:L_0805_2012Metric', 'pins':[
+        Part(**{ 'name':'FB', 'dest':TEMPLATE, 'tool':SKIDL, '_name':'FB', 'description':'', '_match_pin_regex':False, 'value_str':'BLM21_600R', '_aliases':Alias({'FB'}), 'ref_prefix':'U', 'num_units':None, 'fplist':None, 'do_erc':True, 'aliases':Alias({'FB'}), 'pin':None, 'footprint':'Inductor_SMD:L_0805_2012Metric', 'pins':[
             Pin(num=1,name='1',func=Pin.types.PASSIVE,do_erc=True),
             Pin(num=2,name='2',func=Pin.types.PASSIVE,do_erc=True)] })])

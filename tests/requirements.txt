@@ -1,0 +1,2 @@
+skidl==1.2.1
+sexpdata==1.0.0

@@ -80,8 +80,8 @@ def gen_rj11():
     for i in range(6):
         n = i + 1
         x = -3.175 + i * 1.27
-        shape = "rect" if n == 1 else "circle"
-        L.append('  (pad "%d" thru_hole %s (at %.3f 4.7) (size 1.6 1.6) (drill 0.9) (layers "*.Cu" "*.Mask"))' % (n, shape, x))
+        shape = "rect" if n == 1 else "oval"
+        L.append('  (pad "%d" thru_hole %s (at %.3f 4.7) (size 1.1 1.6) (drill 0.9) (layers "*.Cu" "*.Mask"))' % (n, shape, x))
     L.append(')')
     with open(os.path.join(OUT, "RJ11_6P6C_TH.kicad_mod"), "w") as f:
         f.write("\n".join(L) + "\n")

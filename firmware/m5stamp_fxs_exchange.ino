@@ -48,7 +48,9 @@ static const uint32_t RELEASE_HOOK_MS    = 500;   // 通話中オンフック確
 static const uint32_t RING_FREQ_HZ       = 20;    // リング周波数 (SLIC 制約 20-25Hz)
 static const uint32_t RING_ON_MS         = 1000;  // 日本パターン 1秒ON
 static const uint32_t RING_OFF_MS        = 2000;  //           2秒OFF
-static const uint32_t RING_TRIP_MS       = 80;    // リング中 SHK 継続で応答判定
+static const uint32_t RING_TRIP_MS       = 10;    // リング中 SHK 継続で応答判定
+// Ag1171 §3.3: F/R=H 固定後 >10ms 待ってから RM=L。
+static const uint32_t RING_SETTLE_MS     = 15;
 static const uint32_t RING_TIMEOUT_MS    = 45000; // 無応答タイムアウト
 static const uint32_t DIAL_NODIGIT_MS    = 6000;  // 数字なしで発信扱いにする時間
 static const uint32_t DIAL_INTERDIGIT_MS = 2500;  // 最後の数字からの確定待ち
@@ -105,6 +107,7 @@ struct RingEngine {
   int callee = -1;
   uint32_t startedAt = 0;
   bool phaseOn = false;   // 現在バースト中か (呼出音同期用)
+  bool rmHigh = false;
   bool frLevel = true;
   uint32_t lastToggle = 0;
 
@@ -112,8 +115,19 @@ struct RingEngine {
     active = true; callee = calleeIdx; startedAt = now;
     phaseOn = false; frLevel = true; lastToggle = now;
   }
+  // 停止時のみ最大15msの待機。DTMFサンプリングはリング中には実行しない。
+  void stopBurst() {
+    if (callee < 0) return;
+    setFR(ports[callee], true);
+    frLevel = true;
+    if (rmHigh) {
+      delay(RING_SETTLE_MS);
+      setRM(ports[callee], false);
+      rmHigh = false;
+    }
+  }
   void stop() {
-    if (callee >= 0) { setRM(ports[callee], false); setFR(ports[callee], true); }
+    stopBurst();
     active = false; callee = -1; phaseOn = false;
   }
   // 毎ループ呼ぶ。戻り値: 現在のバースト ON 相かどうか
@@ -123,16 +137,16 @@ struct RingEngine {
     bool on = (ph < RING_ON_MS);
     Port &p = ports[callee];
     if (on) {
+      if (!phaseOn) { lastToggle = now; frLevel = true; setFR(p, true); }
       setRM(p, true);
+      rmHigh = true;
       if (now - lastToggle >= (1000 / (RING_FREQ_HZ * 2))) {
         frLevel = !frLevel;
         setFR(p, frLevel);
         lastToggle = now;
       }
     } else {
-      setRM(p, false);
-      setFR(p, true);
-      frLevel = true;
+      stopBurst();
     }
     phaseOn = on;
     return on;
@@ -204,10 +218,10 @@ struct DtmfReceiver {
   void reset() { candidate = armed = '\0'; digits = ""; lastDigitAt = 0; }
   void feed(char d, uint32_t now) {
     if (d == '\0') { candidate = '\0'; armed = '\0'; return; }
-    if (d == armed) return;                    // 押下継続
+    if (d == armed) { lastDigitAt = now; return; } // 押下継続
     if (d == candidate) {                      // 2窓連続 -> 確定
       armed = d;
-      digits += d;
+      if (digits.length() < 64) digits += d;
       lastDigitAt = now;
       Serial.printf("[DTMF] digit '%c' (total: %s)\n", d, digits.c_str());
     } else {
@@ -220,7 +234,8 @@ static DtmfReceiver dtmf;
 // ===========================================================================
 // 交換機 状態機械
 // ===========================================================================
-enum ExState { EX_IDLE, EX_DIAL, EX_RINGING, EX_CONNECTED, EX_BUSY };
+enum ExState { EX_IDLE, EX_DIAL, EX_RINGING, EX_CONNECTED, EX_BUSY,
+               EX_WAIT_ONHOOK, EX_RING_TEST };
 static ExState exState = EX_IDLE;
 static int caller = -1;                 // 発信側ポート index (0=A, 1=B)
 static uint32_t stateSince = 0;
@@ -235,10 +250,10 @@ static void toIdle(uint32_t now) {
     setSelTone(ports[i], false);
   }
   caller = -1;
-  exState = EX_IDLE;
+  exState = (!ports[0].hook && !ports[1].hook) ? EX_IDLE : EX_WAIT_ONHOOK;
   stateSince = now;
   dtmf.reset();
-  Serial.println("[EX] -> IDLE");
+  Serial.println(exState == EX_IDLE ? "[EX] -> IDLE" : "[EX] -> WAIT_ONHOOK");
 }
 
 static void startDial(int c, uint32_t now) {
@@ -299,15 +314,15 @@ static void exchangeUpdate(uint32_t now) {
     case EX_RINGING: {
       Port &cp = ports[caller];
       Port &op = ports[1 - caller];
-      bool burst = ring.update(now);
-      toneSet(burst);                               // 呼出音をリングに同期
       if (!cp.hook) { toIdle(now); break; }         // 発信側キャンセル
       // リングトリップ判定: 被呼側 SHK の生値が継続したら応答
-      if (op.rawHook && (now - op.rawChangedAt) >= RING_TRIP_MS && op.rawChangedAt >= stateSince) {
+      if (op.rawHook && (now - op.rawChangedAt) >= RING_TRIP_MS) {
         op.hook = true; op.hookSince = now;         // フック状態を確定させる
         startConnected(now);
         break;
       }
+      bool burst = ring.update(now);
+      toneSet(burst);                               // 呼出音をリングに同期
       if ((now - stateSince) >= RING_TIMEOUT_MS) {  // 無応答
         ring.stop();
         exState = EX_BUSY;
@@ -318,14 +333,26 @@ static void exchangeUpdate(uint32_t now) {
     }
     case EX_CONNECTED: {
       // どちらかがオンフック (hook=false に遷移) して RELEASE_HOOK_MS
-      // 経過したら解放する。接続開始前からのオンフックは hookSince で除外。
+      // 経過したら解放する。接続時は両ポートがオフフック済み。
       for (int i = 0; i < 2; i++) {
-        if (!ports[i].hook && ports[i].hookSince >= stateSince &&
+        if (!ports[i].hook &&
             (now - ports[i].hookSince) >= RELEASE_HOOK_MS) {
           toIdle(now);
           break;
         }
       }
+      break;
+    }
+    case EX_WAIT_ONHOOK: {
+      // 残ったオフフックを新規発信として扱わず、両端が戻るのを待つ。
+      if (!A.hook && !B.hook) { exState = EX_IDLE; stateSince = now; }
+      break;
+    }
+    case EX_RING_TEST: {
+      Port &target = ports[ring.callee];
+      if ((target.rawHook && now - target.rawChangedAt >= RING_TRIP_MS) ||
+          now - stateSince >= RING_TIMEOUT_MS) { toIdle(now); break; }
+      ring.update(now);
       break;
     }
     case EX_BUSY: {
@@ -343,9 +370,13 @@ static void exchangeUpdate(uint32_t now) {
 // ===========================================================================
 static void ringTest(int idx, uint32_t now) {
   if (exState != EX_IDLE) { Serial.println("[TEST] busy"); return; }
-  caller = 1 - idx;                    // テスト対象を被呼側として扱う
-  startRinging(now);
-  Serial.printf("[TEST] ringing port %s (send any hook change or wait 45s)\n",
+  if (ports[0].rawHook || ports[1].rawHook) {
+    Serial.println("[TEST] both ports must be on-hook"); return;
+  }
+  exState = EX_RING_TEST;
+  stateSince = now;
+  ring.start(idx, now);
+  Serial.printf("[TEST] ringing port %s (off-hook target, send r, or wait 45s)\n",
                 ports[idx].name);
 }
 
@@ -389,7 +420,7 @@ void loop() {
 
   // ステータス LED: 接続中=点灯, 呼出中=点滅, 待機=消灯
   if (exState == EX_CONNECTED) digitalWrite(PIN_LED_ST, HIGH);
-  else if (exState == EX_RINGING) digitalWrite(PIN_LED_ST, (now / 300) % 2);
+  else if (exState == EX_RINGING || exState == EX_RING_TEST) digitalWrite(PIN_LED_ST, (now / 300) % 2);
   else digitalWrite(PIN_LED_ST, LOW);
 
   // シリアルコマンド (デバッグ)
@@ -404,4 +435,5 @@ void loop() {
       toIdle(now);
     }
   }
+  delay(2); // 呼出中のSHKポーリング。停止シーケンス中のみ15ms待機。
 }
