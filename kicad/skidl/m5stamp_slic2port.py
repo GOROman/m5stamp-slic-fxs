@@ -453,7 +453,8 @@ for s in ("A", "B"):
     PDX += d_pd["A"]; PD_BUS += d_pd["K"]
 
     PN[s] = {"TIP": TIP, "RING": RING, "SHKRAW": SHKRAW, "PDX": PDX,
-             "VXAUD": VXAUD, "VXPIN": vx_pin_net, "VRPIN": vr_pin_net}
+             "VXAUD": VXAUD, "VXPIN": vx_pin_net, "VRPIN": vr_pin_net,
+             "P5VP": P5VP}
 
 # リレー NC 接点 = 相手 VX (クロス接続)
 VXIN["B"] += RLY["A"]["NC1"]; VXIN["B"] += RLY["A"]["NC2"]
@@ -490,6 +491,53 @@ TP_LIST = [
 for _i, (_net, _label) in enumerate(TP_LIST):
     _tp = TP(); _tp.ref = "TP%d" % (_i + 4)
     _net += _tp[1]
+
+# ===========================================================================
+# 動作チェック用ステータス LED (D4-D9: ポート毎に HOOK / RING / LINK)
+# ファームウェア変更不要のハードウェア連動表示。既存の D2 (電源) /
+# D3 (GPIO4 ステータス) とは役割が別で、通電したまま各ポートの状態を
+# 目視確認するためのもの。シルクに HOOK_x / RING_x / LINK_x の
+# 役割ラベルを付ける (基板生成スクリプト側で配置)。
+#
+# HOOK (緑): オフフック表示。SHK は Ag1171 の仕様で 100uA max 出力
+#   (3.3K 内蔵プルアップから供給) しかなく LED を直接駆動できない
+#   ため、2N7002 (Q5/Q6) でバッファする。ゲート = SHK_x_RAW で、
+#   既存の SHK 分圧 (10K/18K) が DC 経路を兼ねるためゲートは浮かない。
+#   点灯経路: +5V_Px -> R_LED -> LED -> FET -> GND (SHK=H で点灯)。
+# RING (黄): リンギング表示。RM_x_5V は 74HCT244 の出力 (IOH/IOL
+#   ±6mA 定格) なので、抵抗経由で直接駆動する (約2mA)。
+# LINK (青): リレー励磁表示。SEL_x_5V (コイル駆動ライン) から直接
+#   駆動する。SEL=H で点灯 = リレー励磁中 (トーンバス選択中)。
+#   通話中のクロス接続は SEL=L (無励磁) なので、その間は消灯する。
+# LED 電流はいずれも約2mA (0805 高効率品想定)。
+# ===========================================================================
+SEL_5V = {"A": SEL_A_5V, "B": SEL_B_5V}
+
+def _status_led_hook(s, dref, rref, qref):
+    global GND
+    n_top = Net("LED_HK_%s" % s)
+    n_sw = Net("HK_%s_DRV" % s)
+    r = R("1.5K", ref=rref)
+    PN[s]["P5VP"] += r[1]; n_top += r[2]
+    d = LED(); d.ref = dref; d.value = "LED_GRN"
+    n_top += d["A"]; n_sw += d["K"]
+    q = SOT23(); q.ref = qref; q.value = "2N7002"
+    PN[s]["SHKRAW"] += q["G"]; GND += q["S"]; n_sw += q["D"]
+
+def _status_led_direct(sig, s, role, dref, dval, rref, rval):
+    global GND
+    n_top = Net("LED_%s_%s" % (role, s))
+    r = R(rval, ref=rref)
+    sig += r[1]; n_top += r[2]
+    d = LED(); d.ref = dref; d.value = dval
+    n_top += d["A"]; GND += d["K"]
+
+_status_led_hook("A", "D4", "R_LED3", "Q5")
+_status_led_direct(RM_5V["A"], "A", "RG", "D5", "LED_YEL", "R_LED4", "1.5K")
+_status_led_direct(SEL_5V["A"], "A", "LK", "D6", "LED_BLU", "R_LED5", "1K")
+_status_led_hook("B", "D7", "R_LED6", "Q6")
+_status_led_direct(RM_5V["B"], "B", "RG", "D8", "LED_YEL", "R_LED7", "1.5K")
+_status_led_direct(SEL_5V["B"], "B", "LK", "D9", "LED_BLU", "R_LED8", "1K")
 
 # ===========================================================================
 # ERC + ネットリスト
