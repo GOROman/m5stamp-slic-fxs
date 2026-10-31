@@ -1,5 +1,6 @@
 import csv
 import importlib.util
+from collections import Counter
 from pathlib import Path
 import re
 import subprocess
@@ -21,12 +22,22 @@ class HardwareTest(unittest.TestCase):
     def net(self, ref, pin):
         return self.nets[(ref, str(pin))]
 
+    def _signatures(self, components, nets):
+        # Auto U-numbers from SKiDL drift between runs. Compare the circuit, not the refs.
+        pins = {}
+        for (ref, pin), net in nets.items():
+            pins.setdefault(ref, []).append((str(pin), net))
+        sigs = []
+        for ref, (value, footprint) in components.items():
+            sigs.append((value, footprint, tuple(sorted(pins.get(ref, [])))))
+        return Counter(sigs)
+
     def test_generated_connectivity_matches_source(self):
         with tempfile.TemporaryDirectory() as temp:
             subprocess.run([sys.executable, str(SOURCE)], cwd=temp, check=True, capture_output=True)
             components, nets = bom.read_netlist(Path(temp)/SOURCE.with_suffix('.net').name)
-        self.assertEqual(components, self.components)
-        self.assertEqual(nets, self.nets)
+        self.assertEqual(self._signatures(components, nets),
+                         self._signatures(self.components, self.nets))
 
     def test_usb_actual_pad_numbers(self):
         for pin in ('A1','A12','B1','B12','S1'):
@@ -48,18 +59,35 @@ class HardwareTest(unittest.TestCase):
         for ref in ('D2','D3'):
             self.assertEqual(self.net(ref,1),'GND')
         for ref, (value, _) in self.components.items():
-            if value=='1N4004':
-                # Every PD diode cathode goes toward the pull-down FET.
-                if self.net(ref,2).startswith('PD_'):
-                    self.assertEqual(self.net(ref,1),'PD_BUS')
+            if value != '1N4007':
+                continue
+            anode, cathode = self.net(ref, 2), self.net(ref, 1)
+            if anode.startswith('PD_'):
+                self.assertEqual(cathode, 'PD_BUS')
+            elif anode.startswith('RLY_') and anode.endswith('_COIL'):
+                self.assertEqual(cathode, '+5V')
 
-    def test_reset_pulldowns_and_logic_jumper(self):
+    def test_reset_pulldowns_and_relays(self):
         for signal in ('FR_A_33','RM_A_33','SEL_A_33','TONE_PWM_33',
                        'FR_B_33','RM_B_33','SEL_B_33'):
             self.assertTrue(any(value=='100K' and
                 {self.net(ref,1), self.net(ref,2)}=={signal,'GND'}
                 for ref,(value,_) in self.components.items() if ref.startswith('R')))
-        self.assertEqual(self.net('J7',2),'+5V')
+        # G5V-2: coil 1/16, COM 4 and 13, NC 6 and 11, NO 8 and 9.
+        # Unenergized (SEL=L) crosses VX; energized (SEL=H) selects the tone bus.
+        self.assertEqual(self.net('K1','1'), '+5V')
+        self.assertEqual(self.net('K1','16'), 'RLY_A_COIL')
+        self.assertEqual(self.net('K1','4'), 'VR_A_IN')
+        self.assertEqual(self.net('K1','13'), 'VR_A_IN')
+        self.assertEqual(self.net('K1','6'), 'VX_B_IN')
+        self.assertEqual(self.net('K1','11'), 'VX_B_IN')
+        self.assertEqual(self.net('K1','8'), 'TONE_BUS')
+        self.assertEqual(self.net('K1','9'), 'TONE_BUS')
+        self.assertEqual(self.net('K2','1'), '+5V')
+        self.assertEqual(self.net('K2','16'), 'RLY_B_COIL')
+        self.assertEqual(self.net('K2','4'), 'VR_B_IN')
+        self.assertEqual(self.net('K2','6'), 'VX_A_IN')
+        self.assertEqual(self.net('K2','8'), 'TONE_BUS')
 
     def test_tone_is_ac_coupled(self):
         self.assertEqual({self.net('C9',1),self.net('C9',2)}, {'TONE_N2','TONE_AC'})

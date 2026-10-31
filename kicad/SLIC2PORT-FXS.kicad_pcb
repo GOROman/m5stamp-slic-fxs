@@ -3211,7 +3211,7 @@
 	(footprint "SW_PUSH_6mm"
 		(layer "F.Cu")
 		(uuid "253fc667-1075-4e47-8dcc-8bfe45314e58")
-		(at 76.025 74.525)
+		(at 77.8 74.525)
 		(descr "Generic 6mm SW tactile push button")
 		(tags "tact sw push 6mm")
 		(property "Reference" "SW2"
@@ -9644,7 +9644,7 @@
 	(footprint "SOIC-20W_7.5x12.8mm_P1.27mm"
 		(layer "F.Cu")
 		(uuid "4cbd2306-335b-4996-95ec-0df9cb6f727a")
-		(at 33.455 77.175)
+		(at 33.455 73.2)
 		(descr "SOIC, 20 Pin (JEDEC MS-013AC, https://www.analog.com/media/en/package-pcb-resources/package/233848rw_20.pdf)")
 		(tags "SOIC SO")
 		(property "Reference" "U2"
@@ -10095,7 +10095,7 @@
 	(footprint "USB_C_Receptacle_HRO_TYPE-C-31-M-12"
 		(layer "F.Cu")
 		(uuid "4e013756-d42f-4aae-b5c8-7745d7e51637")
-		(at 16 84.9 180)
+		(at 16 84.7 180)
 		(descr "USB Type-C receptacle for USB 2.0 and PD, http://www.krhro.com/uploads/soft/180320/1-1P320120243.pdf")
 		(tags "usb usb-c 2.0 pd")
 		(property "Reference" "J1"
@@ -14309,7 +14309,7 @@
 	(footprint "C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "688b96d0-fe1d-41a5-a2ff-2f1c0ccca677")
-		(at 34.475 68.985)
+		(at 24 74)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C6"
@@ -16615,7 +16615,7 @@
 	(footprint "CP_Radial_D8.0mm_P3.50mm"
 		(layer "F.Cu")
 		(uuid "79e2d004-5399-4445-a397-5795d2adcb6f")
-		(at 22.525 65.275)
+		(at 21 66)
 		(descr "CP, Radial series, Radial, pin pitch=3.50mm, diameter=8mm, height=12mm, Electrolytic Capacitor")
 		(tags "CP Radial series Radial pin pitch 3.50mm diameter 8mm height 12mm Electrolytic Capacitor")
 		(property "Reference" "C13"

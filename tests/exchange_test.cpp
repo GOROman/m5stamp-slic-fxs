@@ -92,5 +92,24 @@ int main() {
   assert(dtmf.lastDigitAt==3000 && dtmf.digits=="1");
   for (int i=0;i<100;++i) { dtmf.feed(0,i); dtmf.feed('2',i); dtmf.feed('2',i); }
   assert(dtmf.digits.length()==64);
+  // Ring-test off-hook must not place a new call on the other port.
+  for (int idx = 0; idx < 2; ++idx) {
+    resetAt();
+    for (int p = 0; p < 64; ++p) pins[p] = LOW;
+    ringTest(idx, millis());
+    loop();
+    pins[ports[idx].shkPin] = HIGH;
+    loop();
+    delay(RING_TRIP_MS);
+    loop();
+    assert(exState == EX_WAIT_ONHOOK);
+    assert(ports[idx].hook);
+    assert(!ring.active);
+    assert(pins[ports[idx].rmPin] == LOW);
+    delay(DIAL_NODIGIT_MS + 1000);
+    for (int n = 0; n < 4; ++n) loop();
+    assert(exState == EX_WAIT_ONHOOK);
+    assert(pins[ports[1 - idx].rmPin] == LOW);
+  }
   std::cout << "exchange regression scenarios passed\n";
 }

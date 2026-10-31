@@ -23,6 +23,11 @@
 #include <Arduino.h>
 #include <math.h>
 
+// ledcAttach / ledcWrite(pin) は Arduino-ESP32 3.x。core 2.x (platform-espressif32 7.0.1 等) では未宣言。
+#if !defined(ESP_ARDUINO_VERSION_MAJOR) || ESP_ARDUINO_VERSION_MAJOR < 3
+#error "Arduino-ESP32 3.x required (ledcAttach). Use platform = espressif32@8.0.0"
+#endif
+
 // ===========================================================================
 // GPIO 定義 (DESIGN.md 6.2)
 // ===========================================================================
@@ -157,6 +162,10 @@ static RingEngine ring;
 // ===========================================================================
 // DTMF 受信 (Goertzel, 発信側ポートの MON を 8kHz サンプリング)
 // ===========================================================================
+// 対応する DTMF (tests/dtmf_window_test.cpp で窓位置を総当たり):
+//   最短音長 70ms、数字間隔 40ms 以上、各成分の正規化振幅 0.20 以上、無雑音、8kHz。
+//   205 サンプル窓 (25.6ms) を連続 2 窓一致で確定する。40ms 音は窓位置によって
+//   確定しない。40ms 対応は製品要件ではない (調査の結論)。
 static const int   DTMF_FS   = 8000;
 static const int   DTMF_N    = 205;                 // 約 25.6ms 窓
 static const float DTMF_ROW[4] = { 697, 770, 852, 941 };
@@ -349,9 +358,17 @@ static void exchangeUpdate(uint32_t now) {
       break;
     }
     case EX_RING_TEST: {
+      if (ring.callee < 0) { toIdle(now); break; }
       Port &target = ports[ring.callee];
-      if ((target.rawHook && now - target.rawChangedAt >= RING_TRIP_MS) ||
-          now - stateSince >= RING_TIMEOUT_MS) { toIdle(now); break; }
+      // raw の 10ms 確定は hook デバウンス (15ms) より早い。hook を立てずに
+      // IDLE へ戻すと、次ループでオフフックを新規発信と誤認する。
+      if (target.rawHook && (now - target.rawChangedAt) >= RING_TRIP_MS) {
+        target.hook = true;
+        target.hookSince = now;
+        toIdle(now);
+        break;
+      }
+      if ((now - stateSince) >= RING_TIMEOUT_MS) { toIdle(now); break; }
       ring.update(now);
       break;
     }
