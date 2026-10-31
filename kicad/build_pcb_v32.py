@@ -48,7 +48,16 @@ edge (freescan-verified empty: y 6-15 above the protection shelves),
 grouped per port next to its RJ11: row 1 = HOOK/RING pairs,
 row 2 = HOOK buffer FET + LINK pair, each LED with a role silk
 label (HOOK_x / RING_x / LINK_x). Branch feat/status-leds (PR).
-Run with KiCad's bundled python on the Mac.
+Round 8 (2026-10-31): v3.4.1 - generation source synchronised with the
+audited board (Issues #9/#12/#13):
+  - J1 anchor y 85.1 -> 84.9 (round 6: 0.33mm edge clearance), J2 y 86 -> 85.0,
+    U2/C6/K1 shifted up (round 7: J2/U2 body clash), C10 centre x 43.3 -> 43.65
+    (round 6: socket-pin copper gaps). A fresh regeneration now reproduces the
+    shipped placements, values and net assignments (see check_regen.py).
+  - Protection nets follow the datasheet GND-referenced clamp: BRM_x nets are
+    gone (bridge minus side and zener anode are GND), so HV_NETS drops BRM.
+  - SW2 moved +1.8mm in x (Issue #9: EN/GPIO0 pad gap was 0mm).
+Run with the KiCad bundled python on the Mac.
 """
 import json, os, sys, math
 
@@ -61,13 +70,16 @@ except Exception as e:
 import pcbnew
 from pcbnew import FromMM, VECTOR2I
 
-WORK = os.path.expanduser("~/slic-board-work")
-PROJ = os.path.join(WORK, "repo-v2", "kicad")
-BOARD_PATH = os.path.join(WORK, "build", "SLIC2PORT-FXS-v3.2.kicad_pcb")
+# Issue #12: paths are repo-relative so the board can be regenerated from a
+# fresh clone. Usage: build_pcb_v32.py [output.kicad_pcb]
+HERE = os.path.dirname(os.path.abspath(__file__))
+PROJ = HERE
+BOARD_PATH = (sys.argv[1] if len(sys.argv) > 1
+              else os.path.join(HERE, "build", "SLIC2PORT-FXS.kicad_pcb"))
 LIBBASE = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 LOCALPRETTY = os.path.join(PROJ, "SLIC2PORT.pretty")
 
-data = json.load(open(os.path.join(WORK, "netlist_v32.json")))
+data = json.load(open(os.path.join(HERE, "netlist_v32.json")))
 COMPS = data["comps"]
 NETS = data["nets"]
 
@@ -168,12 +180,12 @@ place_anchor("J_4", 102, 7.2, 0)     # RJ11 port B
 place_anchor("MOD_A", 26, 34, 180)   # line pins at left end
 place_anchor("MOD_B", 94, 47, 0)     # line pins at right end
 place_anchor("U1", 50, 77, 0)        # M5StampS3 on socket, antenna end (+y) at bottom edge
-place_anchor("J1", 16, 85.1, 180)    # USB-C, mating face at bottom edge
-place_anchor("J2", 30, 86, 0)        # terminal block
+place_anchor("J1", 16, 84.9, 180)    # USB-C, mating face at bottom edge
+place_anchor("J2", 30, 85.0, 0)        # terminal block
 
 # --- majors (bbox placement) ---
-place("U2", 27.5, 70.5, 0)           # 74HCT244 SOIC-20, left of U1 socket (channel kept open)
-place("K1", 30, 53.5, 90)            # relay A (G5V-2, rotated: 20.9 x 10.7)
+place("U2", 27.5, 65.0, 0)           # 74HCT244 SOIC-20, left of U1 socket (channel kept open)
+place("K1", 30, 52.3, 90)            # relay A (G5V-2, rotated: 20.9 x 10.7)
 place("K2", 98, 30, 90)              # relay B (G5V-2, rotated)
 place("Q3", 66, 53, 0)               # relay A driver 2N7002
 place("U45", 66, 57.5, 0)            # relay A flyback 1N4007
@@ -187,12 +199,12 @@ place("R15", 110, 67, 0)             # PD_EN pull-down
 place("U49", 85.5, 63, 0)            # relay B flyback 1N4007
 place("C22", 51.6, 52.7, 0)          # 470uF port B bulk (round5: was on A side; now under MOD_B near pin 10)
 place("C23", 51.5, 41.3, 0)          # +5V_PB decoupling (round5: just above MOD_B pin 10)
-place("C6", 32.75, 67.98, 0)         # U2 decoupling (round5: beside U2 pin 20 VCC)
+place("C6", 32.75, 63.28, 0)         # U2 decoupling (round5: beside U2 pin 20 VCC)
 place("R8", 58, 62.3, 0)             # EN pull-up (above U1 socket pads, channel side)
 place("J5", 85, 83, 90)              # expansion header 2x5 (rotated)
 place("J6", 115.5, 61.5, 0)          # UART header 1x4
 place("SW1", 66, 73, 0)
-place("SW2", 74.5, 73, 0)
+place("SW2", 76.3, 73, 0)  # v3.4.1: +1.8mm, EN-GPIO0 gap 1.8mm (Issue #9)
 place("D2", 66, 82.5, 0)
 place("R_LED1", 71.5, 82.5, 0)
 place("D3", 76.5, 82.5, 0)
@@ -282,7 +294,7 @@ def move_center(ref, cx, cy):
 
 move_center("C14", 66.0, 37.66)   # +5V_PA 100nF: under MOD_A pin 10 (pad at 66.62,34)
 fps["C10"].Flip(fps["C10"].GetPosition(), pcbnew.FLIP_DIRECTION_TOP_BOTTOM)
-move_center("C10", 43.3, 82.1)    # +5V 100nF on B.Cu under U1 socket pin 13 (pad at 41.4,82.08)
+move_center("C10", 43.65, 82.1)    # +5V 100nF on B.Cu under U1 socket pin 13 (pad at 41.4,82.08)
 
 # ---------------------------------------------------------------- TP silk labels
 for i in range(1, 35):
@@ -408,7 +420,7 @@ mkclass("Power", 0.25, 0.6, 0.9, 0.45)
 mkclass("HV", 0.5, 0.5, 0.8, 0.4)
 
 POWER_NETS = ["+5V", "+5V_PA", "+5V_PB", "VIN_RAW", "VIN_F", "GND"]
-HV_NETS = ["TIP_A", "RING_A", "TIP_B", "RING_B", "BRP_A", "BRM_A", "BRP_B", "BRM_B"]
+HV_NETS = ["TIP_A", "RING_A", "TIP_B", "RING_B", "BRP_A", "BRP_B"]
 for n in POWER_NETS:
     ns.SetNetclassPatternAssignment(n, "Power")
     netinfo[n].SetNetClass(ns.GetNetClassByName("Power"))
@@ -420,7 +432,7 @@ ns.RecomputeEffectiveNetclasses()
 pcbnew.SaveBoard(BOARD_PATH, board)
 print("board saved:", BOARD_PATH)
 
-ok = pcbnew.ExportSpecctraDSN(board, os.path.join(WORK, "build", "SLIC2PORT-FXS-v3.2.dsn"))
+ok = pcbnew.ExportSpecctraDSN(board, os.path.splitext(BOARD_PATH)[0] + ".dsn")
 print("DSN export:", ok)
 
 conn = board.GetConnectivity()

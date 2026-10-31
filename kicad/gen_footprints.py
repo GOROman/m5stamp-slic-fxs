@@ -75,8 +75,10 @@ def gen_ks0835f():
 # パッド: ピッチ 1.27mm 単列の制約下で、JLCPCB 2層1oz の
 #   環状銅箔 (絶対最小 0.18mm / 推奨 0.25mm) と最小銅間隔 (0.10mm) の
 #   両方に >=0.02mm のマージンを持たせる設計点:
-#     短辺環状銅箔 = (1.15 - 0.75) / 2 = 0.20mm  (>= 0.18)
-#     隣接パッド間隔 = 1.27 - 1.15     = 0.12mm  (>= 0.10)
+#     短辺環状銅箔 = (1.13 - 0.75) / 2 = 0.19mm  (>= 0.18)
+#     隣接パッド間隔 = 1.27 - 1.13     = 0.14mm  (JLC 最小間隔 0.127 を確保)
+#     ※ v3.4 までは幅 1.15 / 間隔 0.12mm で JLC 最小間隔 (約 0.127mm) を
+#       0.007mm 下回っていたため v3.4.1 で幅を 1.13 に縮小 (Issue #9/#6 裁定)
 #     長辺環状銅箔 = (1.70 - 0.75) / 2 = 0.475mm
 #   推奨 0.25mm には W=1.25 が必要で間隔が 0.02mm となり両立しないため、
 #   絶対最小 +0.02mm を設計判断とする (Issue #6 に記録)。
@@ -107,7 +109,7 @@ SOCKET_PAD = 1.1    # 正方形パッド一辺
 
 RJ11_PITCH = 1.27
 RJ11_DRILL = 0.75
-RJ11_PAD_W = 1.15   # ピッチ方向 (短辺)
+RJ11_PAD_W = 1.13   # ピッチ方向 (短辺)
 RJ11_PAD_L = 1.70   # 奥行方向 (長辺)
 
 def _check_rj11_spec():
@@ -122,7 +124,7 @@ def gen_rj11():
     L.append('(footprint "RJ11_6P6C_TH"')
     L.append('  (version 20221018) (generator "pcbnew") (generator_version "7.0")')
     L.append('  (layer "F.Cu")')
-    L.append('  (descr "Generic side-entry RJ11 6P6C PCB jack, single row 1.27mm pitch pins at rear. Contact wire dia 0.46 (JST MOD-J6 class); drill 0.75 / pad 1.15x1.70 per Issue #6 spec (annular ring 0.20mm) - VERIFY against actual part")')
+    L.append('  (descr "Generic side-entry RJ11 6P6C PCB jack, single row 1.27mm pitch pins at rear. Contact wire dia 0.46 (JST MOD-J6 class); drill 0.75 / pad 1.13x1.70 per Issue #6/#9 spec (annular ring 0.19mm, gap 0.14mm) - VERIFY against actual part")')
     L.append('  (tags "RJ11 6P6C modular")')
     L.append('  (property "Reference" "REF**" (at 0 -8.5 0) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))')
     L.append('  (property "Value" "RJ11_6P6C" (at 0 8.5 0) (layer "F.Fab") (effects (font (size 1 1) (thickness 0.15))))')
