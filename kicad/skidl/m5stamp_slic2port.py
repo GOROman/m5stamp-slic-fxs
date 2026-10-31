@@ -63,7 +63,7 @@ RES   = tmpl("R",    [(1, "1"), (2, "2")], FP_R0805)
 CAP   = tmpl("C",    [(1, "1"), (2, "2")], FP_C0805)
 CAPL  = tmpl("C",    [(1, "1"), (2, "2")], FP_C1206)
 ELEC  = tmpl("C",    [(1, "+"), (2, "-")], FP_ELEC)
-DIO   = tmpl("D",    [(1, "K"), (2, "A")], FP_DO41)     # 1N4004 等
+DIO   = tmpl("D",    [(1, "K"), (2, "A")], FP_DO41)     # 1N400x 等 (調達は 1N4007: 1N4004 の上位互換)
 LED   = tmpl("LED",  [(1, "K"), (2, "A")], FP_LED0805)
 BEAD  = tmpl("FB",   [(1, "1"), (2, "2")], FP_BEAD)
 FUSEP = tmpl("F",    [(1, "1"), (2, "2")], FP_FUSE)
@@ -382,10 +382,10 @@ for s in ("A", "B"):
     # --- 保護回路 (KS0835F Typical Connection Diagram / Ag1171 Fig.4) ---
     d_thy = DIO(); d_thy.value = "P3100SC"; d_thy.footprint = FP_SMC
     TIP += d_thy["A"]; RING += d_thy["K"]     # 双方向サイリスタ (極性不問)
-    d_b1 = DIO(); d_b1.value = "1N4004"; TIP += d_b1["A"]; BRP += d_b1["K"]
-    d_b2 = DIO(); d_b2.value = "1N4004"; RING += d_b2["A"]; BRP += d_b2["K"]
-    d_b3 = DIO(); d_b3.value = "1N4004"; BRM += d_b3["A"]; TIP += d_b3["K"]
-    d_b4 = DIO(); d_b4.value = "1N4004"; BRM += d_b4["A"]; RING += d_b4["K"]
+    d_b1 = DIO(); d_b1.value = "1N4007"; TIP += d_b1["A"]; BRP += d_b1["K"]
+    d_b2 = DIO(); d_b2.value = "1N4007"; RING += d_b2["A"]; BRP += d_b2["K"]
+    d_b3 = DIO(); d_b3.value = "1N4007"; BRM += d_b3["A"]; TIP += d_b3["K"]
+    d_b4 = DIO(); d_b4.value = "1N4007"; BRM += d_b4["A"]; RING += d_b4["K"]
     d_z = DIO(); d_z.value = "BZT03C82"; BRP += d_z["K"]; BRM += d_z["A"]
     between(R("27K"), TIP, RING)                       # CLI バイアス
     c_e1 = C("10nF"); c_e1.footprint = FP_C1206
@@ -394,7 +394,7 @@ for s in ("A", "B"):
     between(c_e2, RING, GND)
 
     # --- 電源 (ポート個別) ---
-    fb = BEAD(); fb.value = "BLM21_600R"
+    fb = BEAD(); fb.value = "BK2125HS601-T"   # 600ohm@100MHz, 2012 ランド互換 (BLM21AG601SN1D でも可)
     P5V += fb[1]; P5VP += fb[2]
     between(CE("470uF/10V"), P5VP, GND)
     between(C("100nF"), P5VP, GND)
@@ -424,7 +424,7 @@ for s in ("A", "B"):
     between(R("100K"), VR_IN[s], VAUD)
 
     # --- PD (ダイオード経由でのみ引き下げ) ---
-    d_pd = DIO(); d_pd.value = "1N4004"
+    d_pd = DIO(); d_pd.value = "1N4007"
     PDX += d_pd["A"]; PD_BUS += d_pd["K"]
 
 # MUX クロス接続: X0 = VX_B, Y0 = VX_A, Z0 = VX_A
