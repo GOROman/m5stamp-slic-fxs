@@ -1,0 +1,4 @@
+firmware/.pio/
+**/.pio/
+**/__pycache__/
+*.pyc

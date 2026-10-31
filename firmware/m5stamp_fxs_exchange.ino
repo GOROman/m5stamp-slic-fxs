@@ -12,9 +12,17 @@
  *   - 相手応答 (リングトリップ) -> 音声クロス接続 (CD4053 で SEL 切替)
  *   - どちらかがオンフック -> 解放
  *
+ * リング停止 (Ag1171 §3.3):
+ *   F/R を先に High で固定し、RM は 20ms (>10ms) 後に Low にする。
+ *   RM を先に落とすと、リング用バッテリ (~75V) の過渡が残る。
+ *
+ * ログは UART0 (GPIO43/44, 115200)。基板のデバッグヘッダ向け。
+ * platformio.ini は ARDUINO_USB_CDC_ON_BOOT=0。
+ *
  * 注意:
- *   - 本スケッチは雛形であり、実機での調整 (DTMF しきい値、リングトリップ
- *     判定時間、トーンレベル) が必要。
+ *   - 実機での調整 (DTMF しきい値、トーンレベル) はまだ必要。
+ *   - リングの 1秒/2秒は RM High デューティ 33.3%。Ag1171 の絶対最大は
+ *     33% なので、発熱を見ながら必要ならオフを延ばす (未変更、DESIGN.md)。
  *   - Arduino core for ESP32 は 3.x 系 API (ledcAttach) を使用。
  *     2.x 系では ledcSetup/ledcAttachPin に読み替えること。
  * ---------------------------------------------------------------------------
@@ -22,6 +30,7 @@
 
 #include <Arduino.h>
 #include <math.h>
+#include "ring_timing.h"
 
 // ===========================================================================
 // GPIO 定義 (DESIGN.md 6.2)
@@ -43,12 +52,9 @@ static const int PIN_PD_EN   = 15;  // SLIC PD 引き下げ (2N7002 ゲート, �
 // ===========================================================================
 // チューニング定数
 // ===========================================================================
-static const uint32_t HOOK_DEBOUNCE_MS   = 15;    // SHK デバウンス (DS: 10ms)
+static const uint32_t HOOK_DEBOUNCE_MS   = 15;    // SHK デバウンス (DS: 10ms 以上)
 static const uint32_t RELEASE_HOOK_MS    = 500;   // 通話中オンフック確定
-static const uint32_t RING_FREQ_HZ       = 20;    // リング周波数 (SLIC 制約 20-25Hz)
-static const uint32_t RING_ON_MS         = 1000;  // 日本パターン 1秒ON
-static const uint32_t RING_OFF_MS        = 2000;  //           2秒OFF
-static const uint32_t RING_TRIP_MS       = 80;    // リング中 SHK 継続で応答判定
+// RING_* / RM_HOLD_* は ring_timing.h（データシートの停止順をホストテストと共有）
 static const uint32_t RING_TIMEOUT_MS    = 45000; // 無応答タイムアウト
 static const uint32_t DIAL_NODIGIT_MS    = 6000;  // 数字なしで発信扱いにする時間
 static const uint32_t DIAL_INTERDIGIT_MS = 2500;  // 最後の数字からの確定待ち
@@ -104,38 +110,97 @@ struct RingEngine {
   bool active = false;
   int callee = -1;
   uint32_t startedAt = 0;
-  bool phaseOn = false;   // 現在バースト中か (呼出音同期用)
+  bool phaseOn = false;   // RM がまだ High か (呼出音同期、および停止時の保持判定)
   bool frLevel = true;
+  bool holding = false;   // F/R を High に固定したあと、RM を落とす前の待ち
+  uint32_t holdSince = 0;
   uint32_t lastToggle = 0;
 
   void start(int calleeIdx, uint32_t now) {
     active = true; callee = calleeIdx; startedAt = now;
-    phaseOn = false; frLevel = true; lastToggle = now;
+    phaseOn = false; frLevel = true; holding = false; holdSince = 0;
+    lastToggle = now;
+    setRM(ports[callee], false);
+    setFR(ports[callee], true);
   }
+
+  // リング停止。RM が High のときは F/R を先に High へ固定し、>10ms 待ってから RM を Low にする。
+  // オフ相 (RM が既に Low) では待たない。戻り値は常に「停止完了」。
   void stop() {
-    if (callee >= 0) { setRM(ports[callee], false); setFR(ports[callee], true); }
-    active = false; callee = -1; phaseOn = false;
+    if (!active || callee < 0) {
+      active = false; callee = -1; phaseOn = false; holding = false;
+      return;
+    }
+    Port &p = ports[callee];
+    bool rmHigh = phaseOn;
+    setFR(p, true);
+    frLevel = true;
+    if (rmHigh) {
+      if (!holding) { holding = true; holdSince = millis(); }
+      setRM(p, true);
+      uint32_t elapsed = millis() - holdSince;
+      if (elapsed < RM_HOLD_AFTER_FR_MS) delay(RM_HOLD_AFTER_FR_MS - elapsed);
+    }
+    setRM(p, false);
+    setFR(p, true);
+    active = false; callee = -1; phaseOn = false; holding = false;
   }
-  // 毎ループ呼ぶ。戻り値: 現在のバースト ON 相かどうか
+
+  // 毎ループ呼ぶ。戻り値: 呼出音を出す相か (RM High の間、保持尾を含む)
   bool update(uint32_t now) {
     if (!active) return false;
-    uint32_t ph = (now - startedAt) % (RING_ON_MS + RING_OFF_MS);
-    bool on = (ph < RING_ON_MS);
     Port &p = ports[callee];
-    if (on) {
+    uint32_t ph = (now - startedAt) % (RING_ON_MS + RING_OFF_MS);
+    RingPhase phase = ringPhase(ph);
+
+    if (phase == RING_PHASE_TOGGLE) {
+      if (!phaseOn || holding) {
+        lastToggle = now;
+        frLevel = true;
+        setFR(p, true);
+        holding = false;
+      }
+      phaseOn = true;
       setRM(p, true);
-      if (now - lastToggle >= (1000 / (RING_FREQ_HZ * 2))) {
+      if ((now - lastToggle) >= RING_HALF_MS) {
         frLevel = !frLevel;
         setFR(p, frLevel);
         lastToggle = now;
       }
-    } else {
-      setRM(p, false);
-      setFR(p, true);
-      frLevel = true;
+      return true;
     }
-    phaseOn = on;
-    return on;
+
+    if (phase == RING_PHASE_HOLD) {
+      if (!holding) { holding = true; holdSince = now; }
+      phaseOn = true;
+      frLevel = true;
+      setFR(p, true);
+      setRM(p, true);
+      return true;
+    }
+
+    // オフ相。ループが保持窓を飛び越えた場合は、ここで 20ms 確保してから RM を落とす。
+    if (phaseOn && !holding) {
+      holding = true;
+      holdSince = now;
+      phaseOn = true;
+      frLevel = true;
+      setFR(p, true);
+      setRM(p, true);
+      return true;
+    }
+    if (holding && (now - holdSince) < RM_HOLD_AFTER_FR_MS) {
+      phaseOn = true;
+      setFR(p, true);
+      setRM(p, true);
+      return true;
+    }
+    holding = false;
+    phaseOn = false;
+    frLevel = true;
+    setFR(p, true);
+    setRM(p, false);
+    return false;
   }
 };
 static RingEngine ring;
@@ -225,10 +290,12 @@ static ExState exState = EX_IDLE;
 static int caller = -1;                 // 発信側ポート index (0=A, 1=B)
 static uint32_t stateSince = 0;
 static uint32_t dialStartedAt = 0;
+static bool ringTestMode = false;       // 'a'/'b': 発信側オフフックを要求しない
 
 static void toIdle(uint32_t now) {
-  ring.stop();
+  ringTestMode = false;
   toneSet(false);
+  ring.stop();
   for (int i = 0; i < 2; i++) {
     setRM(ports[i], false);
     setFR(ports[i], true);
@@ -262,8 +329,8 @@ static void startRinging(uint32_t now) {
 }
 
 static void startConnected(uint32_t now) {
-  ring.stop();
   toneSet(false);
+  ring.stop();                          // F/R を先に止め、RM は >10ms 後に落とす
   setSelTone(ports[0], false);          // 両ポートとも相手 VX へ (クロス接続)
   setSelTone(ports[1], false);
   exState = EX_CONNECTED;
@@ -301,14 +368,16 @@ static void exchangeUpdate(uint32_t now) {
       Port &op = ports[1 - caller];
       bool burst = ring.update(now);
       toneSet(burst);                               // 呼出音をリングに同期
-      if (!cp.hook) { toIdle(now); break; }         // 発信側キャンセル
-      // リングトリップ判定: 被呼側 SHK の生値が継続したら応答
+      if (!cp.hook && !ringTestMode) { toIdle(now); break; }  // 発信側キャンセル
+      // リングトリップ: SHK が RING_TRIP_MS 継続したら、stop() が
+      // F/R=High を先に固定し RM は >10ms 後に落とす (Ag1171 §3.3)。
       if (op.rawHook && (now - op.rawChangedAt) >= RING_TRIP_MS && op.rawChangedAt >= stateSince) {
         op.hook = true; op.hookSince = now;         // フック状態を確定させる
         startConnected(now);
         break;
       }
       if ((now - stateSince) >= RING_TIMEOUT_MS) {  // 無応答
+        toneSet(false);
         ring.stop();
         exState = EX_BUSY;
         stateSince = now;
@@ -344,8 +413,9 @@ static void exchangeUpdate(uint32_t now) {
 static void ringTest(int idx, uint32_t now) {
   if (exState != EX_IDLE) { Serial.println("[TEST] busy"); return; }
   caller = 1 - idx;                    // テスト対象を被呼側として扱う
+  ringTestMode = true;                 // 相手ポートがオンフックでも直ちには切らない
   startRinging(now);
-  Serial.printf("[TEST] ringing port %s (send any hook change or wait 45s)\n",
+  Serial.printf("[TEST] ringing port %s (answer, 'r', or 45s timeout)\n",
                 ports[idx].name);
 }
 
@@ -359,12 +429,16 @@ void setup() {
 
   for (int i = 0; i < 2; i++) {
     pinMode(ports[i].shkPin, INPUT);
+    // Arduino-ESP32 3.x は pinMode 前の digitalWrite を無視する。
+    // 起動〜ここまでの Hi-Z は基板の 10K（RM プルダウン / F/R プルアップ）が安全側に固定する。
+    // pinMode(OUTPUT) はいったん Low なので、RM を先に出力にしてから F/R を High にする。
+    // RM=Low のままなら F/R が極短時間 Reverse でもリング電圧は出ない。
     pinMode(ports[i].rmPin, OUTPUT);
-    pinMode(ports[i].frPin, OUTPUT);
-    pinMode(ports[i].selPin, OUTPUT);
     setRM(ports[i], false);
+    pinMode(ports[i].frPin, OUTPUT);
     setFR(ports[i], true);              // Forward (通常極性)
-    setSelTone(ports[i], false);
+    pinMode(ports[i].selPin, OUTPUT);
+    setSelTone(ports[i], false);        // クロス接続（トーンではない）
     analogSetPinAttenuation(ports[i].adcPin, ADC_11db);
   }
   pinMode(PIN_LED_ST, OUTPUT);

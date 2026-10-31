@@ -5,8 +5,8 @@
 | 項目 | 状態 |
 |------|------|
 | 回路定義（SKiDL ソース） | ✅ 完了。全回路を `skidl/m5stamp_slic2port.py` に定義 |
-| ERC | ✅ SKiDL ERC で **エラー/警告 0 件**（2026-10-31 実行） |
-| KiCad ネットリスト | ✅ 生成済み `skidl/m5stamp_slic2port.net`（99 部品 / 73 ネット。主要ネットの接続は目視検証済み） |
+| ERC | ✅ SKiDL ERC で **エラー/警告 0 件**（2026-10-31 再実行） |
+| KiCad ネットリスト | ✅ 生成済み `skidl/m5stamp_slic2port.net`（103 部品。USB-C のパッド名は KiCad フットプリントの A1/A5/B5/S1 等に合わせてある） |
 | KiCad シンボル | ✅ M5STAMPS3 は M5Stack 公式ライブラリから抽出して同梱。その他の部品シンボルは未作成（回路図エディタで開く形にはなっていない） |
 | KiCad フットプリント | △ KS0835F / RJ11 は自作、Stamp-S3-SMD は公式コピーを同梱。その他は標準ライブラリ名をネットリストに**文字列で指定**した状態（一部は想定名・要実在確認） |
 | 回路図（.kicad_sch） | ❌ 未作成 |
@@ -25,6 +25,7 @@
    - Stamp-S3-SMD の **29–31 番パッド**（公式フットプリントに含まれるモジュール下面の GND 系パッド）はネットリストに現れない。配置後に GND へ割り当てること（モジュール実物と公式モデルで要確認）。
    - その他の標準ライブラリ名（R_0805 等）は KiCad 標準。**以下の想定名は実在確認が必要**:
      `Fuse:Fuse_1812_4532Metric`、`Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12`、`TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal`、`Inductor_SMD:L_0805_2012Metric`（フェライトビーズ代用）、`Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal`（BZT03C82 の SOD-57 代用）。
+   - USB-C フットプリントのパッド名は `A1` `A4` `A5`(CC1) `A9` `B4` `B5`(CC2) `B9` `A12` `B1` `B12` `S1`（シールド）で、ネットリストのピン番号もこれに合わせてある。D+/D-/SBU（A6 A7 A8 B6 B7 B8）は電源専用のため NC。数字ピン（1, 2, 3…）のまま取り込むと VBUS/CC がパッドに結び付かない。
 4. 配置・配線は DESIGN.md §9 のレイアウト指針（高圧クリアランス 1.5mm、アンテナキープアウト、スターグラウンド等）に従う。
 
 ## フットプリントの前提（要実物確認）

@@ -107,10 +107,12 @@ CD4053 = tmpl("CD4053B",
                (11, "SX"), (12, "X0"), (13, "X1"), (14, "XCOM"),
                (15, "YCOM"), (16, "VDD")], FP_SOIC16)
 
-USBC = tmpl("USB_C",
-            [(1, "GND"), (2, "VBUS"), (3, "CC1"), (4, "DP"), (5, "DN"),
-             (6, "VBUS"), (7, "GND"), (8, "GND"), (9, "VBUS"), (10, "CC2"),
-             (11, "GND"), (12, "SHIELD")], FP_USBC)
+# KiCad Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12 のパッド名は
+# 数字ではなく A1/A4/A5/.../B5/S1。数字ピンのままではネットリストが
+# フットプリントに結び付かない。
+USBC_PADS = ["A1", "A4", "A5", "A6", "A7", "A8", "A9", "A12",
+             "B1", "B4", "B5", "B6", "B7", "B8", "B9", "B12", "S1"]
+USBC = tmpl("USB_C", [(n, n) for n in USBC_PADS], FP_USBC)
 
 TERM2 = tmpl("TB", [(1, "+"), (2, "-")], FP_TERM2)
 HDR2X5 = tmpl("HDR", [(i, str(i)) for i in range(1, 11)], FP_HDR2X5)
@@ -163,14 +165,14 @@ AUX_TP   = Net("AUX_TP")
 # 電源入力
 # ===========================================================================
 j_usb = USBC(); j_usb.ref = "J1"; j_usb.value = "USB-C_PWR"
-for n in (1, 7, 8, 11, 12):
+for n in ("A1", "A12", "B1", "B12", "S1"):
     GND += j_usb[n]
-for n in (2, 6, 9):
+for n in ("A4", "A9", "B4", "B9"):
     VIN_RAW += j_usb[n]
-j_usb["DP"] += NC
-j_usb["DN"] += NC
-between(R("5.1K"), j_usb["CC1"], GND)
-between(R("5.1K"), j_usb["CC2"], GND)
+for n in ("A6", "A7", "A8", "B6", "B7", "B8"):
+    j_usb[n] += NC   # D+/D-/SBU は電源専用のため未接続
+between(R("5.1K"), j_usb["A5"], GND)   # CC1
+between(R("5.1K"), j_usb["B5"], GND)   # CC2
 
 j_term = TERM2(); j_term.ref = "J2"; j_term.value = "DC5V_IN"
 VIN_RAW += j_term["+"]
@@ -180,8 +182,11 @@ f1 = FUSEP(); f1.ref = "F1"; f1.value = "Polyfuse_2A"
 between(f1, VIN_RAW, VIN_F)
 
 q1 = SOT23(); q1.ref = "Q1"; q1.value = "AO3401A"
-VIN_F += q1["S"]
-P5V += q1["D"]
+# P-ch ハイサイド逆接保護: ドレイン=入力、ソース=出力、ゲートを GND へ。
+# 逆だとボディダイオード (アノード=ドレイン) が逆電圧を通す。
+# AO3401A ピン: 1=G, 2=S, 3=D (2N7002 と同じ並び。汎用 SOT-23 の番号と一致)。
+VIN_F += q1["D"]
+P5V += q1["S"]
 n_qg = Net("Q1_GATE")
 n_qg += q1["G"]
 between(R("100K"), n_qg, GND)
@@ -191,7 +196,7 @@ d_tvs.footprint = FP_SMB
 P5V += d_tvs["K"]
 GND += d_tvs["A"]
 
-between(CE("1000uF/10V"), P5V, GND)   # 入力バルク (+/- は between では極性不問接続)
+between(CE("1000uF/10V"), P5V, GND)   # pin1(+) = +5V, pin2(-) = GND
 c_in2 = C("100nF"); between(c_in2, P5V, GND)
 
 # ===========================================================================
@@ -301,14 +306,17 @@ between(C("100nF"), P5V, GND)   # U2 デカップリング
 # ===========================================================================
 # トーン生成チェーン (TONE_5V -> RC x2 -> TONE_BUS)
 # ===========================================================================
-TN1 = Net("TONE_N1"); TN2 = Net("TONE_N2")
+TN1 = Net("TONE_N1"); TN2 = Net("TONE_N2"); TONE_COUP = Net("TONE_COUP")
 between(R("10K"), TONE_5V, TN1)
 between(C("100nF"), TN1, GND)
 between(R("10K"), TN1, TN2)
 between(C("100nF"), TN2, GND)
-between(R("47K"), TN2, TONE_BUS)
+# 47K のあと直列 100nF。トーンバスを 100nF で VAUD に AC 短絡すると
+# 400Hz で約 4kΩ になり、ダイヤルトーンが約 20dB 落ちる。
+# 直列にすれば DC (PWM 停止時の 0V) はバスの 2.5V バイアスを引きずらない。
+between(R("47K"), TN2, TONE_COUP)
 between(R("100K"), TONE_BUS, VAUD)
-between(C("100nF"), TONE_BUS, VAUD)
+between(C("100nF"), TONE_COUP, TONE_BUS)
 
 # ===========================================================================
 # CD4053B 音声 MUX (U3)
@@ -326,7 +334,8 @@ SEL_Z = mknet("SEL_Z")
 SEL_Z += u3["SZ"]
 between(R("10K"), SEL_Z, GND)
 j_sz = HDR1X2(); j_sz.ref = "J7"; j_sz.value = "SEL_Z_JMP"
-SEL_Z += j_sz[1]; VAUD += j_sz[2]
+# SZ は VDD=5V のロジック入力 (VIH min 3.5V)。VAUD(2.5V) では High にならない。
+SEL_Z += j_sz[1]; P5V += j_sz[2]
 between(C("100nF"), P5V, GND)   # U3 デカップリング
 
 # ===========================================================================
@@ -422,6 +431,14 @@ for s in ("A", "B"):
 VXIN["B"] += u3["X0"]
 VXIN["A"] += u3["Y0"]
 VXIN["A"] += u3["Z0"]
+
+# 起動直後 GPIO は Hi-Z。HCT 入力が浮くと RM=High になり、回線にリング電圧が出る。
+# RM はプルダウン (リングしない)、F/R はプルアップ (Forward = 通常極性)。
+# 部品生成は末尾。途中に挿入すると SKiDL の自動 RefDes が後ろの保護部品までずれる。
+between(R("10K", ref="R_RMA"), RM_A_33, GND)
+between(R("10K", ref="R_RMB"), RM_B_33, GND)
+between(R("10K", ref="R_FRA"), P3V3, FR_A_33)
+between(R("10K", ref="R_FRB"), P3V3, FR_B_33)
 
 # ===========================================================================
 # ERC + ネットリスト

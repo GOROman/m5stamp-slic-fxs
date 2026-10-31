@@ -3,7 +3,7 @@ Value,Footprint,Qty,Refs,Note
 1000uF/10V,Capacitor_THT:CP_Radial_D8.0mm_P3.50mm,1,C1,入力バルク
 100K,Resistor_SMD:R_0805_2012Metric,9,R12 R14 R18 R20 R22 R26 R28 R3 R30,
 100nF,Capacitor_SMD:C_0805_2012Metric,16,C10 C14 C16 C17 C19 C2 C23 C25 C26 C28 C4 C5 C6 C7 C8 C9,
-10K,Resistor_SMD:R_0805_2012Metric,8,R10 R13 R16 R21 R24 R29 R8 R9,
+10K,Resistor_SMD:R_0805_2012Metric,12,R10 R13 R16 R21 R24 R29 R8 R9 R_FRA R_FRB R_RMA R_RMB,RM は GND へプルダウン (起動時にリングしない)。F/R は 3.3V へプルアップ (Forward)
 10nF,Capacitor_SMD:C_1206_3216Metric,4,C11 C12 C20 C21,EMI 対策 (AG1171)。250V 耐圧品を使うこと
 10uF,Capacitor_SMD:C_1206_3216Metric,1,C3,
 18K,Resistor_SMD:R_0805_2012Metric,2,R17 R25,

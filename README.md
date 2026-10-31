@@ -17,8 +17,8 @@ FAX機（Canon PIXUS MX923）と PC の FAXモデム（または2台目の FAX/�
 | パス | 内容 |
 |---|---|
 | `DESIGN.md` | 設計書本体（ブロック図、電源・保護設計、GPIO割り当て、音声クロス接続の定数設計、動作シーケンス、レイアウト指針、実物確認手順） |
-| `bom.csv` | 部品表（99点・39グループ、ネットリストから生成） |
-| `firmware/m5stamp_fxs_exchange.ino` | M5StampS3 用制御スケッチ雛形（2ポート状態機械、未コンパイル・しきい値は実機調整前提） |
+| `bom.csv` | 部品表（103点・39グループ、ネットリストから生成） |
+| `firmware/m5stamp_fxs_exchange.ino` | M5StampS3 用制御スケッチ（2ポート状態機械）。`firmware/platformio.ini` で ESP32 Arduino 3.x 向けにコンパイルできる。DTMF しきい値とトーンレベルは実機調整前提 |
 | `kicad/` | SKiDL 回路定義（`skidl/`、ERC 0エラーで生成したネットリスト含む）、M5Stack 公式シンボル/フットプリント、自作 KS0835F・RJ11 フットプリント、プロジェクト雛形、`README_CAD.md`（KiCad 仕上げ手順） |
 | `research/` | 参照資料: AG1171 データシート、KS0835F データシート（PDF＋テキスト抽出） |
 
