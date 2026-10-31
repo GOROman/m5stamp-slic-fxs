@@ -13,7 +13,7 @@ SKiDL 回路定義 (ネットリスト生成 + 簡易 ERC)
   - 部品はすべて SKIDL ネイティブ定義 (ライブラリ不要)。
   - フットプリント文字列の一部は KiCad 標準ライブラリ名の「想定」であり、
     実装前に KiCad 側で実在確認すること (README_CAD.md 参照)。
-  - KS0835F / RJ11 / Stamp-S3-SMD は本プロジェクトのローカルライブラリ
+  - KS0835F / RJ11 / Stamp-S3-Socket は本プロジェクトのローカルライブラリ
     (SLIC2PORT.pretty / 同梱シンボル) を指す。
 """
 
@@ -46,7 +46,7 @@ FP_HDR1X1  = "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
 FP_TACT    = "Button_Switch_THT:SW_PUSH_6mm"
 FP_KS0835F = "SLIC2PORT:KS0835F"
 FP_RJ11    = "SLIC2PORT:RJ11_6P6C_TH"
-FP_STAMP   = "SLIC2PORT:Stamp-S3-SMD"
+FP_STAMP   = "SLIC2PORT:Stamp-S3-Socket"  # ソケット実装 (直接はんだ付けしない)
 
 # ---------------------------------------------------------------------------
 # テンプレート部品
@@ -214,8 +214,15 @@ between(R("47K"), VREF165, GND)
 between(C("100nF"), VREF165, GND)
 
 # ===========================================================================
-# M5StampS3 (U1)
+# M5StampS3 (U1) -- ソケット実装
 # ===========================================================================
+# U1 は基板へ直接はんだ付けせず、1.27mm ピッチ メスピンヘッダ (17P + 11P、
+# 列間 17.2mm) のソケットで接続する。フットプリント SLIC2PORT:Stamp-S3-Socket
+# のパッド位置は M5Stack 公式 Stamp-S3-SMD フットプリントから実測した
+# (左列 pins 1-17 / 右列 pins 18-28、右列の -y 側 6 位置はモジュールの
+# アンテナ側で欠け)。Stamp 本体側には 1.27mm オスピンをキャスタレーションへ
+# はんだ付けして差し込む。ベアモジュール下面の GND パッド (29-31) は
+# ソケット構成では未接続になる (GND は pins 11/18 で確保)。
 u1 = STAMP(); u1.ref = "U1"; u1.value = "M5StampS3/S3A"
 GND += u1[11]; GND += u1[18]
 P5V += u1[13]
