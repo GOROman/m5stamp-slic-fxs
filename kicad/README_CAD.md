@@ -6,11 +6,11 @@
 |------|------|
 | 回路定義（SKiDL ソース） | ✅ 完了。全回路を `skidl/m5stamp_slic2port.py` に定義 |
 | ERC | △ SKiDL 簡易 ERC はエラー/警告0件。ただし全ピンPASSIVE定義のため駆動競合・電圧・極性の保証はしない。追加の接続回帰検査は `tests/test_hardware.py` |
-| KiCad ネットリスト | ✅ 生成済み `skidl/m5stamp_slic2port.net`（106 部品 / 76 ネット。主要ネットの接続は目視検証済み） |
+| KiCad ネットリスト | ✅ 生成済み `skidl/m5stamp_slic2port.net`（142 部品 / 76 ネット。SKiDL 再生成との位相一致を検証済み） |
 | KiCad シンボル | ✅ M5STAMPS3 は M5Stack 公式ライブラリから抽出して同梱。その他の部品シンボルは未作成（回路図エディタで開く形にはなっていない） |
 | KiCad フットプリント | △ KS0835F / RJ11 / Stamp-S3-Socket は自作、Stamp-S3-SMD は公式コピーを同梱（寸法実測の出典）。その他は標準ライブラリ名をネットリストに**文字列で指定**した状態（一部は想定名・要実在確認） |
 | 回路図（.kicad_sch） | ❌ 未作成 |
-| 基板（.kicad_pcb）・配置・配線 | △ 配置まで完了（`SLIC2PORT-FXS.kicad_pcb`、106部品全配置・未配線）。生成は `build_pcb_v2.py`（KiCad Python、ネットリスト JSON は `netlist_v2.json`）。配線は EasyEDA に取り込んで仕上げる方針 |
+| 基板（.kicad_pcb）・配置・配線 | △ 配置まで完了（`SLIC2PORT-FXS.kicad_pcb`、v3: 142部品全配置・未配線、120×90mm、U1 ソケット実装）。生成は `build_pcb_v3.py`（KiCad Python、ネットリスト JSON は `netlist_v3.json`）、検証は `check_v3.py`（パッド↔ネット不一致 0 件、コートヤード重なりは v2 引継ぎの 2 組のみ）。配線は EasyEDA に取り込んで仕上げる方針 |
 | ガーバー | ❌ 未作成（発注は本タスク範囲外） |
 
 この VM には KiCad 本体が無く、apt 導入も試みたがパッケージ取得が完了しなかったため、上記の「データとしての到達度」に留まる。ネットリストとソースの一致は接続検査で確認し、回路の電気的成立性はデータシート照合と実機で検証する。KiCad 側は下記の手順で取り込んで仕上げる想定。
@@ -21,8 +21,8 @@
 2. PCB エディタ → 「ファイル → インポート → ネットリスト」で `skidl/m5stamp_slic2port.net` を読み込む。
    （回路図から起こす場合は、シンボルを割り当て直して同じネット構成にすること。SKiDL ソースが正。）
 3. フットプリント割り当ての確認:
-   - `SLIC2PORT:KS0835F` / `SLIC2PORT:RJ11_6P6C_TH` / `SLIC2PORT:Stamp-S3-SMD` は同梱ライブラリ。
-   - U1 は **ソケット実装**（、1.27mm ピッチ メスヘッダ 17P+11P）。ベアモジュール下面の GND 系パッド **29–31 はソケット構成では未接続**（GND はピン 11/18 で確保）。直接はんだ付けに戻す場合は  を使い、29–31 を GND へ割り当てること。
+   - `SLIC2PORT:KS0835F` / `SLIC2PORT:RJ11_6P6C_TH` / `SLIC2PORT:Stamp-S3-SMD` / `SLIC2PORT:Stamp-S3-Socket` は同梱ライブラリ。
+   - U1 は **ソケット実装**（`SLIC2PORT:Stamp-S3-Socket`、1.27mm ピッチ メスヘッダ 17P+11P）。ベアモジュール下面の GND 系パッド **29–31 はソケット構成では未接続**（GND はピン 11/18 で確保）。直接はんだ付けに戻す場合は `Stamp-S3-SMD` を使い、29–31 を GND へ割り当てること。
    - その他の標準ライブラリ名（R_0805 等）は KiCad 標準。**以下の想定名は実在確認が必要**:
      `Fuse:Fuse_1812_4532Metric`、`Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12`、`TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal`、`Inductor_SMD:L_0805_2012Metric`（フェライトビーズ代用）、`Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal`（BZT03C82 の SOD-57 代用）。
 4. 配置・配線は DESIGN.md §9 のレイアウト指針（高圧クリアランス 1.5mm、アンテナキープアウト、スターグラウンド等）に従う。
@@ -40,7 +40,7 @@
 - ピン番号は「前面から見て左 = pin1」とした。モジュラージャックは製品により左右が逆になることがあるため、通電前にコードを挿して導通確認すること。なお本用途では中央ペア（pin3/pin4）しか使わず、FAX/モデムの DAA は極性不感が一般的なので、3/4 が入れ替わっても実害は小さい。
 
 ### Stamp-S3-Socket（自作、U1 用）
-- 根拠: M5Stack 公式  フットプリントのパッド座標を実測（左列ピン 1–17 / 右列ピン 18–28、ピッチ 1.27mm、列間隔 17.2mm、右列の −y 側 6 位置はアンテナ側で欠け）。
+- 根拠: M5Stack 公式 `Stamp-S3-SMD` フットプリントのパッド座標を実測（左列ピン 1–17 / 右列ピン 18–28、ピッチ 1.27mm、列間隔 17.2mm、右列の −y 側 6 位置はアンテナ側で欠け）。
 - TH パッドは drill 0.7mm / pad 1.0mm（KiCad の 1.27mm ピンヘッダ標準値）。基板側に 1.27mm メスピンヘッダ（分割可能なソケットレールで可）をはんだ付けし、Stamp 側キャスタレーションに 1.27mm オスピンを付けて差し込む。
 - ソケット下（モジュール下面）は配線のみ可・部品配置不可。配置ではコートヤード内を空けている。
 
@@ -54,7 +54,7 @@
 ```
 kicad/
 ├─ SLIC2PORT-FXS.kicad_pro     プロジェクト (スケルトン)
-├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (106部品・未配線、EasyEDA 仕上げ用)
+├─ SLIC2PORT-FXS.kicad_pcb     配置済み基板 (v3: 142部品・未配線・120x90mm、EasyEDA 仕上げ用)
 ├─ build_pcb_v2.py             基板生成スクリプト v2 (旧、PR マージ済み 106 部品版)
 ├─ netlist_v2.json             v2 用ネットリスト JSON
 ├─ build_pcb_v3.py             基板生成スクリプト v3 (現行、142 部品・120x90mm・ソケット)
