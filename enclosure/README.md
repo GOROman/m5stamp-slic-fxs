@@ -118,6 +118,9 @@ done
   UP TO 135Vp-p - NO PSTN" も刻印しています
 - **表記**: 製品名 "SLIC2PORT-FXS" は浮き出し (0.6 mm)、その下に
   "@GOROman  2026-10-31  Rev 4.0" のクレジットを基板のタイトル表記に揃えて入れています
+- **ロゴ**: 製品名の東側に、選定ロゴ (案B HANDSET RING、`design/logo/logo-b.svg` と
+  同一形状のポリゴン) を 0.6 mm の浮き出しで入れています (幅 16 mm、中心は蓋座標 (79, 63)。
+  形状データは enclosure.scad 内の `logo_b_polys` に埋め込み)
 - **押し子バー**: 上面をテーパーさせた面取り形状にしました
 - 再生成時の注意: 「高圧注意」の刻印には **Noto Sans CJK JP** フォントが必要です
   (Debian/Ubuntu では `fonts-noto-cjk`)。フォントが無い環境では漢字が抜けますが、
