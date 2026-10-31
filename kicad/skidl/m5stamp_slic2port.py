@@ -290,8 +290,11 @@ tp3 = TP(); tp3.ref = "TP3"; TONE_BUS += tp3[1]
 # ===========================================================================
 u2 = HCT244(); u2.ref = "U2"; u2.value = "74HCT244"
 GND += u2["1OE"]; GND += u2["2OE"]; GND += u2["GND"]; GND += u2["2A4"]
-P5V += u2["VCC"]
+# 未使用チャネル (2A4 入力 / 2Y4 出力): 入力 2A4 は上のとおり GND に落としてある。
+# 出力 2Y4 (パッド3) はオープンが正しい。CAD 側 DRC で「U2.3 未接続」と
+# 検出されるが、フローティング入力ではなく意図的な無接続なので対処不要。
 u2["2Y4"] += NC
+P5V += u2["VCC"]
 FR_A_5V  = mknet("FR_A_5V");  RM_A_5V = mknet("RM_A_5V")
 SEL_A_5V = mknet("SEL_A_5V"); TONE_5V = mknet("TONE_5V")
 FR_B_5V  = mknet("FR_B_5V");  RM_B_5V = mknet("RM_B_5V")
@@ -370,6 +373,7 @@ SHK_33 = {"A": SHK_A_33, "B": SHK_B_33}
 MON = {"A": MON_A, "B": MON_B}
 VR_IN = {"A": VR_A_IN, "B": VR_B_IN}
 VXIN = {}   # リレー入力ノード (ポート毎)
+PN = {}     # ポート毎ネット (TP 割当用)
 
 for s in ("A", "B"):
     TIP = mknet("TIP_%s" % s); RING = mknet("RING_%s" % s)
@@ -441,6 +445,9 @@ for s in ("A", "B"):
     d_pd = DIO(); d_pd.value = "1N4007"
     PDX += d_pd["A"]; PD_BUS += d_pd["K"]
 
+    PN[s] = {"TIP": TIP, "RING": RING, "SHKRAW": SHKRAW, "PDX": PDX,
+             "VXAUD": VXAUD, "VXPIN": vx_pin_net, "VRPIN": vr_pin_net}
+
 # リレー NC 接点 = 相手 VX (クロス接続)
 VXIN["B"] += RLY["A"]["NC1"]; VXIN["B"] += RLY["A"]["NC2"]
 VXIN["A"] += RLY["B"]["NC1"]; VXIN["A"] += RLY["B"]["NC2"]
@@ -449,6 +456,33 @@ VXIN["A"] += RLY["B"]["NC1"]; VXIN["A"] += RLY["B"]["NC2"]
 for control in (FR_A_33, RM_A_33, SEL_A_33, TONE33,
                 FR_B_33, RM_B_33, SEL_B_33):
     between(R("100K"), control, GND)
+
+# ===========================================================================
+# テストポイント増設 (TP4-TP34、既存 TP1=+5V / TP2=GND / TP3=TONE_BUS)
+# デバッグ優先で主要信号を一通り引き出す。TIP/RING は回線高電圧
+# (リング時 最大約135Vp-p) が現れるため、基板シルクに高電圧注意を入れること。
+# ===========================================================================
+TP_LIST = [
+    (PN["A"]["TIP"],    "TIP_A"),     (PN["A"]["RING"],   "RING_A"),
+    (FR_5V["A"],        "FR_A_5V"),   (RM_5V["A"],        "RM_A_5V"),
+    (PN["A"]["SHKRAW"], "SHK_A_RAW"), (PN["A"]["VXPIN"],  "VX_A_PIN"),
+    (PN["A"]["VRPIN"],  "VR_A_PIN"),  (PN["A"]["VXAUD"],  "VX_A_AUD"),
+    (PN["B"]["TIP"],    "TIP_B"),     (PN["B"]["RING"],   "RING_B"),
+    (FR_5V["B"],        "FR_B_5V"),   (RM_5V["B"],        "RM_B_5V"),
+    (PN["B"]["SHKRAW"], "SHK_B_RAW"), (PN["B"]["VXPIN"],  "VX_B_PIN"),
+    (PN["B"]["VRPIN"],  "VR_B_PIN"),  (PN["B"]["VXAUD"],  "VX_B_AUD"),
+    (VIN_RAW,           "VIN_RAW"),   (VIN_F,             "VIN_F"),
+    (VAUD,              "VAUD"),      (VREF165,           "VREF165"),
+    (GND,               "GND"),
+    (TONE_5V,           "TONE_5V"),   (TONE_AC,           "TONE_AC"),
+    (SEL_A_5V,          "SEL_A_5V"),  (SEL_B_5V,          "SEL_B_5V"),
+    (MON["A"],          "MON_A"),     (MON["B"],          "MON_B"),
+    (PN["A"]["PDX"],    "PD_A"),      (PN["B"]["PDX"],    "PD_B"),
+    (VR_IN["A"],        "VR_A_IN"),   (VR_IN["B"],        "VR_B_IN"),
+]
+for _i, (_net, _label) in enumerate(TP_LIST):
+    _tp = TP(); _tp.ref = "TP%d" % (_i + 4)
+    _net += _tp[1]
 
 # ===========================================================================
 # ERC + ネットリスト
