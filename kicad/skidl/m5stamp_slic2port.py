@@ -54,7 +54,7 @@ FP_STAMP   = "SLIC2PORT:Stamp-S3-SMD"
 def tmpl(name, pin_specs, footprint):
     # PASSIVE 指定: SKIDL ネイティブ定義では pin function を与えないと
     # UNSPECIFIED 同士の conflict 警告が大量に出るため、受動扱いにする。
-    # (ドライバ不足警告は仕様として許容。電気的な正しさは DESIGN.md で担保)
+    # この ERC は未接続等の簡易検査のみ。電圧/駆動能力/極性/パッド対応は別途検証する。
     pins = [Pin(num=num, name=nm, func=Pin.PASSIVE) for num, nm in pin_specs]
     return Part(tool=SKIDL, name=name, dest=TEMPLATE, pins=pins,
                 footprint=footprint)
@@ -63,8 +63,8 @@ RES   = tmpl("R",    [(1, "1"), (2, "2")], FP_R0805)
 CAP   = tmpl("C",    [(1, "1"), (2, "2")], FP_C0805)
 CAPL  = tmpl("C",    [(1, "1"), (2, "2")], FP_C1206)
 ELEC  = tmpl("C",    [(1, "+"), (2, "-")], FP_ELEC)
-DIO   = tmpl("D",    [(1, "A"), (2, "K")], FP_DO41)     # 1N4004 等
-LED   = tmpl("LED",  [(1, "A"), (2, "K")], FP_LED0805)
+DIO   = tmpl("D",    [(1, "K"), (2, "A")], FP_DO41)     # 1N4004 等
+LED   = tmpl("LED",  [(1, "K"), (2, "A")], FP_LED0805)
 BEAD  = tmpl("FB",   [(1, "1"), (2, "2")], FP_BEAD)
 FUSEP = tmpl("F",    [(1, "1"), (2, "2")], FP_FUSE)
 SOT23 = tmpl("Q",    [(1, "G"), (2, "S"), (3, "D")], FP_SOT23)
@@ -107,10 +107,16 @@ CD4053 = tmpl("CD4053B",
                (11, "SX"), (12, "X0"), (13, "X1"), (14, "XCOM"),
                (15, "YCOM"), (16, "VDD")], FP_SOIC16)
 
+# HRO TYPE-C-31-M-12 / KiCad 公式フットプリントの実パッド番号。
 USBC = tmpl("USB_C",
-            [(1, "GND"), (2, "VBUS"), (3, "CC1"), (4, "DP"), (5, "DN"),
-             (6, "VBUS"), (7, "GND"), (8, "GND"), (9, "VBUS"), (10, "CC2"),
-             (11, "GND"), (12, "SHIELD")], FP_USBC)
+            [("A1", "GND_A1"), ("A12", "GND_A12"),
+             ("B1", "GND_B1"), ("B12", "GND_B12"),
+             ("A4", "VBUS_A4"), ("A9", "VBUS_A9"),
+             ("B4", "VBUS_B4"), ("B9", "VBUS_B9"),
+             ("A5", "CC1"), ("B5", "CC2"),
+             ("A6", "DP_A"), ("B6", "DP_B"),
+             ("A7", "DN_A"), ("B7", "DN_B"),
+             ("A8", "SBU1"), ("B8", "SBU2"), ("S1", "SHIELD")], FP_USBC)
 
 TERM2 = tmpl("TB", [(1, "+"), (2, "-")], FP_TERM2)
 HDR2X5 = tmpl("HDR", [(i, str(i)) for i in range(1, 11)], FP_HDR2X5)
@@ -163,12 +169,12 @@ AUX_TP   = Net("AUX_TP")
 # 電源入力
 # ===========================================================================
 j_usb = USBC(); j_usb.ref = "J1"; j_usb.value = "USB-C_PWR"
-for n in (1, 7, 8, 11, 12):
+for n in ("A1", "A12", "B1", "B12", "S1"):
     GND += j_usb[n]
-for n in (2, 6, 9):
+for n in ("A4", "A9", "B4", "B9"):
     VIN_RAW += j_usb[n]
-j_usb["DP"] += NC
-j_usb["DN"] += NC
+for n in ("A6", "B6", "A7", "B7", "A8", "B8"):
+    j_usb[n] += NC
 between(R("5.1K"), j_usb["CC1"], GND)
 between(R("5.1K"), j_usb["CC2"], GND)
 
@@ -180,8 +186,9 @@ f1 = FUSEP(); f1.ref = "F1"; f1.value = "Polyfuse_2A"
 between(f1, VIN_RAW, VIN_F)
 
 q1 = SOT23(); q1.ref = "Q1"; q1.value = "AO3401A"
-VIN_F += q1["S"]
-P5V += q1["D"]
+# P-FET のボディダイオードを入力 D -> 出力 S とする。
+VIN_F += q1["D"]
+P5V += q1["S"]
 n_qg = Net("Q1_GATE")
 n_qg += q1["G"]
 between(R("100K"), n_qg, GND)
@@ -301,14 +308,16 @@ between(C("100nF"), P5V, GND)   # U2 デカップリング
 # ===========================================================================
 # トーン生成チェーン (TONE_5V -> RC x2 -> TONE_BUS)
 # ===========================================================================
-TN1 = Net("TONE_N1"); TN2 = Net("TONE_N2")
+TN1 = Net("TONE_N1"); TN2 = Net("TONE_N2"); TONE_AC = Net("TONE_AC")
 between(R("10K"), TONE_5V, TN1)
-between(C("100nF"), TN1, GND)
+between(C("47nF"), TN1, GND)
 between(R("10K"), TN1, TN2)
-between(C("100nF"), TN2, GND)
-between(R("47K"), TN2, TONE_BUS)
+between(C("47nF"), TN2, GND)
+between(R("47K"), TONE_AC, TONE_BUS)
 between(R("100K"), TONE_BUS, VAUD)
-between(C("100nF"), TONE_BUS, VAUD)
+# フィルタ出力のDCを切り、TONE_BUSをVAUDへバイアスする。
+# TONE_BUSからVAUDへ100nFを並列に入れると400Hzも強く減衰する。
+between(C("100nF"), TN2, TONE_AC)
 
 # ===========================================================================
 # CD4053B 音声 MUX (U3)
@@ -326,7 +335,7 @@ SEL_Z = mknet("SEL_Z")
 SEL_Z += u3["SZ"]
 between(R("10K"), SEL_Z, GND)
 j_sz = HDR1X2(); j_sz.ref = "J7"; j_sz.value = "SEL_Z_JMP"
-SEL_Z += j_sz[1]; VAUD += j_sz[2]
+SEL_Z += j_sz[1]; P5V += j_sz[2]
 between(C("100nF"), P5V, GND)   # U3 デカップリング
 
 # ===========================================================================
@@ -422,6 +431,11 @@ for s in ("A", "B"):
 VXIN["B"] += u3["X0"]
 VXIN["A"] += u3["Y0"]
 VXIN["A"] += u3["Z0"]
+
+# ESP32 リセット/書き込み中も HCT 入力を確定させる。特に RM の浮遊を防止。
+for control in (FR_A_33, RM_A_33, SEL_A_33, TONE33,
+                FR_B_33, RM_B_33, SEL_B_33):
+    between(R("100K"), control, GND)
 
 # ===========================================================================
 # ERC + ネットリスト

@@ -1,3 +1,3 @@
-WARNING: KICAD_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/home/hatch/workspace/fax-mx923/slic-board/kicad/skidl/<frozen importlib._bootstrap_external>:995=>/home/hatch/workspace/fax-mx923/slic-board/kicad/skidl/<frozen importlib._bootstrap>:488]
+WARNING: KICAD_SYMBOL_DIR environment variable is missing, so the default KiCad symbol libraries won't be searched. @ [/workspace/scratch/4d58896d5021/m5stamp-slic-fxs/kicad/skidl/<frozen importlib._bootstrap_external>:999=>/workspace/scratch/4d58896d5021/m5stamp-slic-fxs/kicad/skidl/<frozen importlib._bootstrap>:488]
 INFO: No errors or warnings found while generating netlist.
 
