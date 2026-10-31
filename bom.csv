@@ -1,7 +1,7 @@
 Value,Footprint,Qty,Refs,Note
 0R,Resistor_SMD:R_0805_2012Metric,2,R20 R28,
 1.5K,Resistor_SMD:R_0805_2012Metric,4,R_LED3 R_LED4 R_LED6 R_LED7,ステータス LED 電流制限 (HOOK/RING、約2mA)
-1000uF/10V,Capacitor_THT:CP_Radial_D8.0mm_P3.50mm,1,C1,入力バルク
+1000uF/10V,Capacitor_THT:CP_Radial_D8.0mm_P3.50mm,1,C1,入力バルク。缶径 Ø8.0mm 品が必須 (Ø10mm 品は R30 と干渉。CAD_REPORT 第9ラウンド注記参照)
 100K,Resistor_SMD:R_0805_2012Metric,18,R12 R13 R14 R15 R19 R21 R23 R27 R29 R3 R31 R32 R33 R34 R35 R36 R37 R38,
 100nF,Capacitor_SMD:C_0805_2012Metric,14,C10 C14 C16 C17 C19 C2 C23 C25 C26 C28 C4 C5 C6 C9,
 10K,Resistor_SMD:R_0805_2012Metric,7,R10 R17 R22 R25 R30 R8 R9,
