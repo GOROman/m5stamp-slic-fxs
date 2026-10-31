@@ -53,3 +53,28 @@ python kicad/gen_footprints.py
 - [KiCad公式 DO-41フットプリント](https://github.com/KiCad/kicad-footprints/blob/master/Diode_THT.pretty/D_DO-41_SOD81_P10.16mm_Horizontal.kicad_mod)、[SMB](https://github.com/KiCad/kicad-footprints/blob/master/Diode_SMD.pretty/D_SMB.kicad_mod)、[LED 0805](https://github.com/KiCad/kicad-footprints/blob/master/LED_SMD.pretty/LED_0805_2012Metric.kicad_mod): カソードのパッド1。
 - [AOS AO3401A](https://www.aosmd.com/pdfs/datasheet/AO3401A.pdf): SOT-23ピン配置・P-FETボディダイオード。
 - [TI CD4053B](https://www.ti.com/lit/ds/symlink/cd4053b.pdf): 制御入力レベル。
+
+
+---
+
+## PR #2 から取り込んだ事項（2026-10-31）
+
+PR #2（cursor/slic-fxs-fixes-65ef）はベースとして不採用としたが、以下の固有分を取り込んだ（本節の変更は取り込み PR による）。
+
+取り込んだ変更:
+
+- `firmware/platformio.ini`（ESP32-S3 実ターゲットビルド設定。#2 のものをそのまま取り込み）
+- DESIGN.md の数値訂正2件: P3100SC は VDRM 275V / VS 350V（「ブレークオーバ約155V」は誤り）、KS0835F の VCC 絶対最大定格は 5.5V（Ag1171 の 7.0V をモジュール上限に流用しない）
+- `setup()` の初期化順序: RM を先に出力（Low）にしてから F/R を High にする
+
+PR #2 が「見つけたが直していないこと」として挙げた事項（実機確認が必要。今後の設計判断用に転記）:
+
+- KS0835F のピン5–6間（GAP56=20.3mm）、RJ11 の左右、Stamp のパッド 29–31 はノギスと実物待ち。（※ GAP56 についてはその後、実物の写真計測で 20.3mm を確認済み）
+- 呼出 1秒 ON / 2秒 OFF では RM High のデューティが 33.3% となり、Ag1171 の絶対最大 33% を僅かに超える（データシートの波形例は 1秒 / 3秒）。日本の呼出パターンを優先して変えていない。モジュールの温度を見て、熱ければオフを延ばす。
+- DTMF のしきい値と、`analogRead` が 125µs 以内に終わるか。遅いと Goertzel の 8kHz 前提がずれる。実機調整のまま。
+- PD を 1N4004 で引くとピンは約 0.7V までしか下がらず、PD の VIL（0.5V max）を超える可能性がある。v1 は PD を使わない。使うならショットキーと実測。
+- 2N7002 の Vgs(th) 最大 2.5V に対し GPIO は 3.3V なので、余裕は小さい。
+- SMBJ5.0A のブレークダウンは約 6.4V で、モジュール側 5.5V をクランプしない。安定化 5V 以外を繋がない前提のまま。TVS の置き換えはしていない。
+- P3100SC は Littelfuse 表記では SMC だが、販売店によっては SMB と載っている。買う部品のパッケージを確認する。
+- USB-C と端子台の同時給電は、これまでどおり禁止（ダイオード OR は入れていない）。
+- パルスダイヤル、発信者番号、16.7Hz リングは未実装のまま（DESIGN.md §11）。

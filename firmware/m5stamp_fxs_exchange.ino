@@ -390,11 +390,15 @@ void setup() {
 
   for (int i = 0; i < 2; i++) {
     pinMode(ports[i].shkPin, INPUT);
+    // Arduino-ESP32 3.x は pinMode 前の digitalWrite を無視する。
+    // 起動からここまでの Hi-Z の間は、基板側のプルダウンが HCT 入力を安全側 (L) に固定する。
+    // pinMode(OUTPUT) はいったん Low になるので、RM を先に出力 (Low) にしてから F/R を High にする。
+    // RM=Low のままなら F/R が極短時間 Reverse でもリング電圧は出ない。(PR #2 から取り込み)
     pinMode(ports[i].rmPin, OUTPUT);
-    pinMode(ports[i].frPin, OUTPUT);
-    pinMode(ports[i].selPin, OUTPUT);
     setRM(ports[i], false);
+    pinMode(ports[i].frPin, OUTPUT);
     setFR(ports[i], true);              // Forward (通常極性)
+    pinMode(ports[i].selPin, OUTPUT);
     setSelTone(ports[i], false);
     analogSetPinAttenuation(ports[i].adcPin, ADC_11db);
   }
