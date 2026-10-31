@@ -4,7 +4,8 @@
 KS0835F / RJ11_6P6C_TH フットプリント生成スクリプト
 出典: R-Tone KS0835F データシート V1.3 の Package Size / PCB Decal 図
 
-実物とズレがあった場合は GAP56 等の定数を直して再実行すること。
+RJ11 の穴径/パッドは Issue #6 で是正した仕様 (下記 RJ11_* 定数の根拠コメント
+参照)。実ジャックの実測で端子寸法が変わる場合は定数を直して再実行すること。
     python3 gen_footprints.py
 """
 import os
@@ -63,12 +64,42 @@ def gen_ks0835f():
     print("KS0835F.kicad_mod regenerated (GAP56=%.2f)" % GAP56)
 
 
+# ---------------------------------------------------------------------------
+# RJ11 6P6C 端子まわりの寸法仕様 (Issue #6, 2026-10-31 是正)
+#
+# 端子: この種のサイドエントリ型ジャックのコンタクトは Ø0.46mm の丸線
+#   (JST MOD-J6 シリーズ図面の ø0.46、中華系 52 シリーズ図面の φ0.46 と一致)。
+# 穴径: JST MOD-J6 の推奨 PCB レイアウトは 6-ø0.8±0.05。帯域内 (0.75..0.85)
+#   で、丸線 Ø0.46 に対し直径クリアランス 0.29mm を確保できる 0.75 を採用。
+#   旧仕様の 0.9 は過大で、環状銅箔を圧迫していた。
+# パッド: ピッチ 1.27mm 単列の制約下で、JLCPCB 2層1oz の
+#   環状銅箔 (絶対最小 0.18mm / 推奨 0.25mm) と最小銅間隔 (0.10mm) の
+#   両方に >=0.02mm のマージンを持たせる設計点:
+#     短辺環状銅箔 = (1.15 - 0.75) / 2 = 0.20mm  (>= 0.18)
+#     隣接パッド間隔 = 1.27 - 1.15     = 0.12mm  (>= 0.10)
+#     長辺環状銅箔 = (1.70 - 0.75) / 2 = 0.475mm
+#   推奨 0.25mm には W=1.25 が必要で間隔が 0.02mm となり両立しないため、
+#   絶対最小 +0.02mm を設計判断とする (Issue #6 に記録)。
+# 基板 (gerber/*.kicad_pcb) への反映は実ジャック実測後に監査側で行う。
+# ---------------------------------------------------------------------------
+RJ11_PITCH = 1.27
+RJ11_DRILL = 0.75
+RJ11_PAD_W = 1.15   # ピッチ方向 (短辺)
+RJ11_PAD_L = 1.70   # 奥行方向 (長辺)
+
+def _check_rj11_spec():
+    ring = (RJ11_PAD_W - RJ11_DRILL) / 2
+    gap = RJ11_PITCH - RJ11_PAD_W
+    assert ring >= 0.18, "RJ11 annular ring %.3f < JLCPCB abs min 0.18" % ring
+    assert gap >= 0.10, "RJ11 pad gap %.3f < JLCPCB min spacing 0.10" % gap
+
 def gen_rj11():
+    _check_rj11_spec()
     L = []
     L.append('(footprint "RJ11_6P6C_TH"')
     L.append('  (version 20221018) (generator "pcbnew") (generator_version "7.0")')
     L.append('  (layer "F.Cu")')
-    L.append('  (descr "Generic side-entry RJ11 6P6C PCB jack, single row 1.27mm pitch pins at rear - VERIFY against actual part")')
+    L.append('  (descr "Generic side-entry RJ11 6P6C PCB jack, single row 1.27mm pitch pins at rear. Contact wire dia 0.46 (JST MOD-J6 class); drill 0.75 / pad 1.15x1.70 per Issue #6 spec (annular ring 0.20mm) - VERIFY against actual part")')
     L.append('  (tags "RJ11 6P6C modular")')
     L.append('  (property "Reference" "REF**" (at 0 -8.5 0) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))')
     L.append('  (property "Value" "RJ11_6P6C" (at 0 8.5 0) (layer "F.Fab") (effects (font (size 1 1) (thickness 0.15))))')
@@ -79,9 +110,9 @@ def gen_rj11():
     L.append(fp_line(-6.75, 6.75, -6.75, -6.75))
     for i in range(6):
         n = i + 1
-        x = -3.175 + i * 1.27
+        x = -3.175 + i * RJ11_PITCH
         shape = "rect" if n == 1 else "oval"
-        L.append('  (pad "%d" thru_hole %s (at %.3f 4.7) (size 1.1 1.6) (drill 0.9) (layers "*.Cu" "*.Mask"))' % (n, shape, x))
+        L.append('  (pad "%d" thru_hole %s (at %.3f 4.7) (size %.2f %.2f) (drill %.2f) (layers "*.Cu" "*.Mask"))' % (n, shape, x, RJ11_PAD_W, RJ11_PAD_L, RJ11_DRILL))
     L.append(')')
     with open(os.path.join(OUT, "RJ11_6P6C_TH.kicad_mod"), "w") as f:
         f.write("\n".join(L) + "\n")

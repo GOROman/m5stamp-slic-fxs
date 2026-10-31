@@ -85,6 +85,20 @@ class HardwareTest(unittest.TestCase):
         self.assertEqual(len(pads),6)
         pads=sorted((float(x),float(w)) for x,w in pads)
         for (x,w),(nx,nw) in zip(pads,pads[1:]):
-            self.assertGreater(nx-x-(w+nw)/2,0.15)
+            # Design point is 0.12mm (Issue #6): JLCPCB 1oz min spacing is
+            # 0.10mm, so keep a guard just above the design value's floor.
+            self.assertGreater(nx-x-(w+nw)/2,0.11)
+
+    def test_rj11_annular_ring_meets_jlcpcb_min(self):
+        # Issue #6: short-side annular ring must satisfy JLCPCB 2-layer 1oz
+        # PTH capability (absolute minimum 0.18mm; design point 0.20mm).
+        fp=(ROOT/'kicad/SLIC2PORT.pretty/RJ11_6P6C_TH.kicad_mod').read_text()
+        pads=re.findall(r'\(pad "\d+" thru_hole \w+ \(at [\d.-]+ [\d.-]+\) \(size ([\d.]+) ([\d.]+)\) \(drill ([\d.]+)\)',fp)
+        self.assertEqual(len(pads),6)
+        for w,l,d in pads:
+            w,l,d=float(w),float(l),float(d)
+            self.assertGreaterEqual((w-d)/2,0.18)   # short side (pitch dir)
+            self.assertGreaterEqual((l-d)/2,0.18)   # long side
+            self.assertEqual(d,0.75)  # JST MOD-J6 hole band 0.8+/-0.05, Issue #6 spec
 
 if __name__=='__main__': unittest.main()
