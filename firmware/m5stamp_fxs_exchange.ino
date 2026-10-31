@@ -350,8 +350,17 @@ static void exchangeUpdate(uint32_t now) {
     }
     case EX_RING_TEST: {
       Port &target = ports[ring.callee];
-      if ((target.rawHook && now - target.rawChangedAt >= RING_TRIP_MS) ||
-          now - stateSince >= RING_TIMEOUT_MS) { toIdle(now); break; }
+      if (target.rawHook && now - target.rawChangedAt >= RING_TRIP_MS) {
+        // 応答側 (EX_RINGING のリングトリップ) と同様、hook を確定させてから
+        // toIdle() する。同期しないと toIdle() が「両端オンフック」と誤認して
+        // EX_IDLE へ戻り、デバウンス確定 (15ms) 後に同じ受話器のオフフックを
+        // 新規発信として拾って反対側へ誤発呼する (Issue #5)。
+        // hook 同期後は EX_WAIT_ONHOOK となり、両端が戻るまで発信しない。
+        target.hook = true; target.hookSince = now;
+        toIdle(now);
+        break;
+      }
+      if (now - stateSince >= RING_TIMEOUT_MS) { toIdle(now); break; }
       ring.update(now);
       break;
     }
