@@ -24,7 +24,7 @@ lid_t     = 2.4;            // lid plate thickness
 gap_side  = 2.0;            // board edge -> cavity wall clearance
 gap_b     = 3.5;            // PCB underside clearance (C10 0805 + TH pin protrusion)
 inner_h   = 18.0;           // PCB top -> lid underside (tallest part: KS0835F module ~15.5)
-corner_r  = 4.0;            // outer corner radius
+corner_r  = 5.0;            // outer corner radius
 
 boss_hole_d = 2.9;          // M3 self-tap pilot (use 4.3 for M3 heat-set inserts)
 screw_len_note = 26;        // M3x26 pan head (25 also OK)
@@ -73,9 +73,14 @@ cap_pos     = [[22.52, 65.28], [54.12, 56.98], [4.53, 61.77]];  // D8 electrolyt
 cap_d = 8;  cap_h = 12;
 stamp_xy = [41, 65];  stamp_size = [18, 24];  stamp_socket_h = 4.3;  stamp_t = 3;
 tallest_part_h = 15.5;              // KS0835F top above PCB; inner_h (18.0) must exceed this
-// Lid ventilation slot maps: [ [row Ys], [slot centre Xs], slot length ]
-vent_mod   = [ [[31.5, 36.5], [37, 51, 65], 14], [[45, 49.5], [58, 72, 86], 14] ];
-vent_relay = [ [[56, 60.5], [36, 46], 12], [[33, 38], [108], 14] ];
+// Lid ventilation grille: decorative staggered slot pattern that also covers
+// the hot parts (SLIC modules underneath rows 29-44, relays at row edges).
+// [ row Y, [slot centre Xs], slot length ] - re-check coverage per board rev.
+vent_grille = [ [29,   [33, 51, 69, 87, 105], 14],
+                [36.5, [24, 42, 60, 78, 96],  14],
+                [44,   [33, 51, 69, 87, 105], 14],
+                [51.5, [69, 87, 105],         14],
+                [51.5, [36, 48],              12] ];
 
 $fn = 48;
 
@@ -87,10 +92,19 @@ module rrect(w, d, r) {             // rounded rect centred at origin (2D)
 module slot2d(len, w) {             // horizontal rounded slot centred at origin (2D)
   hull() { translate([-len/2+w/2,0]) circle(d=w); translate([len/2-w/2,0]) circle(d=w); }
 }
+font_latin = "Liberation Sans:style=Bold";
+font_cjk   = "Noto Sans CJK JP:style=Bold";   // HV-warning kanji; needs fonts-noto-cjk on the rendering machine
+bolt_pts   = [[3.4,11],[6,11],[4.3,6.6],[6.2,6.6],[2,0],[3,5],[0.8,5]];   // lightning bolt silhouette (6.2 x 11)
+
 module lid_text(str, size, x, y) {  // raised text on lid top, readable from the south side
   translate([x, y, lid_top + 0.6]) rotate([180,0,0])
-    linear_extrude(0.6) text(str, size=size, font="Liberation Sans:style=Bold",
+    linear_extrude(0.6) text(str, size=size, font=font_latin,
                              halign="center", valign="center");
+}
+module lid_text_eng(str, size, x, y, font="Liberation Sans:style=Bold") {  // engraved text (0.6 deep) on lid top
+  translate([x, y, lid_top + 0.05]) rotate([180,0,0])
+    linear_extrude(0.65) text(str, size=size, font=font,
+                              halign="center", valign="center");
 }
 module wall_slot() {                // capsule slot through a side wall (X = through), 14 x 3
   hull() for (dy = [-5.5, 5.5]) translate([0, dy, 0]) rotate([0, 90, 0]) cylinder(d=3, h=wall+1.2);
@@ -100,8 +114,9 @@ module wall_slot() {                // capsule slot through a side wall (X = thr
 module base() {
   difference() {
     union() {
-      // shell: outer block minus cavity is done in difference; start with solid block
-      translate([cx, cy, 0]) linear_extrude(lid_bot) rrect(out_w, out_d, corner_r);
+      // shell: plinth band (bottom 1.2 mm tapers in slightly) + main block
+      translate([cx, cy, 0]) linear_extrude(1.2, scale=1/0.97) rrect(out_w*0.97, out_d*0.97, corner_r);
+      translate([cx, cy, 1.2]) linear_extrude(lid_bot-1.2) rrect(out_w, out_d, corner_r);
       // PCB support bosses at H1..H4 (column over the floor, PCB rests on top)
       for (p = hole_pos) translate([p[0], p[1], floor_t]) {
         cylinder(d=9, h=gap_b);
@@ -110,6 +125,9 @@ module base() {
     }
     // cavity
     translate([cx, cy, floor_t]) linear_extrude(lid_bot) rrect(cav_w, cav_d, 2.5);
+    // decorative groove line around the walls (design seam, 0.8 deep x 1.0 tall)
+    translate([cx, cy, 20.5]) linear_extrude(1.0)
+      difference() { rrect(out_w+0.4, out_d+0.4, corner_r+0.2); rrect(out_w-1.6, out_d-1.6, corner_r-0.8); }
     // boss pilot holes (blind, 0.9 mm floor remains)
     for (p = hole_pos) translate([p[0], p[1], 0.9]) cylinder(d=boss_hole_d, h=gap_b+floor_t);
     // floor ventilation holes (chimney intake)
@@ -136,7 +154,11 @@ module base() {
 // ---------- lid ----------
 module lid() {
   difference() {
-    translate([cx, cy, lid_bot]) linear_extrude(lid_t) rrect(out_w, out_d, corner_r);
+    union() {
+      // lid plate with a bevelled top rim (machined-enclosure look)
+      translate([cx, cy, lid_bot]) linear_extrude(1.2) rrect(out_w, out_d, corner_r);
+      translate([cx, cy, lid_bot+1.2]) linear_extrude(lid_t-1.2, scale=0.96) rrect(out_w, out_d, corner_r);
+    }
     // corner screw holes + counterbore (M3 pan head)
     for (p = hole_pos) {
       translate([p[0], p[1], lid_bot-0.1]) cylinder(d=3.4, h=lid_t+0.2);
@@ -146,20 +168,25 @@ module lid() {
     for (p = led_pos) translate([p[0], p[1], lid_bot-0.1]) cylinder(d=3.2, h=lid_t+0.2);
     // button plunger holes
     for (p = sw_pos) translate([p[0], p[1], lid_bot-0.1]) cylinder(d=7.0, h=lid_t+0.2);
-    // ventilation slots over SLIC modules (main heat source when ringing)
-    for (v = vent_mod) for (yy = v[0], xx = v[1])
-      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(v[2], 3);
-    // ventilation slots over relays K1 / K2
-    for (v = vent_relay) for (yy = v[0], xx = v[1])
-      translate([xx, yy, lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(v[2], 3);
+    // decorative ventilation grille (staggered slots; also vents the SLIC modules / relays)
+    for (v = vent_grille) for (xx = v[1])
+      translate([xx, v[0], lid_bot-0.1]) linear_extrude(lid_t+0.2) slot2d(v[2], 3);
+    // engraved caution lines (west block, below the grille)
+    lid_text_eng("CAUTION: RING VOLTAGE", 2.8, 33, 57.5);
+    lid_text_eng("UP TO 135Vp-p - NO PSTN", 2.8, 33, 61.5);
+    // high-voltage badge, engraved (north-east): border ring + lightning bolt + warning texts
+    translate([99, 16.5, lid_top-0.6]) linear_extrude(0.65)
+      difference() { rrect(34, 15, 2.5); rrect(31.6, 12.6, 1.6); }
+    translate([85.5, 11, lid_top-0.6]) linear_extrude(0.65) polygon(bolt_pts);
+    lid_text_eng("高圧注意", 4.2, 104.5, 13.3, font_cjk);
+    lid_text_eng("HIGH VOLTAGE", 2.6, 104.5, 19.6);
   }
-  // raised lettering (safety + identification), readable from the south side
-  lid_text("SLIC2PORT-FXS", 6, 34, 67);
-  lid_text("2-PORT FXS PSEUDO EXCHANGE", 3, 34, 73.5);
-  lid_text("CAUTION: RING VOLTAGE", 3.2, 93, 58);
-  lid_text("UP TO 135Vp-p - NO PSTN", 3.2, 93, 63.5);
+  // raised lettering (identification + credits), readable from the south side
+  lid_text("SLIC2PORT-FXS", 6.5, 33, 66);
+  lid_text("2-PORT FXS PSEUDO EXCHANGE", 2.8, 33, 71.5);
+  lid_text("@GOROman  2026-10-31  Rev 4.0", 2.8, 33, 76);
   lid_text("PORT A", 3.4, 50, 20);
-  lid_text("PORT B", 3.4, 76, 20);
+  lid_text("PORT B", 3.4, 74, 20);
   lid_text("EN", 3, sw_pos[0][0], 70.5);
   lid_text("IO0", 3, sw_pos[1][0], 70.5);
 }
@@ -170,7 +197,7 @@ module plungers() {
   shaft_len = lid_top - (pcb_top + button_h + plunger_gap);   // 14.2
   // bar (rests on lid top, bridges both buttons - centres are only 10.3 mm apart,
   // less than a single plunger's flange diameter, so one shared bar is used)
-  linear_extrude(2.2) rrect(23, 10, 2);
+  linear_extrude(2.2, scale=0.9) rrect(23, 10, 2);
   // shafts hang below the bar (toward the buttons)
   for (sx = [-5.15, 5.15]) translate([sx, 0, 0]) rotate([180, 0, 0]) {
     cylinder(d=6.4, h=shaft_len - 1.0);
