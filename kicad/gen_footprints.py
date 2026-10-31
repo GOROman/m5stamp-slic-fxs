@@ -81,6 +81,10 @@ def gen_rj11():
         n = i + 1
         x = -3.175 + i * 1.27
         shape = "rect" if n == 1 else "oval"
+        # Pitch is fixed at 1.27mm (generic 6P6C). A 0.9mm hole and a 1.1mm pad
+        # give only 0.10mm annular ring, under JLCPCB's 0.18mm 2-layer minimum.
+        # Widening the pad to meet that ring drops the gap below 0.13mm.
+        # Do not change pitch or drill until a real jack drawing is chosen.
         L.append('  (pad "%d" thru_hole %s (at %.3f 4.7) (size 1.1 1.6) (drill 0.9) (layers "*.Cu" "*.Mask"))' % (n, shape, x))
     L.append(')')
     with open(os.path.join(OUT, "RJ11_6P6C_TH.kicad_mod"), "w") as f:

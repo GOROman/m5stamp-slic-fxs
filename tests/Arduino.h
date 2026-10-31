@@ -2,6 +2,11 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#define ESP_ARDUINO_VERSION_MAJOR 3
+#define ESP_ARDUINO_VERSION_VAL(maj, min, pat) ((maj) * 1000000 + (min) * 1000 + (pat))
+#ifndef ESP_ARDUINO_VERSION
+#define ESP_ARDUINO_VERSION ESP_ARDUINO_VERSION_VAL(3, 0, 0)
+#endif
 constexpr int HIGH=1, LOW=0, INPUT=0, OUTPUT=1, ADC_11db=3;
 constexpr float PI=3.14159265358979323846f;
 struct String : std::string {
