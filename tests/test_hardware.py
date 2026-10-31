@@ -120,4 +120,46 @@ class HardwareTest(unittest.TestCase):
         for name in nets:
             nets[name] = sorted(nets[name])
         self.assertEqual({k: sorted(v) for k, v in data['nets'].items()}, nets)
+
+    def test_all_pth_annular_ring_meets_jlcpcb_min(self):
+        # Issues #6/#11: every PTH pad in the board and in the local socket
+        # footprint must keep >= 0.18mm annular ring (JLCPCB 2-layer 1oz
+        # absolute minimum). Design point across the board is 0.20mm.
+        import sexpdata
+        def pads_of(tree):
+            for node in tree[1:]:
+                if not (isinstance(node, list) and node and str(node[0]) == 'footprint'):
+                    continue
+                ref = None
+                for ch in node[1:]:
+                    if isinstance(ch, list) and str(ch[0]) == 'property' and str(ch[1]) == 'Reference':
+                        ref = str(ch[2])
+                for ch in node[1:]:
+                    if isinstance(ch, list) and str(ch[0]) == 'pad':
+                        yield ref, ch
+        def ring(ch):
+            toks = [str(t) for t in ch[1:4]]
+            if 'thru_hole' not in toks or 'np_thru_hole' in toks:
+                return None
+            d = {str(i[0]): i[1:] for i in ch[1:] if isinstance(i, list)}
+            if 'drill' not in d or 'size' not in d:
+                return None
+            dv = [str(x) for x in d['drill']]
+            if dv[0] == 'oval':
+                dw, dh = float(dv[1]), float(dv[2])
+            else:
+                dw = dh = float(dv[0])
+            return min((float(d['size'][0]) - dw) / 2, (float(d['size'][1]) - dh) / 2)
+        checked = 0
+        for path in (ROOT / 'kicad/SLIC2PORT-FXS.kicad_pcb',
+                     ROOT / 'kicad/SLIC2PORT.pretty/Stamp-S3-Socket.kicad_mod'):
+            tree = sexpdata.loads(path.read_text())
+            if str(tree[0]) == 'footprint':
+                tree = [None, tree]
+            for ref, ch in pads_of(tree):
+                r = ring(ch)
+                if r is not None:
+                    checked += 1
+                    self.assertGreaterEqual(r, 0.18, f'{path.name}:{ref} pad {ch[1]}')
+        self.assertGreater(checked, 170)  # guard against silently scanning nothing
 if __name__=='__main__': unittest.main()
